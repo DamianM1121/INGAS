@@ -1400,20 +1400,31 @@
     </div>
   </section>
 
-  <section class="cta slide" id="contacto">
-    <h2>¿Tu obra necesita habilitación?</h2>
-    <p>Te asesoramos y presupuestamos sin cargo. Dejanos tus datos o escribinos directo por WhatsApp.</p>
-    <a class="btn-white" href="#">Contactanos</a>
-  </section>
-
   <section id="formulario">
-    <div class="container slide" style="text-align:center">
+    <div class="container slide" id="contacto" style="text-align:center">
       <div class="section-head">
-        <h2>¿Listo para tu proyecto?</h2>
-        <p>Contanos qué necesitás y te respondemos a la brevedad.</p>
+        <h2>¿Tu obra necesita habilitación?</h2>
+        <p>Te asesoramos y presupuestamos sin cargo. Elegí cómo querés contactarnos.</p>
       </div>
-      <button type="button" class="btn-primary" id="openForm"
-        style="font-size:1rem;padding:14px 28px">Contactanos</button>
+      <div class="contact-actions">
+        <button type="button" class="btn-primary" id="openForm">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"
+            style="vertical-align:-3px;margin-right:7px">
+            <rect x="3" y="5" width="18" height="14" rx="2" />
+            <path d="M3 7l9 6 9-6" />
+          </svg>
+          Completar formulario
+        </button>
+        <a class="btn-wa" href="https://wa.me/5492215618081?text=Hola%20INGAS,%20quiero%20hacer%20una%20consulta"
+          target="_blank" rel="noopener">
+          <svg width="19" height="19" viewBox="0 0 24 24" fill="currentColor"
+            style="vertical-align:-4px;margin-right:7px">
+            <path
+              d="M12 2a10 10 0 00-8.6 15l-1.3 4.8 4.9-1.3A10 10 0 1012 2zm4.3 12.2c-.2-.1-1.4-.7-1.6-.8-.2-.1-.4-.1-.5.1l-.7.9c-.1.2-.3.2-.5.1a6.5 6.5 0 01-3.2-2.8c-.1-.2 0-.4.1-.5l.4-.5.2-.4v-.4l-.7-1.7c-.2-.4-.4-.4-.5-.4H8c-.2 0-.4.1-.6.3a2.6 2.6 0 00-.8 1.9c0 1.1.8 2.2.9 2.4.1.2 1.6 2.5 3.9 3.5 1.6.7 2.2.7 3 .6.5-.1 1.4-.6 1.6-1.1.2-.6.2-1 .1-1.1z" />
+          </svg>
+          Escribir por WhatsApp
+        </a>
+      </div>
     </div>
     <div class="modal-ov" id="formModal" aria-hidden="true">
       <div class="modal-box" role="dialog" aria-modal="true" aria-label="Formulario de contacto">
@@ -1852,6 +1863,53 @@
 
         body.noscroll {
           overflow: hidden
+        }
+
+        #formulario .contact-actions {
+          display: flex;
+          flex-wrap: wrap;
+          gap: 12px;
+          justify-content: center;
+          margin-top: 6px
+        }
+
+        #formulario .contact-actions .btn-primary {
+          font-size: 1.02rem;
+          font-weight: 700;
+          letter-spacing: .2px;
+          padding: 15px 30px;
+          border-radius: 12px;
+          background: linear-gradient(135deg, var(--blue) 0%, #1D6FB8 100%);
+          color: #fff;
+          border: 0;
+          box-shadow: 0 8px 22px rgba(15, 69, 115, .32);
+        }
+
+        #formulario .contact-actions .btn-primary:hover {
+          transform: translateY(-2px);
+          box-shadow: 0 12px 28px rgba(15, 69, 115, .42);
+        }
+
+        #formulario .contact-actions .btn-primary svg {
+          stroke-width: 2
+        }
+
+        #formulario .btn-wa {
+          display: inline-flex;
+          align-items: center;
+          font-family: var(--font-head);
+          font-weight: 600;
+          font-size: 1rem;
+          padding: 14px 26px;
+          border-radius: var(--radius);
+          background: #25D366;
+          color: #fff;
+          transition: transform .18s var(--ease), box-shadow .2s
+        }
+
+        #formulario .btn-wa:hover {
+          transform: translateY(-2px);
+          box-shadow: 0 8px 20px rgba(37, 211, 102, .3)
         }
       </style>
 
