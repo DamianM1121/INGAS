@@ -215,18 +215,22 @@ body.menu-open .drawer a:nth-child(7){transition-delay:.40s}
     <div class="section-head"><h2>Cómo trabajamos</h2><p>Nos contás qué necesitás: instalación nueva, ampliación, modificación, reconexión o asesoramiento.</p></div>
 
     <style>
-      #proceso .steps{display:flex;flex-wrap:wrap;justify-content:center;align-items:flex-start;gap:6px;margin-top:10px}
-      #proceso .step{flex:1 1 150px;max-width:178px;text-align:center}
+      #proceso .steps{display:grid;grid-template-columns:repeat(10,1fr);gap:28px 10px;margin:14px auto 0;max-width:960px}
+      #proceso .step{grid-column:span 2;text-align:center}
+      #proceso .step.s6{grid-column:4 / 6}
+      #proceso .step.s7{grid-column:6 / 8}
       #proceso .step-ic{position:relative;width:64px;height:64px;border-radius:50%;background:#DFF5FB;border:2px solid var(--cyan);display:flex;align-items:center;justify-content:center;margin:0 auto 12px;color:var(--blue)}
       #proceso .step-ic svg{width:28px;height:28px}
       #proceso .step-n{position:absolute;top:-6px;right:-6px;width:22px;height:22px;border-radius:50%;background:var(--blue);color:#fff;font-family:var(--font-head);font-weight:700;font-size:.72rem;display:flex;align-items:center;justify-content:center}
       #proceso .step h3{font-family:var(--font-head);font-weight:600;font-size:1rem;color:var(--blue-deep);margin:0 0 4px}
-      #proceso .step p{color:var(--muted);font-size:.9rem;line-height:1.5;margin:0}
-      #proceso .arrow{flex:0 0 auto;align-self:flex-start;margin-top:22px;color:var(--cyan)}
+      #proceso .step p{color:var(--muted);font-size:.88rem;line-height:1.5;margin:0}
       .js #proceso.slide{opacity:1;transform:none}
       .js #proceso .step{opacity:0;transform:translateY(18px);transition:opacity .5s var(--ease),transform .5s var(--ease)}
       #proceso.slide.in .step{opacity:1;transform:none}
-      @media(max-width:640px){#proceso .arrow{display:none}}
+      @media(max-width:720px){
+        #proceso .steps{grid-template-columns:repeat(2,1fr);max-width:420px}
+        #proceso .step,#proceso .step.s6,#proceso .step.s7{grid-column:auto}
+      }
       @media(prefers-reduced-motion:reduce){#proceso .step{opacity:1;transform:none}}
     </style>
 
@@ -238,49 +242,37 @@ body.menu-open .drawer a:nth-child(7){transition-delay:.40s}
         <p>Nos contás qué necesitás: obra nueva, ampliación, modificación o reconexión.</p>
       </div>
 
-      <div class="arrow"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></div>
-
-      <div class="step" style="transition-delay:.13s">
+      <div class="step" style="transition-delay:.11s">
         <div class="step-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="10" cy="10" r="6"/><path d="M20 20l-5.5-5.5"/></svg><span class="step-n">2</span></div>
         <h3>Verificación y relevamiento</h3>
         <p>Confirmamos si la red de gas natural pasa por tu frente y relevamos el estado de la instalación.</p>
       </div>
 
-      <div class="arrow"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></div>
-
-      <div class="step" style="transition-delay:.21s">
+      <div class="step" style="transition-delay:.17s">
         <div class="step-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="5" y="3" width="14" height="18" rx="2"/><path d="M8 8h8M8 12h8M8 16h5"/></svg><span class="step-n">3</span></div>
         <h3>Presentación del proyecto</h3>
         <p>Definimos el alcance de tu proyecto, elaboramos la documentación técnica y gestionamos los trámites correspondientes.</p>
       </div>
 
-      <div class="arrow"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></div>
-
-      <div class="step" style="transition-delay:.29s">
+      <div class="step" style="transition-delay:.23s">
         <div class="step-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M7 18a4 4 0 01-.5-8A5 5 0 0116.5 9 3.5 3.5 0 0118 18H7z"/><path d="M9.5 14l1.8 1.8L15 12.5"/></svg><span class="step-n">4</span></div>
         <h3>Aprobación online</h3>
         <p>Te avisamos cuando tenés que aprobar trámites y te guiamos paso a paso en el proceso.</p>
       </div>
 
-      <div class="arrow"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></div>
-
-      <div class="step" style="transition-delay:.37s">
+      <div class="step" style="transition-delay:.29s">
         <div class="step-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M14.7 6.3a4 4 0 00-5.4 5.4l-5 5 2 2 5-5a4 4 0 005.4-5.4l-2.1 2.1-2-2 2.1-2.1z"/></svg><span class="step-n">5</span></div>
         <h3>Ejecución y dirección</h3>
         <p>Construimos la instalación y dirigimos la obra según los planos aprobados.</p>
       </div>
 
-      <div class="arrow"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></div>
-
-      <div class="step" style="transition-delay:.45s">
+      <div class="step s6" style="transition-delay:.35s">
         <div class="step-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="6" y="4" width="12" height="17" rx="2"/><path d="M9.5 4V3h5v1"/><path d="M9 13l2 2 4-4"/></svg><span class="step-n">6</span></div>
         <h3>Pruebas e inspecciones</h3>
         <p>Hacemos las pruebas reglamentarias y solicitamos las inspecciones.</p>
       </div>
 
-      <div class="arrow"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></div>
-
-      <div class="step" style="transition-delay:.53s">
+      <div class="step s7" style="transition-delay:.41s">
         <div class="step-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="12" cy="12" r="9"/><path d="M8 12l3 3 5-5"/></svg><span class="step-n">7</span></div>
         <h3>Habilitación</h3>
         <p>Tu instalación queda apta para la solicitud del servicio.</p>
