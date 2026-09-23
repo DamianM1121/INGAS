@@ -201,8 +201,8 @@ body.menu-open .drawer a:nth-child(7){transition-delay:.40s}
   <div class="container"><div class="hero-content">
     <span class="eyebrow reveal r1">Habilitación garantizada</span>
     <h1 class="reveal r2">Instalaciones Internas de Gas</h1>
-    <p class="reveal r3">Soluciones profesionales para cualquier tipo de proyecto
-      Con el respaldo de nuestra matrícula de primera categoría, ejecutamos todo tipo de instalaciones domiciliarias domésticas, comerciales o industriales..</p>
+    <p class="reveal r3">Soluciones profesionales para cualquier tipo de proyecto.
+      Con el respaldo de nuestra matrícula de primera categoría, ejecutamos todo tipo de instalaciones domiciliarias domésticas, comerciales o industriales.</p>
     <div class="hero-cta reveal r4">
       <a class="btn btn-primary" href="#contacto">Solicitar presupuesto</a>
       <a class="btn btn-ghost" href="#contacto"><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2a10 10 0 00-8.6 15l-1.3 4.8 4.9-1.3A10 10 0 1012 2zm4.3 12.2c-.2-.1-1.4-.7-1.6-.8-.2-.1-.4-.1-.5.1l-.7.9c-.1.2-.3.2-.5.1a6.5 6.5 0 01-3.2-2.8c-.1-.2 0-.4.1-.5l.4-.5.2-.4v-.4l-.7-1.7c-.2-.4-.4-.4-.5-.4H8c-.2 0-.4.1-.6.3a2.6 2.6 0 00-.8 1.9c0 1.1.8 2.2.9 2.4.1.2 1.6 2.5 3.9 3.5 1.6.7 2.2.7 3 .6.5-.1 1.4-.6 1.6-1.1.2-.6.2-1 .1-1.1z"/></svg> WhatsApp</a>
@@ -212,37 +212,78 @@ body.menu-open .drawer a:nth-child(7){transition-delay:.40s}
 
 <section class="intro slide" id="proceso">
   <div class="container">
-    <div class="section-head"><h2>Cómo trabajamos</h2><p>Del primer contacto a la habilitación, te acompañamos en cada paso.</p></div>
-    <div style="display:flex;flex-wrap:wrap;justify-content:center;gap:28px 18px;margin-top:6px">
+    <div class="section-head"><h2>Cómo trabajamos</h2><p>Nos contás qué necesitás: instalación nueva, ampliación, modificación, reconexión o asesoramiento.</p></div>
 
-      <div style="flex:1 1 150px;max-width:200px;text-align:center">
-        <div style="width:56px;height:56px;border-radius:50%;background:var(--cyan);color:#0B3A5E;font-family:var(--font-head);font-weight:700;font-size:1.4rem;display:flex;align-items:center;justify-content:center;margin:0 auto 12px">1</div>
-        <h3 style="font-family:var(--font-head);font-weight:600;font-size:1rem;color:var(--blue-deep);margin:0 0 4px">Presentás tu proyecto</h3>
-        <p style="color:var(--muted);font-size:.9rem;line-height:1.5;margin:0">Nos contás qué necesitás: obra nueva, ampliación, modificación o reconexión.</p>
+    <style>
+      #proceso .steps{display:flex;flex-wrap:wrap;justify-content:center;align-items:flex-start;gap:6px;margin-top:10px}
+      #proceso .step{flex:1 1 150px;max-width:178px;text-align:center}
+      #proceso .step-ic{position:relative;width:64px;height:64px;border-radius:50%;background:#DFF5FB;border:2px solid var(--cyan);display:flex;align-items:center;justify-content:center;margin:0 auto 12px;color:var(--blue)}
+      #proceso .step-ic svg{width:28px;height:28px}
+      #proceso .step-n{position:absolute;top:-6px;right:-6px;width:22px;height:22px;border-radius:50%;background:var(--blue);color:#fff;font-family:var(--font-head);font-weight:700;font-size:.72rem;display:flex;align-items:center;justify-content:center}
+      #proceso .step h3{font-family:var(--font-head);font-weight:600;font-size:1rem;color:var(--blue-deep);margin:0 0 4px}
+      #proceso .step p{color:var(--muted);font-size:.9rem;line-height:1.5;margin:0}
+      #proceso .arrow{flex:0 0 auto;align-self:flex-start;margin-top:22px;color:var(--cyan)}
+      .js #proceso.slide{opacity:1;transform:none}
+      .js #proceso .step{opacity:0;transform:translateY(18px);transition:opacity .5s var(--ease),transform .5s var(--ease)}
+      #proceso.slide.in .step{opacity:1;transform:none}
+      @media(max-width:640px){#proceso .arrow{display:none}}
+      @media(prefers-reduced-motion:reduce){#proceso .step{opacity:1;transform:none}}
+    </style>
+
+    <div class="steps">
+
+      <div class="step" style="transition-delay:.05s">
+        <div class="step-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M20 4H4a1 1 0 00-1 1v10a1 1 0 001 1h4v4l4-4h8a1 1 0 001-1V5a1 1 0 00-1-1z"/></svg><span class="step-n">1</span></div>
+        <h3>Contactanos</h3>
+        <p>Nos contás qué necesitás: obra nueva, ampliación, modificación o reconexión.</p>
       </div>
 
-      <div style="flex:1 1 150px;max-width:200px;text-align:center">
-        <div style="width:56px;height:56px;border-radius:50%;background:var(--cyan);color:#0B3A5E;font-family:var(--font-head);font-weight:700;font-size:1.4rem;display:flex;align-items:center;justify-content:center;margin:0 auto 12px">2</div>
-        <h3 style="font-family:var(--font-head);font-weight:600;font-size:1rem;color:var(--blue-deep);margin:0 0 4px">Proyecto y factibilidad</h3>
-        <p style="color:var(--muted);font-size:.9rem;line-height:1.5;margin:0">Elaboramos el proyecto y gestionamos la factibilidad ante la distribuidora.</p>
+      <div class="arrow"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></div>
+
+      <div class="step" style="transition-delay:.13s">
+        <div class="step-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="10" cy="10" r="6"/><path d="M20 20l-5.5-5.5"/></svg><span class="step-n">2</span></div>
+        <h3>Verificación y relevamiento</h3>
+        <p>Confirmamos si la red de gas natural pasa por tu frente y relevamos el estado de la instalación.</p>
       </div>
 
-      <div style="flex:1 1 150px;max-width:200px;text-align:center">
-        <div style="width:56px;height:56px;border-radius:50%;background:var(--cyan);color:#0B3A5E;font-family:var(--font-head);font-weight:700;font-size:1.4rem;display:flex;align-items:center;justify-content:center;margin:0 auto 12px">3</div>
-        <h3 style="font-family:var(--font-head);font-weight:600;font-size:1rem;color:var(--blue-deep);margin:0 0 4px">Ejecución y dirección</h3>
-        <p style="color:var(--muted);font-size:.9rem;line-height:1.5;margin:0">Construimos la instalación y dirigimos la obra según los planos aprobados.</p>
+      <div class="arrow"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></div>
+
+      <div class="step" style="transition-delay:.21s">
+        <div class="step-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="5" y="3" width="14" height="18" rx="2"/><path d="M8 8h8M8 12h8M8 16h5"/></svg><span class="step-n">3</span></div>
+        <h3>Presentación del proyecto</h3>
+        <p>Definimos el alcance de tu proyecto, elaboramos la documentación técnica y gestionamos los trámites correspondientes.</p>
       </div>
 
-      <div style="flex:1 1 150px;max-width:200px;text-align:center">
-        <div style="width:56px;height:56px;border-radius:50%;background:var(--cyan);color:#0B3A5E;font-family:var(--font-head);font-weight:700;font-size:1.4rem;display:flex;align-items:center;justify-content:center;margin:0 auto 12px">4</div>
-        <h3 style="font-family:var(--font-head);font-weight:600;font-size:1rem;color:var(--blue-deep);margin:0 0 4px">Pruebas e inspección</h3>
-        <p style="color:var(--muted);font-size:.9rem;line-height:1.5;margin:0">Hacemos las pruebas reglamentarias y solicitamos la inspección final.</p>
+      <div class="arrow"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></div>
+
+      <div class="step" style="transition-delay:.29s">
+        <div class="step-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M7 18a4 4 0 01-.5-8A5 5 0 0116.5 9 3.5 3.5 0 0118 18H7z"/><path d="M9.5 14l1.8 1.8L15 12.5"/></svg><span class="step-n">4</span></div>
+        <h3>Aprobación online</h3>
+        <p>Te avisamos cuando tenés que aprobar trámites y te guiamos paso a paso en el proceso.</p>
       </div>
 
-      <div style="flex:1 1 150px;max-width:200px;text-align:center">
-        <div style="width:56px;height:56px;border-radius:50%;background:var(--cyan);color:#0B3A5E;font-family:var(--font-head);font-weight:700;font-size:1.4rem;display:flex;align-items:center;justify-content:center;margin:0 auto 12px">5</div>
-        <h3 style="font-family:var(--font-head);font-weight:600;font-size:1rem;color:var(--blue-deep);margin:0 0 4px">¡Habilitación!</h3>
-        <p style="color:var(--muted);font-size:.9rem;line-height:1.5;margin:0">Obtenés la habilitación y el gas funcionando, con todo en regla.</p>
+      <div class="arrow"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></div>
+
+      <div class="step" style="transition-delay:.37s">
+        <div class="step-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M14.7 6.3a4 4 0 00-5.4 5.4l-5 5 2 2 5-5a4 4 0 005.4-5.4l-2.1 2.1-2-2 2.1-2.1z"/></svg><span class="step-n">5</span></div>
+        <h3>Ejecución y dirección</h3>
+        <p>Construimos la instalación y dirigimos la obra según los planos aprobados.</p>
+      </div>
+
+      <div class="arrow"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></div>
+
+      <div class="step" style="transition-delay:.45s">
+        <div class="step-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="6" y="4" width="12" height="17" rx="2"/><path d="M9.5 4V3h5v1"/><path d="M9 13l2 2 4-4"/></svg><span class="step-n">6</span></div>
+        <h3>Pruebas e inspecciones</h3>
+        <p>Hacemos las pruebas reglamentarias y solicitamos las inspecciones.</p>
+      </div>
+
+      <div class="arrow"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></div>
+
+      <div class="step" style="transition-delay:.53s">
+        <div class="step-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="12" cy="12" r="9"/><path d="M8 12l3 3 5-5"/></svg><span class="step-n">7</span></div>
+        <h3>Habilitación</h3>
+        <p>Tu instalación queda apta para la solicitud del servicio.</p>
       </div>
 
     </div>
@@ -272,7 +313,7 @@ body.menu-open .drawer a:nth-child(7){transition-delay:.40s}
 
 <section class="services slide" id="servicios">
   <div class="container">
-    <div class="section-head"><h2>Nuestros Servicios</h2><p>Brindamos acompañamiento técnico y administrativo a lo largo de todo el proceso, desde el proyecto inicial hasta la habilitación definitiva, con una solución llave en mano y estricto cumplimiento normativo en cada etapa.</p></div>
+    <div class="section-head"><h2>Nuestros Servicios</h2><p>Brindamos acompañamiento técnico y administrativo desde el proyecto inicial hasta la habilitación definitiva. Cada etapa se gestiona bajo el cumplimiento normativo correspondiente, priorizando tu seguridad y la de tu establecimiento.</p></div>
     <div class="cards">
       <div class="card"><div class="cbody"><div class="icon-tile"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#0F4573" stroke-width="1.6"><rect x="5" y="3" width="14" height="18" rx="2"/><path d="M8 8h8M8 12h8M8 16h5"/></svg></div><h3>Proyecto y Diseño</h3><p>Elaboramos la planimetría, el cálculo de materiales y el dimensionamiento de la instalación.</p></div></div>
       <div class="card"><div class="cbody"><div class="icon-tile"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#0F4573" stroke-width="1.6"><rect x="6" y="4" width="12" height="17" rx="2"/><path d="M9.5 4V3h5v1"/><path d="M9 13l2 2 4-4"/></svg></div><h3>Dirección de Obra</h3><p>Supervisamos y coordinamos cada avance asegurando que la obra se materialice de acuerdo al proyecto presentado.</p></div></div>
