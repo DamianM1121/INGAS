@@ -2294,420 +2294,122 @@
     </section>
 
     <style>
-        /* ===== Sección “Proyectos” (clases pr- para no chocar con tu CSS) ===== */
-        .pr {
-            --navy: #0F4573;
-            --navy-deep: #0B3A5E;
-            --cyan: #12C3E4;
-            --yellow: #FFC20E;
-            --muted: #5B6B85;
-            --soft: #F4F7FA;
-            --border: #E4EAF0;
-            font-family: "Saira", system-ui, sans-serif;
-            background: var(--soft);
-            padding: 72px 22px
-        }
-
-        .pr * {
-            box-sizing: border-box
-        }
-
-        .pr-wrap {
-            max-width: 1120px;
-            margin: 0 auto
-        }
-
-        /* Encabezado: cuadrito + título + bajada */
-        .pr-head {
-            text-align: center;
-            max-width: 720px;
-            margin: 0 auto 42px
-        }
-
-        .pr-kicker {
-            display: inline-flex;
-            align-items: center;
-            gap: 10px;
-            margin-bottom: 14px
-        }
-
-        .pr-kicker span {
-            width: 26px;
-            height: 10px;
-            background: var(--yellow);
-            border-radius: 2px
-        }
-
-        .pr-kicker small {
-            font-size: .8rem;
-            font-weight: 600;
-            letter-spacing: .12em;
-            text-transform: uppercase;
-            color: var(--cyan)
-        }
-
-        .pr-head h2 {
-            font-size: clamp(1.5rem, 3.4vw, 2.2rem);
-            font-weight: 700;
-            color: var(--navy);
-            margin: 0;
-            text-transform: uppercase;
-            line-height: 1.15
-        }
-
-        .pr-head p {
-            margin: 14px 0 0;
-            color: var(--muted);
-            font-size: 1.05rem;
-            line-height: 1.6
-        }
-
+        /* ===== Sección “Proyectos” en INICIO (clases pr-) ===== */
+        .pr{--navy:#0F4573;--navy-deep:#0B3A5E;--cyan:#12C3E4;--yellow:#FFC20E;--muted:#5B6B85;--soft:#F4F7FA;--border:#E4EAF0;
+            font-family:"Saira",system-ui,sans-serif;background:var(--soft);padding:96px 22px}  /* + aire arriba/abajo */
+        .pr *{box-sizing:border-box}
+        .pr-wrap{max-width:1140px;margin:0 auto}
+         
+        /* Encabezado: cuadrito + título (1 línea) + bajada */
+        .pr-head{text-align:center;max-width:860px;margin:0 auto 56px}   /* + separación con las tarjetas */
+        .pr-kicker{display:inline-flex;align-items:center;gap:10px;margin-bottom:16px}
+        .pr-kicker span{width:26px;height:10px;background:var(--yellow);border-radius:2px}
+        .pr-kicker small{font-size:.8rem;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:var(--cyan)}
+        .pr-head h2{font-size:clamp(1.4rem,3vw,2.05rem);font-weight:700;color:var(--navy);margin:0;text-transform:uppercase;line-height:1.15;white-space:nowrap}
+        .pr-head p{margin:16px 0 0;color:var(--muted);font-size:1.05rem;line-height:1.6}
+         
         /* Fila de 4 tarjetas */
-        .pr-grid {
-            display: grid;
-            grid-template-columns: repeat(4, 1fr);
-            gap: 20px
-        }
-
-        .pr-card {
-            background: #fff;
-            border: 1px solid var(--border);
-            border-radius: 16px;
-            padding: 26px 22px;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            text-align: center;
-            box-shadow: 0 12px 30px rgba(11, 58, 94, .06);
-            transition: transform .18s, box-shadow .2s
-        }
-
-        .pr-card:hover {
-            transform: translateY(-4px);
-            box-shadow: 0 18px 40px rgba(11, 58, 94, .12)
-        }
-
-        .pr-badge {
-            font-size: .68rem;
-            font-weight: 600;
-            letter-spacing: .06em;
-            text-transform: uppercase;
-            padding: 4px 11px;
-            border-radius: 20px;
-            margin-bottom: 16px
-        }
-
-        .pr-badge.nuevo {
-            background: #FFF4D1;
-            color: #8A6400
-        }
-
-        .pr-badge.exist {
-            background: #E3F8FD;
-            color: #0A6075
-        }
-
-        .pr-ic {
-            width: 54px;
-            height: 54px;
-            border-radius: 14px;
-            background: var(--soft);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: var(--navy);
-            margin-bottom: 16px
-        }
-
-        .pr-ic svg {
-            width: 27px;
-            height: 27px
-        }
-
-        .pr-card h3 {
-            font-size: 1.18rem;
-            font-weight: 700;
-            color: var(--navy-deep);
-            margin: 0 0 10px;
-            text-transform: uppercase;
-            letter-spacing: .01em
-        }
-
-        .pr-card .lbl {
-            font-size: .72rem;
-            font-weight: 600;
-            letter-spacing: .05em;
-            text-transform: uppercase;
-            color: var(--cyan);
-            margin-bottom: 4px
-        }
-
-        .pr-card p {
-            font-size: .93rem;
-            color: var(--muted);
-            line-height: 1.55;
-            margin: 0 0 20px
-        }
-
-        .pr-btn {
-            margin-top: auto;
-            width: 100%;
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            gap: 8px;
-            font-family: inherit;
-            font-weight: 600;
-            font-size: .82rem;
-            line-height: 1.25;
-            text-decoration: none;
-            color: #fff;
-            background: var(--navy);
-            padding: 11px 12px;
-            border-radius: 9px;
-            transition: background .18s, transform .16s
-        }
-
-        .pr-btn:hover {
-            background: var(--navy-deep);
-            transform: translateY(-1px)
-        }
-
-        .pr-btn svg {
-            width: 17px;
-            height: 17px;
-            flex-shrink: 0
-        }
-
+        .pr-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:20px}
+        .pr-card{background:#fff;border:1px solid var(--border);border-radius:16px;padding:28px 22px;display:flex;flex-direction:column;align-items:center;text-align:center;box-shadow:0 12px 30px rgba(11,58,94,.06);transition:transform .18s,box-shadow .2s}
+        .pr-card:hover{transform:translateY(-4px);box-shadow:0 18px 40px rgba(11,58,94,.12)}
+        .pr-badge{font-size:.68rem;font-weight:600;letter-spacing:.06em;text-transform:uppercase;padding:4px 11px;border-radius:20px;margin-bottom:16px}
+        .pr-badge.nuevo{background:#FFF4D1;color:#8A6400}
+        .pr-badge.exist{background:#E3F8FD;color:#0A6075}
+        .pr-ic{width:54px;height:54px;border-radius:14px;background:var(--soft);display:flex;align-items:center;justify-content:center;color:var(--navy);margin-bottom:16px}
+        .pr-ic svg{width:27px;height:27px}
+        .pr-card h3{font-size:1.16rem;font-weight:700;color:var(--navy-deep);margin:0 0 12px;text-transform:uppercase;letter-spacing:.01em}
+        .pr-card p{font-size:.92rem;color:var(--muted);line-height:1.55;margin:0 0 22px}
+        .pr-btn{margin-top:auto;width:100%;display:inline-flex;align-items:center;justify-content:center;gap:7px;font-family:inherit;font-weight:600;font-size:.9rem;text-decoration:none;color:#fff;background:var(--navy);padding:11px 12px;border-radius:9px;transition:background .18s,transform .16s}
+        .pr-btn:hover{background:var(--navy-deep);transform:translateY(-1px)}
+        .pr-btn svg{width:16px;height:16px;flex-shrink:0;transition:transform .18s}
+        .pr-btn:hover svg{transform:translateX(3px)}
+         
         /* Franja de asesoramiento */
-        .pr-help {
-            margin-top: 34px;
-            background: #EAF7FC;
-            border: 1px solid #CDEAF5;
-            border-radius: 16px;
-            padding: 24px 28px;
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            gap: 20px;
-            flex-wrap: wrap
-        }
-
-        .pr-help b {
-            font-size: 1.1rem;
-            font-weight: 600;
-            color: var(--navy);
-            text-transform: uppercase;
-            letter-spacing: .01em
-        }
-
-        .pr-help-btns {
-            display: flex;
-            gap: 12px;
-            flex-wrap: wrap
-        }
-
-        .pr-wa,
-        .pr-form {
-            display: inline-flex;
-            align-items: center;
-            gap: 9px;
-            font-family: inherit;
-            font-weight: 600;
-            font-size: .92rem;
-            text-decoration: none;
-            padding: 12px 22px;
-            border-radius: 9px;
-            cursor: pointer;
-            border: 0;
-            transition: transform .16s, box-shadow .2s, background .2s
-        }
-
-        .pr-wa {
-            background: var(--navy);
-            color: #fff
-        }
-
-        .pr-wa:hover {
-            background: var(--navy-deep);
-            transform: translateY(-1px)
-        }
-
-        .pr-form {
-            background: var(--yellow);
-            color: var(--navy-deep)
-        }
-
-        .pr-form:hover {
-            transform: translateY(-1px);
-            box-shadow: 0 8px 18px rgba(255, 194, 14, .4)
-        }
-
-        .pr-wa svg,
-        .pr-form svg {
-            width: 18px;
-            height: 18px
-        }
-
-        @media(max-width:980px) {
-            .pr-grid {
-                grid-template-columns: repeat(2, 1fr)
-            }
-        }
-
-        @media(max-width:560px) {
-            .pr {
-                padding: 52px 18px
-            }
-
-            .pr-grid {
-                grid-template-columns: 1fr
-            }
-
-            .pr-help {
-                flex-direction: column;
-                text-align: center
-            }
-
-            .pr-help-btns {
-                width: 100%;
-                justify-content: center
-            }
-        }
-
-        @media(prefers-reduced-motion:reduce) {
-            .pr * {
-                transition: none !important
-            }
-        }
-    </style>
-
-    <section class="pr" id="proyectos">
-        <div class="pr-wrap">
+        .pr-help{margin-top:40px;background:#EAF7FC;border:1px solid #CDEAF5;border-radius:16px;padding:24px 28px;display:flex;align-items:center;justify-content:space-between;gap:20px;flex-wrap:wrap}
+        .pr-help b{font-size:1.1rem;font-weight:600;color:var(--navy);text-transform:uppercase;letter-spacing:.01em}
+        .pr-help-btns{display:flex;gap:12px;flex-wrap:wrap}
+        .pr-wa,.pr-form{display:inline-flex;align-items:center;gap:9px;font-family:inherit;font-weight:600;font-size:.92rem;text-decoration:none;padding:12px 22px;border-radius:9px;cursor:pointer;border:0;transition:transform .16s,box-shadow .2s,background .2s}
+        .pr-wa{background:var(--navy);color:#fff}
+        .pr-wa:hover{background:var(--navy-deep);transform:translateY(-1px)}
+        .pr-form{background:var(--yellow);color:var(--navy-deep)}
+        .pr-form:hover{transform:translateY(-1px);box-shadow:0 8px 18px rgba(255,194,14,.4)}
+        .pr-wa svg,.pr-form svg{width:18px;height:18px}
+         
+        @media(max-width:980px){.pr-grid{grid-template-columns:repeat(2,1fr)}.pr-head h2{white-space:normal}}
+        @media(max-width:560px){.pr{padding:64px 18px}.pr-grid{grid-template-columns:1fr}.pr-help{flex-direction:column;text-align:center}.pr-help-btns{width:100%;justify-content:center}}
+        @media(prefers-reduced-motion:reduce){.pr *{transition:none!important}}
+        </style>
+         
+        <section class="pr" id="proyectos">
+          <div class="pr-wrap">
             <div class="pr-head">
-                <div class="pr-kicker"><span></span><small>Proyectos</small></div>
-                <h2>Descubrí las opciones para tu instalación</h2>
-                <p>Conocé todos los proyectos técnicos disponibles y encontrá la alternativa exacta que se adapta a tu
-                    obra.</p>
+              <div class="pr-kicker"><span></span><small>Proyectos</small></div>
+              <h2>Descubrí las opciones para tu instalación</h2>
+              <p>Conocé todos los proyectos técnicos disponibles y encontrá la alternativa exacta que se adapta a tu obra.</p>
             </div>
-
+         
             <div class="pr-grid">
-                <!-- Obra nueva -->
-                <div class="pr-card">
-                    <span class="pr-badge nuevo">Instalación nueva</span>
-                    <div class="pr-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7">
-                            <path d="M3 21V9l9-6 9 6v12M9 21v-6h6v6" />
-                            <path d="M12 7v4M10 9h4" />
-                        </svg></div>
-                    <h3>Obra nueva</h3>
-                    <div class="lbl">Tipo de proyecto</div>
-                    <p>Corresponde a una instalación de gas desde cero.</p>
-                    <a class="pr-btn"
-                        href="https://wa.me/5492215618081?text=Hola%20INGAS,%20quiero%20consultar%20por%20una%20OBRA%20NUEVA%20(instalaci%C3%B3n%20de%20gas%20desde%20cero)."
-                        target="_blank" rel="noopener">
-                        <svg viewBox="0 0 24 24" fill="currentColor">
-                            <path
-                                d="M12 2a10 10 0 00-8.6 15l-1.3 4.8 4.9-1.3A10 10 0 1012 2zm4.3 12.2c-.2-.1-1.4-.7-1.6-.8-.2-.1-.4-.1-.5.1l-.7.9c-.1.2-.3.2-.5.1a6.5 6.5 0 01-3.2-2.8c-.1-.2 0-.4.1-.5l.4-.5.2-.4v-.4l-.7-1.7c-.2-.4-.4-.4-.5-.4H8c-.2 0-.4.1-.6.3a2.6 2.6 0 00-.8 1.9c0 1.1.8 2.2.9 2.4.1.2 1.6 2.5 3.9 3.5 1.6.7 2.2.7 3 .6.5-.1 1.4-.6 1.6-1.1.2-.6.2-1 .1-1.1z" />
-                        </svg>
-                        Conocer más
-                    </a>
-                </div>
-
-                <!-- Ampliación -->
-                <div class="pr-card">
-                    <span class="pr-badge exist">Instalación existente</span>
-                    <div class="pr-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7">
-                            <path d="M12 19V5M5 12l7-7 7 7" />
-                        </svg></div>
-                    <h3>Ampliación</h3>
-                    <div class="lbl">Tipo de proyecto</div>
-                    <p>Cambios en la instalación que incrementan el consumo total.</p>
-                    <a class="pr-btn"
-                        href="https://wa.me/5492215618081?text=Hola%20INGAS,%20quiero%20consultar%20por%20una%20AMPLIACI%C3%93N%20de%20mi%20instalaci%C3%B3n%20de%20gas."
-                        target="_blank" rel="noopener">
-                        <svg viewBox="0 0 24 24" fill="currentColor">
-                            <path
-                                d="M12 2a10 10 0 00-8.6 15l-1.3 4.8 4.9-1.3A10 10 0 1012 2zm4.3 12.2c-.2-.1-1.4-.7-1.6-.8-.2-.1-.4-.1-.5.1l-.7.9c-.1.2-.3.2-.5.1a6.5 6.5 0 01-3.2-2.8c-.1-.2 0-.4.1-.5l.4-.5.2-.4v-.4l-.7-1.7c-.2-.4-.4-.4-.5-.4H8c-.2 0-.4.1-.6.3a2.6 2.6 0 00-.8 1.9c0 1.1.8 2.2.9 2.4.1.2 1.6 2.5 3.9 3.5 1.6.7 2.2.7 3 .6.5-.1 1.4-.6 1.6-1.1.2-.6.2-1 .1-1.1z" />
-                        </svg>
-                        Conocer más
-                    </a>
-                </div>
-
-                <!-- Modificación -->
-                <div class="pr-card">
-                    <span class="pr-badge exist">Instalación existente</span>
-                    <div class="pr-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7">
-                            <path
-                                d="M14.7 6.3a4 4 0 00-5.4 5.4L3 18v3h3l6.3-6.3a4 4 0 005.4-5.4l-2.7 2.7-2-2 2.7-2.7z" />
-                        </svg></div>
-                    <h3>Modificación</h3>
-                    <div class="lbl">Tipo de proyecto</div>
-                    <p>Cambios en la instalación que no alteran el consumo total.</p>
-                    <a class="pr-btn"
-                        href="https://wa.me/5492215618081?text=Hola%20INGAS,%20quiero%20consultar%20por%20una%20MODIFICACI%C3%93N%20de%20mi%20instalaci%C3%B3n%20de%20gas."
-                        target="_blank" rel="noopener">
-                        <svg viewBox="0 0 24 24" fill="currentColor">
-                            <path
-                                d="M12 2a10 10 0 00-8.6 15l-1.3 4.8 4.9-1.3A10 10 0 1012 2zm4.3 12.2c-.2-.1-1.4-.7-1.6-.8-.2-.1-.4-.1-.5.1l-.7.9c-.1.2-.3.2-.5.1a6.5 6.5 0 01-3.2-2.8c-.1-.2 0-.4.1-.5l.4-.5.2-.4v-.4l-.7-1.7c-.2-.4-.4-.4-.5-.4H8c-.2 0-.4.1-.6.3a2.6 2.6 0 00-.8 1.9c0 1.1.8 2.2.9 2.4.1.2 1.6 2.5 3.9 3.5 1.6.7 2.2.7 3 .6.5-.1 1.4-.6 1.6-1.1.2-.6.2-1 .1-1.1z" />
-                        </svg>
-                        Conocer más
-                    </a>
-                </div>
-
-                <!-- Reconexión -->
-                <div class="pr-card">
-                    <span class="pr-badge exist">Instalación existente</span>
-                    <div class="pr-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7">
-                            <path d="M3 12a9 9 0 019-9 9 9 0 018 5M21 12a9 9 0 01-9 9 9 9 0 01-8-5" />
-                            <path d="M17 8h4V4M7 16H3v4" />
-                        </svg></div>
-                    <h3>Reconexión</h3>
-                    <div class="lbl">Tipo de proyecto</div>
-                    <p>Reactivación del servicio.</p>
-                    <a class="pr-btn"
-                        href="https://wa.me/5492215618081?text=Hola%20INGAS,%20quiero%20consultar%20por%20una%20RECONEXI%C3%93N%20del%20servicio%20de%20gas."
-                        target="_blank" rel="noopener">
-                        <svg viewBox="0 0 24 24" fill="currentColor">
-                            <path
-                                d="M12 2a10 10 0 00-8.6 15l-1.3 4.8 4.9-1.3A10 10 0 1012 2zm4.3 12.2c-.2-.1-1.4-.7-1.6-.8-.2-.1-.4-.1-.5.1l-.7.9c-.1.2-.3.2-.5.1a6.5 6.5 0 01-3.2-2.8c-.1-.2 0-.4.1-.5l.4-.5.2-.4v-.4l-.7-1.7c-.2-.4-.4-.4-.5-.4H8c-.2 0-.4.1-.6.3a2.6 2.6 0 00-.8 1.9c0 1.1.8 2.2.9 2.4.1.2 1.6 2.5 3.9 3.5 1.6.7 2.2.7 3 .6.5-.1 1.4-.6 1.6-1.1.2-.6.2-1 .1-1.1z" />
-                        </svg>
-                        Conocer más
-                    </a>
-                </div>
+              <!-- Conexión desde cero -->
+              <div class="pr-card">
+                <span class="pr-badge nuevo">Instalación nueva</span>
+                <div class="pr-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M3 21V9l9-6 9 6v12M9 21v-6h6v6"/><path d="M12 7v4M10 9h4"/></svg></div>
+                <h3>Conexión desde cero</h3>
+                <p>Para inmuebles que nunca tuvieron acceso al gas natural por red y desean solicitar el alta del servicio por primera vez. Aplica a destinos residenciales, comerciales, industriales o varios.</p>
+                <a class="pr-btn" href="proyectos.html#conexion-desde-cero">Conocer más <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+              </div>
+         
+              <!-- Ampliación -->
+              <div class="pr-card">
+                <span class="pr-badge exist">Instalación existente</span>
+                <div class="pr-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M12 19V5M5 12l7-7 7 7"/></svg></div>
+                <h3>Ampliación</h3>
+                <p>Para instalaciones habilitadas que necesitan sumar artefactos que aumentan su consumo total.</p>
+                <a class="pr-btn" href="proyectos.html#ampliacion">Conocer más <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+              </div>
+         
+              <!-- Modificación -->
+              <div class="pr-card">
+                <span class="pr-badge exist">Instalación existente</span>
+                <div class="pr-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M14.7 6.3a4 4 0 00-5.4 5.4L3 18v3h3l6.3-6.3a4 4 0 005.4-5.4l-2.7 2.7-2-2 2.7-2.7z"/></svg></div>
+                <h3>Modificación</h3>
+                <p>Para cambios en una instalación habilitada que no alteran su consumo total.</p>
+                <a class="pr-btn" href="proyectos.html#modificacion">Conocer más <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+              </div>
+         
+              <!-- Reconexión -->
+              <div class="pr-card">
+                <span class="pr-badge exist">Instalación existente</span>
+                <div class="pr-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M3 12a9 9 0 019-9 9 9 0 018 5M21 12a9 9 0 01-9 9 9 9 0 01-8-5"/><path d="M17 8h4V4M7 16H3v4"/></svg></div>
+                <h3>Reconexión</h3>
+                <p>Para inmuebles que tienen cortado el servicio de gas natural. El trámite varía según el motivo de la baja y el tiempo sin servicio.</p>
+                <a class="pr-btn" href="proyectos.html#reconexion">Conocer más <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+              </div>
             </div>
-
+         
             <!-- Franja de asesoramiento -->
             <div class="pr-help">
-                <b>¿Necesitás asesoramiento? Contactanos, estamos para ayudarte</b>
-                <div class="pr-help-btns">
-                    <a class="pr-wa"
-                        href="https://wa.me/5492215618081?text=Hola%20INGAS,%20necesito%20asesoramiento%20para%20mi%20proyecto%20de%20gas."
-                        target="_blank" rel="noopener">
-                        <svg viewBox="0 0 24 24" fill="currentColor">
-                            <path
-                                d="M12 2a10 10 0 00-8.6 15l-1.3 4.8 4.9-1.3A10 10 0 1012 2zm4.3 12.2c-.2-.1-1.4-.7-1.6-.8-.2-.1-.4-.1-.5.1l-.7.9c-.1.2-.3.2-.5.1a6.5 6.5 0 01-3.2-2.8c-.1-.2 0-.4.1-.5l.4-.5.2-.4v-.4l-.7-1.7c-.2-.4-.4-.4-.5-.4H8c-.2 0-.4.1-.6.3a2.6 2.6 0 00-.8 1.9c0 1.1.8 2.2.9 2.4.1.2 1.6 2.5 3.9 3.5 1.6.7 2.2.7 3 .6.5-.1 1.4-.6 1.6-1.1.2-.6.2-1 .1-1.1z" />
-                        </svg>
-                        Escribir por WhatsApp
-                    </a>
-                    <button class="pr-form" type="button" data-open-form>
-                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
-                            <rect x="3" y="5" width="18" height="14" rx="2" />
-                            <path d="M3 7l9 6 9-6" />
-                        </svg>
-                        Completar formulario
-                    </button>
-                </div>
+              <b>¿Necesitás asesoramiento? Contactanos, estamos para ayudarte</b>
+              <div class="pr-help-btns">
+                <a class="pr-wa" href="https://wa.me/5492215618081?text=Hola%20INGAS,%20necesito%20asesoramiento%20para%20mi%20proyecto%20de%20gas." target="_blank" rel="noopener">
+                  <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2a10 10 0 00-8.6 15l-1.3 4.8 4.9-1.3A10 10 0 1012 2zm4.3 12.2c-.2-.1-1.4-.7-1.6-.8-.2-.1-.4-.1-.5.1l-.7.9c-.1.2-.3.2-.5.1a6.5 6.5 0 01-3.2-2.8c-.1-.2 0-.4.1-.5l.4-.5.2-.4v-.4l-.7-1.7c-.2-.4-.4-.4-.5-.4H8c-.2 0-.4.1-.6.3a2.6 2.6 0 00-.8 1.9c0 1.1.8 2.2.9 2.4.1.2 1.6 2.5 3.9 3.5 1.6.7 2.2.7 3 .6.5-.1 1.4-.6 1.6-1.1.2-.6.2-1 .1-1.1z"/></svg>
+                  Escribir por WhatsApp
+                </a>
+                <button class="pr-form" type="button" data-open-form>
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3 7l9 6 9-6"/></svg>
+                  Completar formulario
+                </button>
+              </div>
             </div>
-        </div>
-    </section>
-
-    <script>
-        (function () {
-            document.querySelectorAll('.pr [data-open-form]').forEach(function (el) {
-                el.addEventListener('click', function (e) { e.preventDefault(); var b = document.getElementById('openForm'); if (b) { b.click(); } else { location.hash = '#contacto'; } });
-            });
+          </div>
+        </section>
+         
+        <script>
+        (function(){
+          document.querySelectorAll('.pr [data-open-form]').forEach(function(el){
+            el.addEventListener('click',function(e){e.preventDefault();var b=document.getElementById('openForm');if(b){b.click();}else{location.hash='#contacto';}});
+          });
         })();
-    </script>
+        </script>
 
 
 
