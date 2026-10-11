@@ -1,0 +1,452 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Proyectos — INGAS · Instalaciones internas de gas</title>
+<meta name="description" content="Conexión desde cero, ampliación, modificación y reconexión de gas natural. Conocé los ámbitos de aplicación y qué hacemos en cada etapa.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Saira:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{--navy:#0F4573;--navy-deep:#0B3A5E;--cyan:#12C3E4;--yellow:#FFC20E;--yellow-ink:#0F4573;--muted:#5B6B85;--border:#E4EAF0;--soft:#F4F7FA;--maxw:1200px;--ease:cubic-bezier(.22,.61,.36,1);--f:"Saira",system-ui,-apple-system,"Segoe UI",sans-serif}
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:var(--f);color:var(--navy-deep);background:#fff;line-height:1.6}
+a{color:inherit;text-decoration:none}
+button{font-family:inherit;cursor:pointer;border:0;background:none}
+
+/* ===================== ENCABEZADO (mismo del inicio) ===================== */
+.nh{position:sticky;top:0;z-index:60;background:#fff}
+.nh-wrap{max-width:var(--maxw);margin:0 auto;padding:0 22px;display:flex;align-items:center}
+.nh-top{border-bottom:1px solid var(--border)}
+.nh-top .nh-wrap{height:80px;justify-content:space-between;gap:18px}
+.nh-logo{display:flex;align-items:center;line-height:0}
+.logo-anim{position:relative;display:inline-block;width:200px;line-height:0}
+.logo-anim img{display:block;width:100%;height:auto}
+.logo-intro{position:absolute;inset:0;pointer-events:none;animation:logoIntroOut .3s linear 2.48s forwards}
+@keyframes logoIntroOut{to{opacity:0}}
+.nh-util{display:flex;align-items:center;gap:22px}
+.nh-util a,.nh-util button{display:inline-flex;align-items:center;gap:9px;font-size:.92rem;font-weight:500;color:var(--navy);padding:6px 0}
+.nh-util .ic{width:34px;height:34px;border-radius:50%;background:var(--soft);display:flex;align-items:center;justify-content:center;flex-shrink:0;transition:background .18s,color .18s}
+.nh-util a:hover .ic,.nh-util button:hover .ic{background:var(--cyan);color:var(--navy-deep)}
+.nh-util svg{width:18px;height:18px}
+.nh-util .txt small{display:block;font-size:.72rem;font-weight:400;color:var(--muted);line-height:1.1}
+.nh-social{display:flex;gap:8px}
+.nh-social a{width:36px;height:36px;border-radius:50%;background:var(--soft);display:flex;align-items:center;justify-content:center;color:var(--navy);transition:background .18s,color .18s}
+.nh-social a:hover{background:var(--cyan);color:var(--navy-deep)}
+.nh-social svg{width:17px;height:17px}
+.nh-nav{background:var(--navy);position:relative;border-bottom:3px solid var(--yellow)}
+.nh-nav .nh-wrap{height:56px;justify-content:space-between;gap:16px}
+.nh-links{list-style:none;display:flex;align-items:center;gap:2px}
+.nh-links>li{position:relative}
+.nh-links>li>a,.nh-menu-btn{display:inline-flex;align-items:center;gap:7px;font-size:.98rem;font-weight:500;color:#fff;padding:10px 16px;border-radius:7px;transition:background .18s}
+.nh-links>li>a:hover,.nh-menu-btn:hover{background:rgba(255,255,255,.12)}
+.nh-links>li>a.active{color:var(--yellow)}
+.nh-caret{width:15px;height:15px;transition:transform .22s}
+.nh-has>.nh-sub{position:absolute;top:calc(100% + 6px);left:0;min-width:256px;background:#fff;border:1px solid var(--border);border-radius:12px;box-shadow:0 18px 38px rgba(11,58,94,.16);padding:8px;list-style:none;opacity:0;visibility:hidden;transform:translateY(8px);transition:opacity .2s var(--ease),transform .2s var(--ease),visibility .2s}
+.nh-has:hover>.nh-sub,.nh-has:focus-within>.nh-sub{opacity:1;visibility:visible;transform:translateY(0)}
+.nh-has:hover>a .nh-caret,.nh-has:focus-within>a .nh-caret{transform:rotate(180deg)}
+.nh-sub li a{display:block;padding:11px 13px;border-radius:8px;font-size:.93rem;color:var(--navy-deep)}
+.nh-sub li a:hover{background:var(--soft);color:var(--navy)}
+.nh-right{display:flex;align-items:center;gap:10px}
+.nh-search{display:flex;align-items:center;border-radius:22px;transition:background .2s}
+.nh-search:hover,.nh-search:focus-within{background:#fff}
+.nh-search-btn{width:40px;height:40px;display:flex;align-items:center;justify-content:center;color:#fff;border-radius:50%;transition:color .2s}
+.nh-search:hover .nh-search-btn,.nh-search:focus-within .nh-search-btn{color:var(--navy)}
+.nh-search-btn svg{width:19px;height:19px}
+.nh-search-in{width:0;opacity:0;border:0;background:transparent;font:inherit;font-size:.92rem;color:var(--navy-deep);outline:none;transition:width .28s var(--ease),opacity .2s;padding:0}
+.nh-search:hover .nh-search-in,.nh-search:focus-within .nh-search-in{width:168px;opacity:1;padding-right:12px}
+.nh-cta{display:inline-flex;align-items:center;font-weight:600;font-size:.95rem;color:var(--yellow-ink);background:var(--yellow);padding:10px 18px;border-radius:8px;transition:transform .16s,box-shadow .2s;white-space:nowrap}
+.nh-cta:hover{transform:translateY(-1px);box-shadow:0 8px 18px rgba(255,194,14,.45)}
+.nh-menu-btn{border:1px solid rgba(255,255,255,.3)}
+.nh-menu-btn[aria-expanded="true"] .nh-caret{transform:rotate(180deg)}
+.nh-mega{position:absolute;top:100%;left:0;right:0;background:#fff;border-bottom:1px solid var(--border);box-shadow:0 20px 38px rgba(11,58,94,.14);opacity:0;visibility:hidden;transform:translateY(-10px);transition:opacity .22s var(--ease),transform .22s var(--ease),visibility .22s}
+.nh-mega.open{opacity:1;visibility:visible;transform:translateY(0)}
+.nh-mega-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:30px;padding:28px 22px}
+.nh-mega-grid h4{font-size:.78rem;letter-spacing:.07em;text-transform:uppercase;color:var(--navy);margin:0 0 12px;border-bottom:2px solid var(--yellow);padding-bottom:8px}
+.nh-mega-grid ul{list-style:none;display:flex;flex-direction:column;gap:2px}
+.nh-mega-grid a{display:flex;align-items:center;gap:9px;padding:9px 10px;border-radius:8px;color:var(--navy-deep);font-size:.95rem}
+.nh-mega-grid a:hover{background:var(--soft);color:var(--navy)}
+.nh-mega-grid a svg{width:16px;height:16px;color:var(--navy)}
+.nh-burger{display:none;width:44px;height:44px;flex-direction:column;justify-content:center;align-items:center;gap:5px;border-radius:9px;color:var(--navy)}
+.nh-burger span{display:block;width:23px;height:2px;background:currentColor;border-radius:2px}
+.nh-overlay{position:fixed;inset:0;background:rgba(11,58,94,.45);opacity:0;visibility:hidden;transition:opacity .3s,visibility .3s;z-index:70}
+body.nh-open .nh-overlay{opacity:1;visibility:visible}
+.nh-drawer{position:fixed;top:0;right:0;height:100%;width:min(87%,350px);background:#fff;z-index:80;transform:translateX(100%);transition:transform .34s var(--ease);padding:18px 20px 34px;overflow-y:auto;box-shadow:-16px 0 40px rgba(11,58,94,.16)}
+body.nh-open .nh-drawer{transform:translateX(0)}
+.nh-dhead{display:flex;align-items:center;justify-content:space-between;margin-bottom:16px;padding-bottom:14px;border-bottom:1px solid var(--border)}
+.nh-dhead svg{height:30px;width:auto}
+.nh-x{width:40px;height:40px;color:var(--navy-deep);font-size:1.7rem;line-height:1}
+.nh-dsearch{display:flex;align-items:center;gap:9px;background:var(--soft);border:1px solid var(--border);border-radius:10px;padding:9px 13px;margin-bottom:14px}
+.nh-dsearch input{border:0;background:transparent;outline:none;font:inherit;font-size:.95rem;width:100%;color:var(--navy-deep)}
+.nh-acc{border-bottom:1px solid var(--border)}
+.nh-acc-h{width:100%;display:flex;align-items:center;justify-content:space-between;padding:14px 2px;font-weight:600;font-size:1.05rem;color:var(--navy-deep)}
+.nh-acc-h .nh-caret{transition:transform .25s}
+.nh-acc.open .nh-acc-h .nh-caret{transform:rotate(180deg)}
+.nh-acc-b{max-height:0;overflow:hidden;transition:max-height .3s var(--ease)}
+.nh-acc-b a{display:block;padding:9px 12px;color:var(--muted);font-size:.95rem}
+.nh-dlink{display:block;padding:14px 2px;font-weight:600;font-size:1.05rem;color:var(--navy-deep);border-bottom:1px solid var(--border)}
+.nh-dgrp h4{font-size:.76rem;letter-spacing:.06em;text-transform:uppercase;color:var(--navy);margin:16px 2px 4px;border-bottom:2px solid var(--yellow);padding-bottom:6px}
+.nh-dgrp a{display:block;padding:8px 12px;color:var(--muted);font-size:.95rem}
+.nh-dcta{display:block;text-align:center;margin-top:20px;background:var(--yellow);color:var(--yellow-ink);font-weight:600;padding:13px;border-radius:9px}
+@media(max-width:940px){.nh-nav{display:none}.nh-util{display:none}.nh-burger{display:flex}.nh-top .nh-wrap{height:66px}.logo-anim{width:155px}}
+
+/* ===================== ENCABEZADO DE PÁGINA (miga de pan + título) ===================== */
+.phero{background:var(--navy);color:#fff;padding:40px 22px 46px;border-bottom:3px solid var(--yellow)}
+.phero-wrap{max-width:var(--maxw);margin:0 auto}
+.crumb{font-size:.86rem;color:rgba(255,255,255,.7);display:flex;gap:8px;align-items:center;flex-wrap:wrap;margin-bottom:14px}
+.crumb a{color:rgba(255,255,255,.85)}
+.crumb a:hover{color:var(--yellow)}
+.crumb .sep{opacity:.5}
+.crumb b{color:#fff;font-weight:600}
+.phero h1{font-size:clamp(1.8rem,4vw,2.6rem);font-weight:700;text-transform:uppercase;letter-spacing:.01em;line-height:1.1}
+.phero p{margin-top:10px;color:rgba(255,255,255,.82);font-size:1.05rem;max-width:620px}
+
+/* ===================== ÁMBITOS DE APLICACIÓN (acordeón) ===================== */
+.ap{background:#fff;padding:72px 22px 90px}
+.ap-wrap{max-width:920px;margin:0 auto}
+.ap-head{text-align:center;max-width:820px;margin:0 auto 48px}
+.ap-kicker{display:inline-flex;align-items:center;gap:10px;margin-bottom:16px}
+.ap-kicker span{width:26px;height:10px;background:var(--yellow);border-radius:2px}
+.ap-kicker small{font-size:.8rem;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:var(--cyan)}
+.ap-head h2{font-size:clamp(1.5rem,3.4vw,2.1rem);font-weight:700;color:var(--navy);text-transform:uppercase;line-height:1.15}
+.ap-head p{margin:16px 0 0;color:var(--muted);font-size:1.05rem}
+.ap-item{border:1px solid var(--border);border-radius:16px;margin-bottom:16px;overflow:hidden;background:#fff;box-shadow:0 8px 22px rgba(11,58,94,.05);scroll-margin-top:150px}
+.ap-item.open{border-color:var(--cyan);box-shadow:0 16px 36px rgba(11,58,94,.12)}
+.ap-h{width:100%;display:flex;align-items:center;gap:16px;padding:22px 24px;text-align:left}
+.ap-h .ap-ic{width:48px;height:48px;border-radius:12px;background:var(--soft);display:flex;align-items:center;justify-content:center;color:var(--navy);flex-shrink:0}
+.ap-h .ap-ic svg{width:24px;height:24px}
+.ap-item.open .ap-h .ap-ic{background:var(--navy);color:#fff}
+.ap-h .ap-t{flex:1;min-width:0}
+.ap-h .ap-t b{display:block;font-size:1.18rem;font-weight:700;color:var(--navy-deep);text-transform:uppercase;letter-spacing:.01em}
+.ap-h .ap-t small{display:block;font-size:.9rem;font-weight:400;color:var(--muted);margin-top:3px;line-height:1.45}
+.ap-chev{width:24px;height:24px;color:var(--navy);flex-shrink:0;transition:transform .25s}
+.ap-item.open .ap-chev{transform:rotate(180deg)}
+.ap-body{max-height:0;overflow:hidden;transition:max-height .4s var(--ease)}
+.ap-inner{padding:4px 24px 26px;border-top:1px solid var(--border)}
+.ap-inner>.pad{padding-top:20px}
+.ap-tag{display:inline-flex;align-items:center;gap:7px;font-size:.78rem;font-weight:600;letter-spacing:.03em;text-transform:uppercase;padding:6px 13px;border-radius:20px;margin-bottom:14px}
+.ap-tag.si{background:#E3F8FD;color:#0A6075}
+.ap-tag.no{background:#FFF4D1;color:#8A6400}
+.ap-tag svg{width:15px;height:15px}
+.ap-sub{margin-top:24px}
+.ap-steps{list-style:none;margin:0 0 6px;padding:0}
+.ap-steps li{position:relative;padding:7px 0 7px 30px;color:var(--muted);font-size:.96rem;line-height:1.5}
+.ap-steps li::before{content:"";position:absolute;left:6px;top:14px;width:8px;height:8px;border-radius:50%;background:var(--cyan)}
+.ap-note{background:var(--soft);border-left:3px solid var(--yellow);border-radius:0 8px 8px 0;padding:14px 16px;margin:16px 0 0;color:var(--navy-deep);font-size:.95rem;line-height:1.55}
+.ap-note b{color:var(--navy)}
+.ap-cond{color:var(--muted);font-size:.93rem;font-style:italic;line-height:1.55;margin:14px 0 0}
+.ap-cta{text-align:center;margin-top:44px}
+.ap-cta a{display:inline-flex;align-items:center;gap:9px;font-weight:600;font-size:.98rem;color:var(--yellow-ink);background:var(--yellow);padding:14px 28px;border-radius:9px;transition:transform .16s,box-shadow .2s}
+.ap-cta a:hover{transform:translateY(-1px);box-shadow:0 10px 22px rgba(255,194,14,.4)}
+.ap-cta svg{width:18px;height:18px}
+
+/* ===================== FOOTER ===================== */
+.ft{background:var(--navy-deep);color:rgba(255,255,255,.8);padding:52px 22px 26px}
+.ft-wrap{max-width:var(--maxw);margin:0 auto;display:grid;grid-template-columns:1.4fr 1fr 1fr;gap:38px}
+.ft h5{color:#fff;font-size:.95rem;text-transform:uppercase;letter-spacing:.06em;margin-bottom:16px}
+.ft p,.ft a{font-size:.92rem;line-height:1.7;color:rgba(255,255,255,.72)}
+.ft a:hover{color:var(--yellow)}
+.ft ul{list-style:none}
+.ft-brand b{display:block;color:#fff;font-size:1.5rem;font-weight:700;letter-spacing:2px;margin-bottom:10px}
+.ft-row{display:flex;gap:9px;align-items:flex-start;margin-bottom:8px}
+.ft-row svg{width:17px;height:17px;color:var(--cyan);flex-shrink:0;margin-top:3px}
+.ft-bottom{max-width:var(--maxw);margin:34px auto 0;padding-top:20px;border-top:1px solid rgba(255,255,255,.14);font-size:.84rem;color:rgba(255,255,255,.55);text-align:center}
+@media(max-width:760px){.ft-wrap{grid-template-columns:1fr;gap:28px}}
+@media(max-width:560px){.ap{padding:56px 16px 70px}.ap-h{padding:18px 16px;gap:12px}.ap-inner{padding:4px 16px 22px}.ap-h .ap-t b{font-size:1.05rem}}
+@media(prefers-reduced-motion:reduce){*{transition:none!important;animation:none!important}}
+</style>
+</head>
+<body>
+
+<!-- ======================= HEADER ======================= -->
+<header class="nh">
+  <div class="nh-top">
+    <div class="nh-wrap">
+      <a class="nh-logo" href="index.html" aria-label="INGAS — inicio">
+        <span class="logo-anim">
+          <img class="logo-fire" src="incas-logo-fuego-loop.webp" width="640" height="240" alt="INGAS — Instalaciones internas, industriales y domiciliarias" onerror="this.onerror=null;this.src='incas-logo-estatico.png';var i=this.parentNode.querySelector('.logo-intro');if(i)i.style.display='none'">
+          <img class="logo-intro" src="incas-logo-intro.webp" width="640" height="240" alt="" aria-hidden="true">
+        </span>
+      </a>
+      <div class="nh-util">
+        <a href="https://wa.me/5492215618081?text=Hola%20INGAS,%20quiero%20hacer%20una%20consulta" target="_blank" rel="noopener">
+          <span class="ic"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2a10 10 0 00-8.6 15l-1.3 4.8 4.9-1.3A10 10 0 1012 2zm4.3 12.2c-.2-.1-1.4-.7-1.6-.8-.2-.1-.4-.1-.5.1l-.7.9c-.1.2-.3.2-.5.1a6.5 6.5 0 01-3.2-2.8c-.1-.2 0-.4.1-.5l.4-.5.2-.4v-.4l-.7-1.7c-.2-.4-.4-.4-.5-.4H8c-.2 0-.4.1-.6.3a2.6 2.6 0 00-.8 1.9c0 1.1.8 2.2.9 2.4.1.2 1.6 2.5 3.9 3.5 1.6.7 2.2.7 3 .6.5-.1 1.4-.6 1.6-1.1.2-.6.2-1 .1-1.1z"/></svg></span>
+          <span class="txt">WhatsApp<small>Escribinos</small></span>
+        </a>
+        <a href="index.html#contacto">
+          <span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3 7l9 6 9-6"/></svg></span>
+          <span class="txt">Formulario<small>Solicitá contacto</small></span>
+        </a>
+        <span class="nh-social">
+          <a href="#" aria-label="Instagram"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg></a>
+          <a href="#" aria-label="Facebook"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M14 9h3V6h-3c-1.7 0-3 1.3-3 3v2H9v3h2v6h3v-6h2.5l.5-3H14V9z"/></svg></a>
+        </span>
+      </div>
+      <button class="nh-burger" type="button" aria-label="Abrir menú" aria-expanded="false"><span></span><span></span><span></span></button>
+    </div>
+  </div>
+  <nav class="nh-nav" aria-label="Navegación principal">
+    <div class="nh-wrap">
+      <ul class="nh-links">
+        <li class="nh-has">
+          <a href="proyectos.html">Proyectos <svg class="nh-caret" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg></a>
+          <ul class="nh-sub">
+            <li><a href="proyectos.html#conexion-desde-cero">Conexión de gas nueva</a></li>
+            <li><a href="proyectos.html#ampliacion">Ampliación</a></li>
+            <li><a href="proyectos.html#modificacion">Modificación</a></li>
+            <li><a href="proyectos.html#reconexion">Reconexión</a></li>
+          </ul>
+        </li>
+        <li class="nh-has">
+          <a href="index.html#servicios">Servicios <svg class="nh-caret" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg></a>
+          <ul class="nh-sub">
+            <li><a href="index.html#servicios">Proyecto y Diseño</a></li>
+            <li><a href="index.html#servicios">Dirección de Obra</a></li>
+            <li><a href="index.html#servicios">Ejecución de Instalaciones</a></li>
+            <li><a href="index.html#servicios">Representación Técnica y Gestiones Online</a></li>
+            <li><a href="index.html#servicios">Asesoramiento Profesional</a></li>
+          </ul>
+        </li>
+        <li><a href="index.html#alianzas">Alianzas estratégicas</a></li>
+      </ul>
+      <div class="nh-right">
+        <form class="nh-search" role="search" data-search>
+          <button class="nh-search-btn" type="submit" aria-label="Buscar"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4.3-4.3"/></svg></button>
+          <input class="nh-search-in" type="search" placeholder="Buscar…" aria-label="Buscar en el sitio">
+        </form>
+        <a class="nh-cta" href="index.html#contacto">Solicitar presupuesto</a>
+        <button class="nh-menu-btn" type="button" aria-expanded="false" aria-controls="nhMega">Menú <svg class="nh-caret" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg></button>
+      </div>
+    </div>
+    <div class="nh-mega" id="nhMega">
+      <div class="nh-wrap nh-mega-grid">
+        <div><h4>Información útil</h4><ul>
+          <li><a href="index.html#"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 3l8 4v5c0 5-3.5 7.5-8 9-4.5-1.5-8-4-8-9V7z"/></svg>Seguridad</a></li>
+          <li><a href="index.html#"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 9v4M12 17h.01M10.3 3.9L2 18a2 2 0 001.7 3h16.6A2 2 0 0022 18L13.7 3.9a2 2 0 00-3.4 0z"/></svg>Prevención</a></li>
+          <li><a href="index.html#"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 6h16M4 12h16M4 18h10"/></svg>Novedades</a></li>
+        </ul></div>
+        <div><h4>Sobre INGAS</h4><ul>
+          <li><a href="index.html#empresa"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="8" r="4"/><path d="M4 21c0-4 4-6 8-6s8 2 8 6"/></svg>Quiénes Somos</a></li>
+          <li><a href="index.html#proceso"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 7h16M4 12h16M4 17h16"/></svg>Cómo trabajamos</a></li>
+          <li><a href="index.html#obras"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 21V9l9-6 9 6v12M9 21v-6h6v6"/></svg>Obras destacadas</a></li>
+        </ul></div>
+        <div><h4>Contacto</h4><ul>
+          <li><a href="index.html#contacto"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.9v3a2 2 0 01-2.2 2 19.8 19.8 0 01-8.6-3 19.5 19.5 0 01-6-6 19.8 19.8 0 01-3-8.6A2 2 0 014.1 2h3a2 2 0 012 1.7l.5 2.5a2 2 0 01-.5 1.8L8 11a16 16 0 006 6l1-1a2 2 0 011.8-.5l2.5.5a2 2 0 011.7 2z"/></svg>Canales de atención</a></li>
+        </ul></div>
+      </div>
+    </div>
+  </nav>
+  <div class="nh-overlay" data-close></div>
+  <aside class="nh-drawer" aria-label="Menú">
+    <div class="nh-dhead">
+      <svg viewBox="0 0 176 46" width="110" aria-hidden="true"><g transform="translate(2,4)"><path d="M18 1 C22 11 29 16 29 30 C29 39 23 44 18 44 C13 44 7 39 7 30 C7 19 17 17 18 1 Z" fill="#0F4573"/><path d="M18 17 C20 23 25 26 25 35 C25 40 22 44 18 44 C14 44 11 40 11 35 C11 28 17 26 17 22 Z" fill="#12C3E4"/></g><text x="40" y="32" font-family="Saira,sans-serif" font-weight="700" font-size="27" letter-spacing="1.5" fill="#0F4573">INGAS</text></svg>
+      <button class="nh-x" type="button" data-close aria-label="Cerrar">&times;</button>
+    </div>
+    <form class="nh-dsearch" role="search" data-search>
+      <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="#9db0c8" stroke-width="2"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4.3-4.3"/></svg>
+      <input type="search" placeholder="Buscar en el sitio…" aria-label="Buscar">
+    </form>
+    <div class="nh-acc">
+      <button class="nh-acc-h" type="button">Proyectos <svg class="nh-caret" viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg></button>
+      <div class="nh-acc-b"><a href="proyectos.html#conexion-desde-cero">Conexión de gas nueva</a><a href="proyectos.html#ampliacion">Ampliación</a><a href="proyectos.html#modificacion">Modificación</a><a href="proyectos.html#reconexion">Reconexión</a></div>
+    </div>
+    <div class="nh-acc">
+      <button class="nh-acc-h" type="button">Servicios <svg class="nh-caret" viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg></button>
+      <div class="nh-acc-b"><a href="index.html#servicios">Proyecto y Diseño</a><a href="index.html#servicios">Dirección de Obra</a><a href="index.html#servicios">Ejecución de Instalaciones</a><a href="index.html#servicios">Representación Técnica y Gestiones Online</a><a href="index.html#servicios">Asesoramiento Profesional</a></div>
+    </div>
+    <a class="nh-dlink" href="index.html#alianzas">Alianzas estratégicas</a>
+    <div class="nh-dgrp">
+      <h4>Información útil</h4>
+      <a href="index.html#">Seguridad</a><a href="index.html#">Prevención</a><a href="index.html#">Novedades</a>
+      <h4>Sobre INGAS</h4>
+      <a href="index.html#empresa">Quiénes Somos</a><a href="index.html#proceso">Cómo trabajamos</a><a href="index.html#obras">Obras destacadas</a>
+      <h4>Contacto</h4>
+      <a href="index.html#contacto">Canales de atención</a>
+    </div>
+    <a class="nh-dcta" href="index.html#contacto">Solicitar presupuesto</a>
+  </aside>
+</header>
+
+<!-- ======================= ENCABEZADO DE PÁGINA ======================= -->
+<section class="phero">
+  <div class="phero-wrap">
+    <nav class="crumb" aria-label="Miga de pan">
+      <a href="index.html">Inicio</a><span class="sep">›</span><b>Proyectos</b>
+    </nav>
+    <h1>Proyectos</h1>
+    <p>Elegí el tipo de obra que necesitás y conocé cómo trabajamos en cada etapa, desde el proyecto hasta la habilitación.</p>
+  </div>
+</section>
+
+<!-- ======================= ÁMBITOS DE APLICACIÓN ======================= -->
+<section class="ap" id="ambitos">
+  <div class="ap-wrap">
+    <div class="ap-head">
+      <div class="ap-kicker"><span></span><small>Ámbitos de aplicación</small></div>
+      <h2>¿Qué tipo de proyecto necesitás?</h2>
+      <p>Cada obra sigue un camino técnico distinto. Mirá cuál corresponde a tu caso y qué hacemos en cada etapa.</p>
+    </div>
+
+    <!-- 1 · Conexión desde cero -->
+    <div class="ap-item" id="conexion-desde-cero">
+      <button class="ap-h" type="button" aria-expanded="false">
+        <span class="ap-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M3 21V9l9-6 9 6v12M9 21v-6h6v6"/><path d="M12 7v4M10 9h4"/></svg></span>
+        <span class="ap-t"><b>Conexión desde cero</b><small>Inmuebles que nunca tuvieron gas natural por red y piden el alta por primera vez. Destinos residenciales, comerciales, industriales o varios.</small></span>
+        <svg class="ap-chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg>
+      </button>
+      <div class="ap-body"><div class="ap-inner"><div class="pad">
+        <span class="ap-tag si"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6L9 17l-5-5"/></svg>Requiere gasista matriculado</span>
+        <ul class="ap-steps">
+          <li>Visitamos el lugar de la obra.</li>
+          <li>Elaboramos el proyecto de instalación interna.</li>
+          <li>Presentamos la solicitud de factibilidad.</li>
+          <li>Si la red no llega al inmueble, te asesoramos sobre la obra de extensión necesaria para poder avanzar con el proyecto.</li>
+          <li>Ejecutamos y dirigimos los trabajos correspondientes.</li>
+          <li>Presentamos las solicitudes de inspección.</li>
+        </ul>
+        <div class="ap-note">Aprobada la instalación, ya podés realizar el trámite de <b>alta del servicio de gas natural</b>.<br>· El trámite debe realizarlo el usuario.<br>· Si no sabés cómo gestionarlo, te asesoramos.</div>
+      </div></div></div>
+    </div>
+
+    <!-- 2 · Ampliación -->
+    <div class="ap-item" id="ampliacion">
+      <button class="ap-h" type="button" aria-expanded="false">
+        <span class="ap-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M12 19V5M5 12l7-7 7 7"/></svg></span>
+        <span class="ap-t"><b>Ampliación</b><small>Instalaciones habilitadas que necesitan sumar artefactos que aumentan su consumo total.</small></span>
+        <svg class="ap-chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg>
+      </button>
+      <div class="ap-body"><div class="ap-inner"><div class="pad">
+        <span class="ap-tag si"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6L9 17l-5-5"/></svg>Requiere gasista matriculado</span>
+        <ul class="ap-steps">
+          <li>Relevamos la instalación existente.</li>
+          <li>Analizamos los antecedentes técnicos y administrativos de la instalación.</li>
+          <li>Elaboramos el proyecto de instalación interna.</li>
+          <li>Presentamos la solicitud de factibilidad.</li>
+          <li>Ejecutamos y dirigimos los trabajos correspondientes.</li>
+          <li>Presentamos las solicitudes de inspección.</li>
+        </ul>
+        <div class="ap-note">Aprobada la instalación, la ampliación queda oficialmente asentada en los registros de la distribuidora.</div>
+      </div></div></div>
+    </div>
+
+    <!-- 3 · Modificación -->
+    <div class="ap-item" id="modificacion">
+      <button class="ap-h" type="button" aria-expanded="false">
+        <span class="ap-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M14.7 6.3a4 4 0 00-5.4 5.4L3 18v3h3l6.3-6.3a4 4 0 005.4-5.4l-2.7 2.7-2-2 2.7-2.7z"/></svg></span>
+        <span class="ap-t"><b>Modificación</b><small>Cambios en una instalación habilitada que no alteran su consumo total.</small></span>
+        <svg class="ap-chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg>
+      </button>
+      <div class="ap-body"><div class="ap-inner"><div class="pad">
+        <span class="ap-tag si"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6L9 17l-5-5"/></svg>Requiere gasista matriculado</span>
+        <ul class="ap-steps">
+          <li>Relevamos la instalación existente.</li>
+          <li>Analizamos los antecedentes técnicos y administrativos de la instalación.</li>
+          <li>Elaboramos el proyecto de instalación interna.</li>
+          <li>Presentamos la solicitud de factibilidad.</li>
+          <li>Ejecutamos y dirigimos los trabajos correspondientes.</li>
+          <li>Presentamos las solicitudes de inspección.</li>
+        </ul>
+        <div class="ap-note">Aprobada la instalación, la modificación queda oficialmente asentada en los registros de la distribuidora.</div>
+      </div></div></div>
+    </div>
+
+    <!-- 4 · Reconexión -->
+    <div class="ap-item" id="reconexion">
+      <button class="ap-h" type="button" aria-expanded="false">
+        <span class="ap-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M3 12a9 9 0 019-9 9 9 0 018 5M21 12a9 9 0 01-9 9 9 9 0 01-8-5"/><path d="M17 8h4V4M7 16H3v4"/></svg></span>
+        <span class="ap-t"><b>Reconexión</b><small>Inmuebles con el servicio cortado. El trámite varía según el motivo de la baja y el tiempo sin servicio.</small></span>
+        <svg class="ap-chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg>
+      </button>
+      <div class="ap-body"><div class="ap-inner"><div class="pad">
+        <span class="ap-tag si"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6L9 17l-5-5"/></svg>Requiere gasista matriculado</span>
+        <ul class="ap-steps">
+          <li>Corte del servicio por deuda durante períodos superiores a un año.</li>
+          <li>Corte del servicio por pedido del usuario durante períodos superiores a un año.</li>
+          <li>Corte del servicio originado por razones de seguridad.</li>
+        </ul>
+        <p class="ap-cond">En todos los casos la instalación debe requerir adecuación a la normativa vigente, o el usuario una ampliación o modificación de la misma.</p>
+        <ul class="ap-steps">
+          <li>Relevamos la instalación existente.</li>
+          <li>Analizamos los antecedentes técnicos y administrativos de la instalación.</li>
+          <li>Elaboramos el proyecto de instalación interna.</li>
+          <li>Presentamos la solicitud de factibilidad.</li>
+          <li>Ejecutamos y dirigimos los trabajos correspondientes.</li>
+          <li>Presentamos las solicitudes de inspección.</li>
+        </ul>
+        <div class="ap-sub">
+          <span class="ap-tag no"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 6L6 18M6 6l12 12"/></svg>No requiere gasista matriculado</span>
+          <ul class="ap-steps">
+            <li>Corte del servicio por deuda durante períodos inferiores a un año.</li>
+            <li>Corte del servicio por pedido del usuario durante períodos inferiores a un año.</li>
+            <li>Corte del servicio por deuda durante períodos superiores a un año.</li>
+            <li>Corte del servicio por pedido del usuario durante períodos superiores a un año.</li>
+          </ul>
+          <p class="ap-cond">En todos los casos la instalación no debe requerir adecuaciones a la normativa vigente, ni el usuario una ampliación o modificación de la misma.</p>
+          <div class="ap-note">· El trámite debe realizarlo el usuario.<br>· Si no sabés cómo gestionarlo, te asesoramos.</div>
+        </div>
+      </div></div></div>
+    </div>
+
+    <div class="ap-cta">
+      <a href="index.html#contacto">Iniciar mi proyecto <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+    </div>
+  </div>
+</section>
+
+<!-- ======================= FOOTER ======================= -->
+<footer class="ft">
+  <div class="ft-wrap">
+    <div class="ft-brand">
+      <b>INGAS</b>
+      <p>Instalaciones internas de gas natural y envasado. Proyecto, dirección y ejecución con matrícula de 1ª categoría.</p>
+    </div>
+    <div>
+      <h5>Proyectos</h5>
+      <ul>
+        <li><a href="proyectos.html#conexion-desde-cero">Conexión desde cero</a></li>
+        <li><a href="proyectos.html#ampliacion">Ampliación</a></li>
+        <li><a href="proyectos.html#modificacion">Modificación</a></li>
+        <li><a href="proyectos.html#reconexion">Reconexión</a></li>
+      </ul>
+    </div>
+    <div>
+      <h5>Contacto</h5>
+      <div class="ft-row"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 6-9 12-9 12s-9-6-9-12a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg><span>City Bell (1896), La Plata, Buenos Aires</span></div>
+      <div class="ft-row"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.9v3a2 2 0 01-2.2 2 19.8 19.8 0 01-8.6-3 19.5 19.5 0 01-6-6 19.8 19.8 0 01-3-8.6A2 2 0 014.1 2h3a2 2 0 012 1.7l.5 2.5a2 2 0 01-.5 1.8L8 11a16 16 0 006 6l1-1a2 2 0 011.8-.5l2.5.5a2 2 0 011.7 2z"/></svg><a href="https://wa.me/5492215618081" target="_blank" rel="noopener">WhatsApp</a></div>
+      <div class="ft-row"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3 7l9 6 9-6"/></svg><a href="mailto:contacto@ingas.com.ar">contacto@ingas.com.ar</a></div>
+    </div>
+  </div>
+  <div class="ft-bottom">© <span id="ftYear">2026</span> INGAS · Instalaciones internas de gas · Todos los derechos reservados</div>
+</footer>
+
+<script>
+(function(){
+  var body=document.body;
+  /* Header: mega */
+  var menuBtn=document.querySelector('.nh-menu-btn'),mega=document.getElementById('nhMega');
+  function closeMega(){if(mega)mega.classList.remove('open');if(menuBtn)menuBtn.setAttribute('aria-expanded','false');}
+  if(menuBtn){menuBtn.addEventListener('click',function(e){e.stopPropagation();var o=!mega.classList.contains('open');mega.classList.toggle('open',o);menuBtn.setAttribute('aria-expanded',o);});
+    document.addEventListener('click',function(e){if(!mega.contains(e.target)&&e.target!==menuBtn)closeMega();});
+    mega.querySelectorAll('a').forEach(function(a){a.addEventListener('click',closeMega);});}
+  /* Header: drawer */
+  var burger=document.querySelector('.nh-burger');
+  function setDrawer(o){body.classList.toggle('nh-open',o);if(burger)burger.setAttribute('aria-expanded',o);}
+  if(burger)burger.addEventListener('click',function(){setDrawer(!body.classList.contains('nh-open'));});
+  document.querySelectorAll('[data-close], .nh-drawer a').forEach(function(el){el.addEventListener('click',function(){setDrawer(false);});});
+  document.querySelectorAll('.nh-acc-h').forEach(function(h){h.addEventListener('click',function(){var acc=h.parentElement,b=h.nextElementSibling,o=acc.classList.toggle('open');b.style.maxHeight=o?b.scrollHeight+'px':0;});});
+  document.addEventListener('keydown',function(e){if(e.key==='Escape'){setDrawer(false);closeMega();}});
+
+  /* Acordeón de ámbitos */
+  var items=[].slice.call(document.querySelectorAll('.ap-item'));
+  function toggle(it,open){var b=it.querySelector('.ap-body'),btn=it.querySelector('.ap-h');it.classList.toggle('open',open);btn.setAttribute('aria-expanded',open);b.style.maxHeight=open?b.scrollHeight+'px':0;}
+  items.forEach(function(it){it.querySelector('.ap-h').addEventListener('click',function(){var will=!it.classList.contains('open');items.forEach(function(o){toggle(o,false);});if(will)toggle(it,true);});});
+  function openFromHash(){var id=location.hash.replace('#','');if(!id)return;var it=document.getElementById(id);if(it&&it.classList.contains('ap-item')){items.forEach(function(o){toggle(o,false);});toggle(it,true);setTimeout(function(){it.scrollIntoView({behavior:'smooth',block:'start'});},90);}}
+  window.addEventListener('hashchange',openFromHash);
+  if(location.hash)openFromHash(); else toggle(items[0],true);
+
+  var y=document.getElementById('ftYear');if(y)y.textContent=new Date().getFullYear();
+})();
+</script>
+</body>
+</html>
