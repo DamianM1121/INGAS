@@ -900,26 +900,6 @@
 
 <body>
 
-    <div class="overlay" data-close></div>
-    <nav class="drawer" id="menu" aria-label="Menú principal">
-        <button class="drawer-close" data-close aria-label="Cerrar menú"><svg width="26" height="26" viewBox="0 0 24 24"
-                fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round">
-                <path d="M6 6l12 12M18 6L6 18" />
-            </svg></button>
-        <a href="#inicio">Inicio</a><a href="#tramites">Proyectos</a><a href="#servicios">Servicios</a><a
-            href="#obras">Obras
-            Destacadas</a><a href="#empresa">Quiénes Somos</a><a href="#contacto">Contacto</a>
-        <a class="btn btn-primary" href="#contacto">Solicitar Presupuesto</a>
-    </nav>
-
-    <!-- ═══════════════════════════════════════════════════════════════════════
-     BLOQUE ENCABEZADO INGAS  —  pegar en index.html
-     Reemplaza tu <header> viejo + el menú móvil viejo (overlay + drawer).
-     Trae su propio <style> y <script>, así va todo en UN solo lugar.
-     Dejá tu script del "logo vivo" antes de </body>: llena el #logoVivo.
-     ═══════════════════════════════════════════════════════════════════════ -->
-
-
     <style>
         /* ===== Encabezado INGAS (clases nh- para no chocar con tu CSS viejo) ===== */
         .nh,
@@ -1554,202 +1534,130 @@
         }
     </style>
 
-    <header class="nh">
-        <!-- ═══ BARRA SUPERIOR: logo (→inicio) + WhatsApp + Formulario + Redes ═══ -->
-        <div class="nh-top">
-            <div class="nh-wrap">
-                <a class="nh-logo" href="#inicio" aria-label="INGAS — inicio" data-top>
-                    <span class="logo-anim">
-                        <img class="logo-fire" src="incas-logo-fuego-loop.webp" width="640" height="240"
-                            alt="INGAS — Instalaciones internas, industriales y domiciliarias"
-                            onerror="this.onerror=null;this.src='incas-logo-estatico.png';var i=this.parentNode.querySelector('.logo-intro');if(i)i.style.display='none'">
-                        <img class="logo-intro" src="incas-logo-intro.webp" width="640" height="240" alt=""
-                            aria-hidden="true">
-                    </span>
-                </a>
-                <div class="nh-util">
-                    <a href="https://wa.me/5492215618081?text=Hola%20INGAS,%20quiero%20hacer%20una%20consulta"
-                        target="_blank" rel="noopener">
-                        <span class="ic"><svg viewBox="0 0 24 24" fill="currentColor">
-                                <path
-                                    d="M12 2a10 10 0 00-8.6 15l-1.3 4.8 4.9-1.3A10 10 0 1012 2zm4.3 12.2c-.2-.1-1.4-.7-1.6-.8-.2-.1-.4-.1-.5.1l-.7.9c-.1.2-.3.2-.5.1a6.5 6.5 0 01-3.2-2.8c-.1-.2 0-.4.1-.5l.4-.5.2-.4v-.4l-.7-1.7c-.2-.4-.4-.4-.5-.4H8c-.2 0-.4.1-.6.3a2.6 2.6 0 00-.8 1.9c0 1.1.8 2.2.9 2.4.1.2 1.6 2.5 3.9 3.5 1.6.7 2.2.7 3 .6.5-.1 1.4-.6 1.6-1.1.2-.6.2-1 .1-1.1z" />
-                            </svg></span>
-                        <span class="txt">WhatsApp<small>Escribinos</small></span>
-                    </a>
-                    <button type="button" data-open-form>
-                        <span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7">
-                                <rect x="3" y="5" width="18" height="14" rx="2" />
-                                <path d="M3 7l9 6 9-6" />
-                            </svg></span>
-                        <span class="txt">Formulario<small>Solicitá contacto</small></span>
-                    </button>
-                    <span class="nh-social">
-                        <a href="#" aria-label="Instagram"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                                stroke-width="1.7">
-                                <rect x="3" y="3" width="18" height="18" rx="5" />
-                                <circle cx="12" cy="12" r="4" />
-                                <circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none" />
-                            </svg></a>
-                        <a href="#" aria-label="Facebook"><svg viewBox="0 0 24 24" fill="currentColor">
-                                <path d="M14 9h3V6h-3c-1.7 0-3 1.3-3 3v2H9v3h2v6h3v-6h2.5l.5-3H14V9z" />
-                            </svg></a>
-                    </span>
-                </div>
-                <button class="nh-burger" type="button" aria-label="Abrir menú"
-                    aria-expanded="false"><span></span><span></span><span></span></button>
-            </div>
+<header class="nh">
+    <!-- ═══ BARRA SUPERIOR: logo (→inicio) + WhatsApp + Formulario + Redes ═══ -->
+    <div class="nh-top">
+      <div class="nh-wrap">
+        <a class="nh-logo" href="#inicio" aria-label="INGAS — inicio" data-top>
+          <span class="logo-anim">
+            <img class="logo-fire" src="incas-logo-fuego-loop.webp" width="640" height="240"
+                 alt="INGAS — Instalaciones internas, industriales y domiciliarias"
+                 onerror="this.onerror=null;this.src='incas-logo-estatico.png';var i=this.parentNode.querySelector('.logo-intro');if(i)i.style.display='none'">
+            <img class="logo-intro" src="incas-logo-intro.webp" width="640" height="240" alt="" aria-hidden="true">
+          </span>
+        </a>
+        <div class="nh-util">
+          <a href="https://wa.me/5492215618081?text=Hola%20INGAS,%20quiero%20hacer%20una%20consulta" target="_blank" rel="noopener">
+            <span class="ic"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2a10 10 0 00-8.6 15l-1.3 4.8 4.9-1.3A10 10 0 1012 2zm4.3 12.2c-.2-.1-1.4-.7-1.6-.8-.2-.1-.4-.1-.5.1l-.7.9c-.1.2-.3.2-.5.1a6.5 6.5 0 01-3.2-2.8c-.1-.2 0-.4.1-.5l.4-.5.2-.4v-.4l-.7-1.7c-.2-.4-.4-.4-.5-.4H8c-.2 0-.4.1-.6.3a2.6 2.6 0 00-.8 1.9c0 1.1.8 2.2.9 2.4.1.2 1.6 2.5 3.9 3.5 1.6.7 2.2.7 3 .6.5-.1 1.4-.6 1.6-1.1.2-.6.2-1 .1-1.1z"/></svg></span>
+            <span class="txt">WhatsApp<small>Escribinos</small></span>
+          </a>
+          <button type="button" data-open-form>
+            <span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3 7l9 6 9-6"/></svg></span>
+            <span class="txt">Formulario<small>Solicitá contacto</small></span>
+          </button>
+          <span class="nh-social">
+            <a href="#" aria-label="Instagram"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg></a>
+            <a href="#" aria-label="Facebook"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M14 9h3V6h-3c-1.7 0-3 1.3-3 3v2H9v3h2v6h3v-6h2.5l.5-3H14V9z"/></svg></a>
+          </span>
         </div>
-
-        <!-- ═══ BARRA DE NAVEGACIÓN (azul): Proyectos · Servicios · Alianzas + lupa + CTA + Menú ═══ -->
-        <nav class="nh-nav" aria-label="Navegación principal">
-            <div class="nh-wrap">
-                <ul class="nh-links">
-                    <li class="nh-has">
-                        <a href="#proyectos" class="nh-spy">Proyectos <svg class="nh-caret" viewBox="0 0 24 24"
-                                fill="none" stroke="currentColor" stroke-width="2">
-                                <path d="M6 9l6 6 6-6" />
-                            </svg></a>
-                        <ul class="nh-sub">
-                            <li><a href="#proyectos">Conexión de gas nueva</a></li>
-                            <li><a href="#proyectos">Ampliación</a></li>
-                            <li><a href="#proyectos">Modificación</a></li>
-                            <li><a href="#proyectos">Reconexión</a></li>
-                        </ul>
-                    </li>
-                    <li class="nh-has">
-                        <a href="#servicios" class="nh-spy">Servicios <svg class="nh-caret" viewBox="0 0 24 24"
-                                fill="none" stroke="currentColor" stroke-width="2">
-                                <path d="M6 9l6 6 6-6" />
-                            </svg></a>
-                        <ul class="nh-sub">
-                            <li><a href="#servicios">Proyecto y Diseño</a></li>
-                            <li><a href="#servicios">Dirección de Obra</a></li>
-                            <li><a href="#servicios">Ejecución de Instalaciones</a></li>
-                            <li><a href="#servicios">Representación Técnica y Gestiones Online</a></li>
-                            <li><a href="#servicios">Asesoramiento Profesional</a></li>
-                        </ul>
-                    </li>
-                    <li><a href="#alianzas" class="nh-spy">Alianzas estratégicas</a></li>
-                </ul>
-                <div class="nh-right">
-                    <form class="nh-search" role="search" data-search>
-                        <button class="nh-search-btn" type="submit" aria-label="Buscar"><svg viewBox="0 0 24 24"
-                                fill="none" stroke="currentColor" stroke-width="2">
-                                <circle cx="11" cy="11" r="7" />
-                                <path d="M21 21l-4.3-4.3" />
-                            </svg></button>
-                        <input class="nh-search-in" type="search" placeholder="Buscar…" aria-label="Buscar en el sitio">
-                    </form>
-                    <a class="nh-cta" href="#contacto">Solicitar presupuesto</a>
-                    <button class="nh-menu-btn" type="button" aria-expanded="false" aria-controls="nhMega">Menú <svg
-                            class="nh-caret" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                            <path d="M6 9l6 6 6-6" />
-                        </svg></button>
-                </div>
-            </div>
-            <!-- Mega del botón Menú -->
-            <div class="nh-mega" id="nhMega">
-                <div class="nh-wrap nh-mega-grid">
-                    <div>
-                        <h4>Información útil</h4>
-                        <ul>
-                            <li><a href="#"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                        <path d="M12 3l8 4v5c0 5-3.5 7.5-8 9-4.5-1.5-8-4-8-9V7z" />
-                                    </svg>Seguridad</a></li>
-                            <li><a href="#"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                        <path
-                                            d="M12 9v4M12 17h.01M10.3 3.9L2 18a2 2 0 001.7 3h16.6A2 2 0 0022 18L13.7 3.9a2 2 0 00-3.4 0z" />
-                                    </svg>Prevención</a></li>
-                            <li><a href="#"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                        <path d="M4 6h16M4 12h16M4 18h10" />
-                                    </svg>Novedades</a></li>
-                        </ul>
-                    </div>
-                    <div>
-                        <h4>Sobre INGAS</h4>
-                        <ul>
-                            <li><a href="#empresa"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                                        stroke-width="2">
-                                        <circle cx="12" cy="8" r="4" />
-                                        <path d="M4 21c0-4 4-6 8-6s8 2 8 6" />
-                                    </svg>Quiénes Somos</a></li>
-                            <li><a href="#proceso"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                                        stroke-width="2">
-                                        <path d="M4 7h16M4 12h16M4 17h16" />
-                                    </svg>Cómo trabajamos</a></li>
-                            <li><a href="#obras"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                                        stroke-width="2">
-                                        <path d="M3 21V9l9-6 9 6v12M9 21v-6h6v6" />
-                                    </svg>Obras destacadas</a></li>
-                        </ul>
-                    </div>
-                    <div>
-                        <h4>Contacto</h4>
-                        <ul>
-                            <li><a href="#contacto"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                                        stroke-width="2">
-                                        <path
-                                            d="M22 16.9v3a2 2 0 01-2.2 2 19.8 19.8 0 01-8.6-3 19.5 19.5 0 01-6-6 19.8 19.8 0 01-3-8.6A2 2 0 014.1 2h3a2 2 0 012 1.7l.5 2.5a2 2 0 01-.5 1.8L8 11a16 16 0 006 6l1-1a2 2 0 011.8-.5l2.5.5a2 2 0 011.7 2z" />
-                                    </svg>Canales de atención</a></li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-        </nav>
-
-        <!-- ═══ DRAWER MÓVIL ═══ -->
-        <div class="nh-overlay" data-close></div>
-        <aside class="nh-drawer" aria-label="Menú">
-            <div class="nh-dhead">
-                <svg viewBox="0 0 176 46" width="110" aria-hidden="true">
-                    <g transform="translate(2,4)">
-                        <path d="M18 1 C22 11 29 16 29 30 C29 39 23 44 18 44 C13 44 7 39 7 30 C7 19 17 17 18 1 Z"
-                            fill="#0F4573" />
-                        <path d="M18 17 C20 23 25 26 25 35 C25 40 22 44 18 44 C14 44 11 40 11 35 C11 28 17 26 17 22 Z"
-                            fill="#12C3E4" />
-                    </g><text x="40" y="32" font-family="Saira,sans-serif" font-weight="700" font-size="27"
-                        letter-spacing="1.5" fill="#0F4573">INGAS</text>
-                </svg>
-                <button class="nh-x" type="button" data-close aria-label="Cerrar">&times;</button>
-            </div>
-            <form class="nh-dsearch" role="search" data-search>
-                <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="#9db0c8" stroke-width="2">
-                    <circle cx="11" cy="11" r="7" />
-                    <path d="M21 21l-4.3-4.3" />
-                </svg>
-                <input type="search" placeholder="Buscar en el sitio…" aria-label="Buscar">
-            </form>
-            <div class="nh-acc">
-                <button class="nh-acc-h" type="button">Proyectos <svg class="nh-caret" viewBox="0 0 24 24" width="18"
-                        height="18" fill="none" stroke="currentColor" stroke-width="2">
-                        <path d="M6 9l6 6 6-6" />
-                    </svg></button>
-                <div class="nh-acc-b"><a href="#proyectos">Conexión de gas nueva</a><a
-                        href="#proyectos">Ampliación</a><a href="#proyectos">Modificación</a><a
-                        href="#proyectos">Reconexión</a></div>
-            </div>
-            <div class="nh-acc">
-                <button class="nh-acc-h" type="button">Servicios <svg class="nh-caret" viewBox="0 0 24 24" width="18"
-                        height="18" fill="none" stroke="currentColor" stroke-width="2">
-                        <path d="M6 9l6 6 6-6" />
-                    </svg></button>
-                <div class="nh-acc-b"><a href="#servicios">Proyecto y Diseño</a><a href="#servicios">Dirección de
-                        Obra</a><a href="#servicios">Ejecución de Instalaciones</a><a href="#servicios">Representación
-                        Técnica y Gestiones Online</a><a href="#servicios">Asesoramiento Profesional</a></div>
-            </div>
-            <a class="nh-dlink" href="#alianzas">Alianzas estratégicas</a>
-            <div class="nh-dgrp">
-                <h4>Información útil</h4>
-                <a href="#">Seguridad</a><a href="#">Prevención</a><a href="#">Novedades</a>
-                <h4>Sobre INGAS</h4>
-                <a href="#empresa">Quiénes Somos</a><a href="#proceso">Cómo trabajamos</a><a href="#obras">Obras
-                    destacadas</a>
-                <h4>Contacto</h4>
-                <a href="#contacto">Canales de atención</a>
-            </div>
-            <a class="nh-dcta" href="#contacto" data-open-form>Solicitar presupuesto</a>
-        </aside>
-    </header>
+        <button class="nh-burger" type="button" aria-label="Abrir menú" aria-expanded="false"><span></span><span></span><span></span></button>
+      </div>
+    </div>
+   
+    <!-- ═══ BARRA DE NAVEGACIÓN (azul): Proyectos · Servicios · Alianzas + lupa + CTA + Menú ═══ -->
+    <nav class="nh-nav" aria-label="Navegación principal">
+      <div class="nh-wrap">
+        <ul class="nh-links">
+          <li class="nh-has">
+            <a href="proyectos.html" class="nh-spy">Proyectos <svg class="nh-caret" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg></a>
+            <ul class="nh-sub">
+              <li><a href="proyectos.html#conexion-desde-cero">Conexión de gas nueva</a></li>
+              <li><a href="proyectos.html#ampliacion">Ampliación</a></li>
+              <li><a href="proyectos.html#modificacion">Modificación</a></li>
+              <li><a href="proyectos.html#reconexion">Reconexión</a></li>
+            </ul>
+          </li>
+          <li class="nh-has">
+            <a href="#servicios" class="nh-spy">Servicios <svg class="nh-caret" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg></a>
+            <ul class="nh-sub">
+              <li><a href="#servicios">Proyecto y Diseño</a></li>
+              <li><a href="#servicios">Dirección de Obra</a></li>
+              <li><a href="#servicios">Ejecución de Instalaciones</a></li>
+              <li><a href="#servicios">Representación Técnica y Gestiones Online</a></li>
+              <li><a href="#servicios">Asesoramiento Profesional</a></li>
+            </ul>
+          </li>
+          <li><a href="#alianzas" class="nh-spy">Alianzas estratégicas</a></li>
+        </ul>
+        <div class="nh-right">
+          <form class="nh-search" role="search" data-search>
+            <button class="nh-search-btn" type="submit" aria-label="Buscar"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4.3-4.3"/></svg></button>
+            <input class="nh-search-in" type="search" placeholder="Buscar…" aria-label="Buscar en el sitio">
+          </form>
+          <a class="nh-cta" href="#contacto">Solicitar presupuesto</a>
+          <button class="nh-menu-btn" type="button" aria-expanded="false" aria-controls="nhMega">Menú <svg class="nh-caret" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg></button>
+        </div>
+      </div>
+      <!-- Mega del botón Menú -->
+      <div class="nh-mega" id="nhMega">
+        <div class="nh-wrap nh-mega-grid">
+          <div>
+            <h4>Información útil</h4>
+            <ul>
+              <li><a href="#"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 3l8 4v5c0 5-3.5 7.5-8 9-4.5-1.5-8-4-8-9V7z"/></svg>Seguridad</a></li>
+              <li><a href="#"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 9v4M12 17h.01M10.3 3.9L2 18a2 2 0 001.7 3h16.6A2 2 0 0022 18L13.7 3.9a2 2 0 00-3.4 0z"/></svg>Prevención</a></li>
+              <li><a href="#"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 6h16M4 12h16M4 18h10"/></svg>Novedades</a></li>
+            </ul>
+          </div>
+          <div>
+            <h4>Sobre INGAS</h4>
+            <ul>
+              <li><a href="#empresa"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="8" r="4"/><path d="M4 21c0-4 4-6 8-6s8 2 8 6"/></svg>Quiénes Somos</a></li>
+              <li><a href="#proceso"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 7h16M4 12h16M4 17h16"/></svg>Cómo trabajamos</a></li>
+              <li><a href="#obras"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 21V9l9-6 9 6v12M9 21v-6h6v6"/></svg>Obras destacadas</a></li>
+            </ul>
+          </div>
+          <div>
+            <h4>Contacto</h4>
+            <ul>
+              <li><a href="#contacto"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.9v3a2 2 0 01-2.2 2 19.8 19.8 0 01-8.6-3 19.5 19.5 0 01-6-6 19.8 19.8 0 01-3-8.6A2 2 0 014.1 2h3a2 2 0 012 1.7l.5 2.5a2 2 0 01-.5 1.8L8 11a16 16 0 006 6l1-1a2 2 0 011.8-.5l2.5.5a2 2 0 011.7 2z"/></svg>Canales de atención</a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </nav>
+   
+    <!-- ═══ DRAWER MÓVIL ═══ -->
+    <div class="nh-overlay" data-close></div>
+    <aside class="nh-drawer" aria-label="Menú">
+      <div class="nh-dhead">
+        <svg viewBox="0 0 176 46" width="110" aria-hidden="true"><g transform="translate(2,4)"><path d="M18 1 C22 11 29 16 29 30 C29 39 23 44 18 44 C13 44 7 39 7 30 C7 19 17 17 18 1 Z" fill="#0F4573"/><path d="M18 17 C20 23 25 26 25 35 C25 40 22 44 18 44 C14 44 11 40 11 35 C11 28 17 26 17 22 Z" fill="#12C3E4"/></g><text x="40" y="32" font-family="Saira,sans-serif" font-weight="700" font-size="27" letter-spacing="1.5" fill="#0F4573">INGAS</text></svg>
+        <button class="nh-x" type="button" data-close aria-label="Cerrar">&times;</button>
+      </div>
+      <form class="nh-dsearch" role="search" data-search>
+        <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="#9db0c8" stroke-width="2"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4.3-4.3"/></svg>
+        <input type="search" placeholder="Buscar en el sitio…" aria-label="Buscar">
+      </form>
+      <div class="nh-acc">
+        <button class="nh-acc-h" type="button">Proyectos <svg class="nh-caret" viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg></button>
+        <div class="nh-acc-b"><a href="proyectos.html#conexion-desde-cero">Conexión de gas nueva</a><a href="proyectos.html#ampliacion">Ampliación</a><a href="proyectos.html#modificacion">Modificación</a><a href="proyectos.html#reconexion">Reconexión</a></div>
+      </div>
+      <div class="nh-acc">
+        <button class="nh-acc-h" type="button">Servicios <svg class="nh-caret" viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg></button>
+        <div class="nh-acc-b"><a href="#servicios">Proyecto y Diseño</a><a href="#servicios">Dirección de Obra</a><a href="#servicios">Ejecución de Instalaciones</a><a href="#servicios">Representación Técnica y Gestiones Online</a><a href="#servicios">Asesoramiento Profesional</a></div>
+      </div>
+      <a class="nh-dlink" href="#alianzas">Alianzas estratégicas</a>
+      <div class="nh-dgrp">
+        <h4>Información útil</h4>
+        <a href="#">Seguridad</a><a href="#">Prevención</a><a href="#">Novedades</a>
+        <h4>Sobre INGAS</h4>
+        <a href="#empresa">Quiénes Somos</a><a href="#proceso">Cómo trabajamos</a><a href="#obras">Obras destacadas</a>
+        <h4>Contacto</h4>
+        <a href="#contacto">Canales de atención</a>
+      </div>
+      <a class="nh-dcta" href="#contacto" data-open-form>Solicitar presupuesto</a>
+    </aside>
+  </header>
 
     <script>
         (function () {
