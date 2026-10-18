@@ -1260,6 +1260,16 @@
             transform: rotate(180deg)
         }
 
+        /* Fondo tenue detrás del mega para destacar y leer mejor */
+        body.nh-mega-open::before {
+            content: "";
+            position: fixed;
+            inset: 0;
+            background: rgba(11, 58, 94, .3);
+            z-index: 55;
+            pointer-events: none
+        }
+
         /* Mega del botón Menú (independiente de Proyectos/Servicios/Alianzas) */
         .nh-mega {
             position: absolute;
@@ -1268,7 +1278,7 @@
             right: 0;
             background: #fff;
             border-bottom: 1px solid var(--border);
-            box-shadow: 0 20px 38px rgba(11, 58, 94, .14);
+            box-shadow: 0 20px 38px rgba(11, 58, 94, .18);
             opacity: 0;
             visibility: hidden;
             transform: translateY(-10px);
@@ -1578,13 +1588,13 @@
             </ul>
           </li>
           <li class="nh-has">
-            <a href="#servicios" class="nh-spy">Servicios <svg class="nh-caret" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg></a>
+            <a href="servicios.html" class="nh-spy">Servicios <svg class="nh-caret" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg></a>
             <ul class="nh-sub">
-              <li><a href="#servicios">Proyecto y Diseño</a></li>
-              <li><a href="#servicios">Dirección de Obra</a></li>
-              <li><a href="#servicios">Ejecución de Instalaciones</a></li>
-              <li><a href="#servicios">Representación Técnica y Gestiones Online</a></li>
-              <li><a href="#servicios">Asesoramiento Profesional</a></li>
+              <li><a href="servicios.html#proyecto-diseno">Proyecto y Diseño</a></li>
+              <li><a href="servicios.html#direccion-obra">Dirección de Obra</a></li>
+              <li><a href="servicios.html#ejecucion">Ejecución de Instalaciones</a></li>
+              <li><a href="servicios.html#representacion">Representación Técnica y Gestiones Online</a></li>
+              <li><a href="servicios.html#asesoramiento">Asesoramiento Profesional</a></li>
             </ul>
           </li>
           <li><a href="#alianzas" class="nh-spy">Alianzas estratégicas</a></li>
@@ -1604,8 +1614,8 @@
           <div>
             <h4>Información útil</h4>
             <ul>
-              <li><a href="#"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 3l8 4v5c0 5-3.5 7.5-8 9-4.5-1.5-8-4-8-9V7z"/></svg>Seguridad</a></li>
-              <li><a href="#"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 9v4M12 17h.01M10.3 3.9L2 18a2 2 0 001.7 3h16.6A2 2 0 0022 18L13.7 3.9a2 2 0 00-3.4 0z"/></svg>Prevención</a></li>
+              <li><a href="seguridad.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 3l8 4v5c0 5-3.5 7.5-8 9-4.5-1.5-8-4-8-9V7z"/></svg>Seguridad</a></li>
+              <li><a href="seguridad.html#prevencion"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 9v4M12 17h.01M10.3 3.9L2 18a2 2 0 001.7 3h16.6A2 2 0 0022 18L13.7 3.9a2 2 0 00-3.4 0z"/></svg>Prevención</a></li>
               <li><a href="#"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 6h16M4 12h16M4 18h10"/></svg>Novedades</a></li>
             </ul>
           </div>
@@ -1644,12 +1654,12 @@
       </div>
       <div class="nh-acc">
         <button class="nh-acc-h" type="button">Servicios <svg class="nh-caret" viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg></button>
-        <div class="nh-acc-b"><a href="#servicios">Proyecto y Diseño</a><a href="#servicios">Dirección de Obra</a><a href="#servicios">Ejecución de Instalaciones</a><a href="#servicios">Representación Técnica y Gestiones Online</a><a href="#servicios">Asesoramiento Profesional</a></div>
+        <div class="nh-acc-b"><a href="servicios.html#proyecto-diseno">Proyecto y Diseño</a><a href="servicios.html#direccion-obra">Dirección de Obra</a><a href="servicios.html#ejecucion">Ejecución de Instalaciones</a><a href="servicios.html#representacion">Representación Técnica y Gestiones Online</a><a href="servicios.html#asesoramiento">Asesoramiento Profesional</a></div>
       </div>
       <a class="nh-dlink" href="#alianzas">Alianzas estratégicas</a>
       <div class="nh-dgrp">
         <h4>Información útil</h4>
-        <a href="#">Seguridad</a><a href="#">Prevención</a><a href="#">Novedades</a>
+        <a href="seguridad.html">Seguridad</a><a href="seguridad.html#prevencion">Prevención</a><a href="#">Novedades</a>
         <h4>Sobre INGAS</h4>
         <a href="#empresa">Quiénes Somos</a><a href="#proceso">Cómo trabajamos</a><a href="#obras">Obras destacadas</a>
         <h4>Contacto</h4>
@@ -1667,9 +1677,9 @@
             function openForm() { var b = document.getElementById('openForm'); if (b) { b.click(); } else { location.hash = '#contacto'; } }
             document.querySelectorAll('[data-open-form]').forEach(function (el) { el.addEventListener('click', function (e) { e.preventDefault(); openForm(); }); });
             var menuBtn = document.querySelector('.nh-menu-btn'), mega = document.getElementById('nhMega');
-            function closeMega() { if (mega) mega.classList.remove('open'); if (menuBtn) menuBtn.setAttribute('aria-expanded', 'false'); }
+            function closeMega() { if (mega) mega.classList.remove('open'); document.body.classList.remove('nh-mega-open'); if (menuBtn) menuBtn.setAttribute('aria-expanded', 'false'); }
             if (menuBtn) {
-                menuBtn.addEventListener('click', function (e) { e.stopPropagation(); var o = !mega.classList.contains('open'); mega.classList.toggle('open', o); menuBtn.setAttribute('aria-expanded', o); });
+                menuBtn.addEventListener('click', function (e) { e.stopPropagation(); var o = !mega.classList.contains('open'); mega.classList.toggle('open', o); document.body.classList.toggle('nh-mega-open', o); menuBtn.setAttribute('aria-expanded', o); });
                 document.addEventListener('click', function (e) { if (!mega.contains(e.target) && e.target !== menuBtn) closeMega(); });
                 mega.querySelectorAll('a').forEach(function (a) { a.addEventListener('click', closeMega); });
             }
@@ -1695,39 +1705,6 @@
         })();
     </script>
 
-    <script>
-        (function () {
-            var body = document.body;
-            function openForm() { var b = document.getElementById('openForm'); if (b) { b.click(); } else { location.hash = '#contacto'; } }
-            document.querySelectorAll('[data-open-form]').forEach(function (el) { el.addEventListener('click', function (e) { e.preventDefault(); openForm(); }); });
-            var menuBtn = document.querySelector('.nh-menu-btn'), mega = document.getElementById('nhMega');
-            function closeMega() { if (mega) mega.classList.remove('open'); if (menuBtn) menuBtn.setAttribute('aria-expanded', 'false'); }
-            if (menuBtn) {
-                menuBtn.addEventListener('click', function (e) { e.stopPropagation(); var o = !mega.classList.contains('open'); mega.classList.toggle('open', o); menuBtn.setAttribute('aria-expanded', o); });
-                document.addEventListener('click', function (e) { if (!mega.contains(e.target) && e.target !== menuBtn) closeMega(); });
-                mega.querySelectorAll('a').forEach(function (a) { a.addEventListener('click', closeMega); });
-            }
-            var burger = document.querySelector('.nh-burger');
-            function setDrawer(o) { body.classList.toggle('nh-open', o); if (burger) burger.setAttribute('aria-expanded', o); }
-            if (burger) burger.addEventListener('click', function () { setDrawer(!body.classList.contains('nh-open')); });
-            document.querySelectorAll('[data-close], .nh-drawer a').forEach(function (el) { el.addEventListener('click', function () { setDrawer(false); }); });
-            document.querySelectorAll('.nh-acc-h').forEach(function (h) { h.addEventListener('click', function () { var acc = h.parentElement, b = h.nextElementSibling, o = acc.classList.toggle('open'); b.style.maxHeight = o ? b.scrollHeight + 'px' : 0; }); });
-            document.addEventListener('keydown', function (e) { if (e.key === 'Escape') { setDrawer(false); closeMega(); } });
-            document.querySelectorAll('[data-search]').forEach(function (f) {
-                f.addEventListener('submit', function (e) {
-                    e.preventDefault(); var q = (f.querySelector('input').value || '').trim().toLowerCase(); if (!q) return;
-                    var secs = document.querySelectorAll('section[id]'), hit = null; secs.forEach(function (s) { if (hit) return; if ((s.textContent || '').toLowerCase().indexOf(q) > -1) hit = s; });
-                    if (hit) { hit.scrollIntoView({ behavior: 'smooth', block: 'start' }); setDrawer(false); } else { f.querySelector('input').animate([{ transform: 'translateX(0)' }, { transform: 'translateX(-5px)' }, { transform: 'translateX(5px)' }, { transform: 'translateX(0)' }], { duration: 220 }); }
-                });
-            });
-            var spy = [].slice.call(document.querySelectorAll('.nh-spy'));
-            if ('IntersectionObserver' in window && spy.length) {
-                var byId = {}; spy.forEach(function (a) { var el = document.querySelector(a.getAttribute('href')); if (el) byId[el.id] = a; });
-                var io = new IntersectionObserver(function (ents) { ents.forEach(function (en) { if (en.isIntersecting) { spy.forEach(function (l) { l.classList.remove('active'); }); if (byId[en.target.id]) byId[en.target.id].classList.add('active'); } }); }, { rootMargin: '-45% 0px -50% 0px', threshold: 0 });
-                Object.keys(byId).forEach(function (id) { var el = document.getElementById(id); if (el) io.observe(el); });
-            }
-        })();
-    </script>
 
 
     <section class="hero">
@@ -2201,123 +2178,126 @@
         </div>
     </section>
 
-    <style>
-        /* ===== Sección “Proyectos” en INICIO (clases pr-) ===== */
-        .pr{--navy:#0F4573;--navy-deep:#0B3A5E;--cyan:#12C3E4;--yellow:#FFC20E;--muted:#5B6B85;--soft:#F4F7FA;--border:#E4EAF0;
-            font-family:"Saira",system-ui,sans-serif;background:var(--soft);padding:96px 22px}  /* + aire arriba/abajo */
-        .pr *{box-sizing:border-box}
-        .pr-wrap{max-width:1140px;margin:0 auto}
-         
-        /* Encabezado: cuadrito + título (1 línea) + bajada */
-        .pr-head{text-align:center;max-width:860px;margin:0 auto 56px}   /* + separación con las tarjetas */
-        .pr-kicker{display:inline-flex;align-items:center;gap:10px;margin-bottom:16px}
-        .pr-kicker span{width:26px;height:10px;background:var(--yellow);border-radius:2px}
-        .pr-kicker small{font-size:.8rem;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:var(--cyan)}
-        .pr-head h2{font-size:clamp(1.4rem,3vw,2.05rem);font-weight:700;color:var(--navy);margin:0;text-transform:uppercase;line-height:1.15;white-space:nowrap}
-        .pr-head p{margin:16px 0 0;color:var(--muted);font-size:1.05rem;line-height:1.6}
-         
-        /* Fila de 4 tarjetas */
-        .pr-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:20px}
-        .pr-card{background:#fff;border:1px solid var(--border);border-radius:16px;padding:28px 22px;display:flex;flex-direction:column;align-items:center;text-align:center;box-shadow:0 12px 30px rgba(11,58,94,.06);transition:transform .18s,box-shadow .2s}
-        .pr-card:hover{transform:translateY(-4px);box-shadow:0 18px 40px rgba(11,58,94,.12)}
-        .pr-badge{font-size:.68rem;font-weight:600;letter-spacing:.06em;text-transform:uppercase;padding:4px 11px;border-radius:20px;margin-bottom:16px}
-        .pr-badge.nuevo{background:#FFF4D1;color:#8A6400}
-        .pr-badge.exist{background:#E3F8FD;color:#0A6075}
-        .pr-ic{width:54px;height:54px;border-radius:14px;background:var(--soft);display:flex;align-items:center;justify-content:center;color:var(--navy);margin-bottom:16px}
-        .pr-ic svg{width:27px;height:27px}
-        .pr-card h3{font-size:1.16rem;font-weight:700;color:var(--navy-deep);margin:0 0 12px;text-transform:uppercase;letter-spacing:.01em}
-        .pr-card p{font-size:.92rem;color:var(--muted);line-height:1.55;margin:0 0 22px}
-        .pr-btn{margin-top:auto;width:100%;display:inline-flex;align-items:center;justify-content:center;gap:7px;font-family:inherit;font-weight:600;font-size:.9rem;text-decoration:none;color:#fff;background:var(--navy);padding:11px 12px;border-radius:9px;transition:background .18s,transform .16s}
-        .pr-btn:hover{background:var(--navy-deep);transform:translateY(-1px)}
-        .pr-btn svg{width:16px;height:16px;flex-shrink:0;transition:transform .18s}
-        .pr-btn:hover svg{transform:translateX(3px)}
-         
-        /* Franja de asesoramiento */
-        .pr-help{margin-top:40px;background:#EAF7FC;border:1px solid #CDEAF5;border-radius:16px;padding:24px 28px;display:flex;align-items:center;justify-content:space-between;gap:20px;flex-wrap:wrap}
-        .pr-help b{font-size:1.1rem;font-weight:600;color:var(--navy);text-transform:uppercase;letter-spacing:.01em}
-        .pr-help-btns{display:flex;gap:12px;flex-wrap:wrap}
-        .pr-wa,.pr-form{display:inline-flex;align-items:center;gap:9px;font-family:inherit;font-weight:600;font-size:.92rem;text-decoration:none;padding:12px 22px;border-radius:9px;cursor:pointer;border:0;transition:transform .16s,box-shadow .2s,background .2s}
-        .pr-wa{background:var(--navy);color:#fff}
-        .pr-wa:hover{background:var(--navy-deep);transform:translateY(-1px)}
-        .pr-form{background:var(--yellow);color:var(--navy-deep)}
-        .pr-form:hover{transform:translateY(-1px);box-shadow:0 8px 18px rgba(255,194,14,.4)}
-        .pr-wa svg,.pr-form svg{width:18px;height:18px}
-         
-        @media(max-width:980px){.pr-grid{grid-template-columns:repeat(2,1fr)}.pr-head h2{white-space:normal}}
-        @media(max-width:560px){.pr{padding:64px 18px}.pr-grid{grid-template-columns:1fr}.pr-help{flex-direction:column;text-align:center}.pr-help-btns{width:100%;justify-content:center}}
-        @media(prefers-reduced-motion:reduce){.pr *{transition:none!important}}
-        </style>
-         
-        <section class="pr" id="proyectos">
-          <div class="pr-wrap">
-            <div class="pr-head">
-              <div class="pr-kicker"><span></span><small>Proyectos</small></div>
-              <h2>Descubrí las opciones para tu instalación</h2>
-              <p>Conocé todos los proyectos técnicos disponibles y encontrá la alternativa exacta que se adapta a tu obra.</p>
-            </div>
-         
-            <div class="pr-grid">
-              <!-- Conexión desde cero -->
-              <div class="pr-card">
-                <span class="pr-badge nuevo">Instalación nueva</span>
-                <div class="pr-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M3 21V9l9-6 9 6v12M9 21v-6h6v6"/><path d="M12 7v4M10 9h4"/></svg></div>
-                <h3>Conexión desde cero</h3>
-                <p>Para inmuebles que nunca tuvieron acceso al gas natural por red y desean solicitar el alta del servicio por primera vez. Aplica a destinos residenciales, comerciales, industriales o varios.</p>
-                <a class="pr-btn" href="proyectos.html#conexion-desde-cero">Conocer más <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
-              </div>
-         
-              <!-- Ampliación -->
-              <div class="pr-card">
-                <span class="pr-badge exist">Instalación existente</span>
-                <div class="pr-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M12 19V5M5 12l7-7 7 7"/></svg></div>
-                <h3>Ampliación</h3>
-                <p>Para instalaciones habilitadas que necesitan sumar artefactos que aumentan su consumo total.</p>
-                <a class="pr-btn" href="proyectos.html#ampliacion">Conocer más <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
-              </div>
-         
-              <!-- Modificación -->
-              <div class="pr-card">
-                <span class="pr-badge exist">Instalación existente</span>
-                <div class="pr-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M14.7 6.3a4 4 0 00-5.4 5.4L3 18v3h3l6.3-6.3a4 4 0 005.4-5.4l-2.7 2.7-2-2 2.7-2.7z"/></svg></div>
-                <h3>Modificación</h3>
-                <p>Para cambios en una instalación habilitada que no alteran su consumo total.</p>
-                <a class="pr-btn" href="proyectos.html#modificacion">Conocer más <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
-              </div>
-         
-              <!-- Reconexión -->
-              <div class="pr-card">
-                <span class="pr-badge exist">Instalación existente</span>
-                <div class="pr-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M3 12a9 9 0 019-9 9 9 0 018 5M21 12a9 9 0 01-9 9 9 9 0 01-8-5"/><path d="M17 8h4V4M7 16H3v4"/></svg></div>
-                <h3>Reconexión</h3>
-                <p>Para inmuebles que tienen cortado el servicio de gas natural. El trámite varía según el motivo de la baja y el tiempo sin servicio.</p>
-                <a class="pr-btn" href="proyectos.html#reconexion">Conocer más <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
-              </div>
-            </div>
-         
-            <!-- Franja de asesoramiento -->
-            <div class="pr-help">
-              <b>¿Necesitás asesoramiento? Contactanos, estamos para ayudarte</b>
-              <div class="pr-help-btns">
-                <a class="pr-wa" href="https://wa.me/5492215618081?text=Hola%20INGAS,%20necesito%20asesoramiento%20para%20mi%20proyecto%20de%20gas." target="_blank" rel="noopener">
-                  <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2a10 10 0 00-8.6 15l-1.3 4.8 4.9-1.3A10 10 0 1012 2zm4.3 12.2c-.2-.1-1.4-.7-1.6-.8-.2-.1-.4-.1-.5.1l-.7.9c-.1.2-.3.2-.5.1a6.5 6.5 0 01-3.2-2.8c-.1-.2 0-.4.1-.5l.4-.5.2-.4v-.4l-.7-1.7c-.2-.4-.4-.4-.5-.4H8c-.2 0-.4.1-.6.3a2.6 2.6 0 00-.8 1.9c0 1.1.8 2.2.9 2.4.1.2 1.6 2.5 3.9 3.5 1.6.7 2.2.7 3 .6.5-.1 1.4-.6 1.6-1.1.2-.6.2-1 .1-1.1z"/></svg>
-                  Escribir por WhatsApp
-                </a>
-                <button class="pr-form" type="button" data-open-form>
-                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3 7l9 6 9-6"/></svg>
-                  Completar formulario
-                </button>
-              </div>
-            </div>
-          </div>
-        </section>
-         
-        <script>
-        (function(){
-          document.querySelectorAll('.pr [data-open-form]').forEach(function(el){
-            el.addEventListener('click',function(e){e.preventDefault();var b=document.getElementById('openForm');if(b){b.click();}else{location.hash='#contacto';}});
-          });
-        })();
-        </script>
+<style>
+/* ===== Sección "Proyectos" en INICIO (clases pr-) ===== */
+.pr{--navy:#0F4573;--navy-deep:#0B3A5E;--cyan:#12C3E4;--yellow:#FFC20E;--muted:#5B6B85;--soft:#F4F7FA;--border:#E4EAF0;
+    font-family:"Saira",system-ui,sans-serif;background:var(--soft);padding:96px 22px}
+.pr *{box-sizing:border-box}
+.pr-wrap{max-width:1140px;margin:0 auto}
+.pr-head{text-align:center;max-width:860px;margin:0 auto 56px}
+.pr-kicker{display:inline-flex;align-items:center;gap:10px;margin-bottom:16px}
+.pr-kicker span{width:26px;height:10px;background:var(--yellow);border-radius:2px}
+.pr-kicker small{font-size:.8rem;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:var(--cyan)}
+.pr-head h2{font-size:clamp(1.4rem,3vw,2.05rem);font-weight:700;color:var(--navy);margin:0;text-transform:uppercase;line-height:1.15;white-space:nowrap}
+.pr-head p{margin:16px 0 0;color:var(--muted);font-size:1.05rem;line-height:1.6}
+.pr-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:20px}
+.pr-card{background:#fff;border:1px solid var(--border);border-radius:16px;padding:28px 22px;display:flex;flex-direction:column;align-items:center;text-align:center;box-shadow:0 12px 30px rgba(11,58,94,.06);transition:transform .18s,box-shadow .2s}
+.pr-card:hover{transform:translateY(-4px);box-shadow:0 18px 40px rgba(11,58,94,.12)}
+.pr-badge{font-size:.68rem;font-weight:600;letter-spacing:.06em;text-transform:uppercase;padding:4px 11px;border-radius:20px;margin-bottom:16px}
+.pr-badge.nuevo{background:#FFF4D1;color:#8A6400}
+.pr-badge.exist{background:#E3F8FD;color:#0A6075}
+.pr-ic{width:54px;height:54px;border-radius:14px;background:var(--soft);display:flex;align-items:center;justify-content:center;color:var(--navy);margin-bottom:16px}
+.pr-ic svg{width:27px;height:27px}
+.pr-card h3{font-size:1.16rem;font-weight:700;color:var(--navy-deep);margin:0 0 10px;text-transform:uppercase;letter-spacing:.01em}
+.pr-card .lbl{font-size:.72rem;font-weight:600;letter-spacing:.05em;text-transform:uppercase;color:var(--cyan);margin-bottom:4px}
+.pr-card p{font-size:.92rem;color:var(--muted);line-height:1.55;margin:0 0 22px}
+.pr-btn{margin-top:auto;width:100%;display:inline-flex;align-items:center;justify-content:center;gap:7px;font-family:inherit;font-weight:600;font-size:.9rem;text-decoration:none;color:#fff;background:var(--navy);padding:11px 12px;border-radius:9px;transition:background .18s,transform .16s}
+.pr-btn:hover{background:var(--navy-deep);transform:translateY(-1px)}
+.pr-btn svg{width:16px;height:16px;flex-shrink:0;transition:transform .18s}
+.pr-btn:hover svg{transform:translateX(3px)}
+/* Franja "¿Tenés dudas sobre tu instalación?" */
+.pr-help{margin-top:40px;background:#EAF7FC;border:1px solid #CDEAF5;border-radius:16px;padding:24px 28px;display:flex;align-items:center;justify-content:space-between;gap:20px;flex-wrap:wrap}
+.pr-help-txt b{display:block;font-size:1.1rem;font-weight:600;color:var(--navy);text-transform:uppercase;letter-spacing:.01em}
+.pr-help-txt span{display:block;margin-top:4px;color:var(--muted);font-size:.95rem}
+.pr-help-btns{display:flex;gap:12px;flex-wrap:wrap}
+.pr-wa,.pr-form{display:inline-flex;align-items:center;gap:9px;font-family:inherit;font-weight:600;font-size:.92rem;text-decoration:none;padding:12px 22px;border-radius:9px;cursor:pointer;border:0;transition:transform .16s,box-shadow .2s,background .2s}
+.pr-wa{background:var(--navy);color:#fff}
+.pr-wa:hover{background:var(--navy-deep);transform:translateY(-1px)}
+.pr-form{background:var(--yellow);color:var(--navy-deep)}
+.pr-form:hover{transform:translateY(-1px);box-shadow:0 8px 18px rgba(255,194,14,.4)}
+.pr-wa svg,.pr-form svg{width:18px;height:18px}
+@media(max-width:980px){.pr-grid{grid-template-columns:repeat(2,1fr)}.pr-head h2{white-space:normal}}
+@media(max-width:560px){.pr{padding:64px 18px}.pr-grid{grid-template-columns:1fr}.pr-help{flex-direction:column;text-align:center}.pr-help-btns{width:100%;justify-content:center}}
+@media(prefers-reduced-motion:reduce){.pr *{transition:none!important}}
+</style>
+
+<section class="pr" id="proyectos">
+  <div class="pr-wrap">
+    <div class="pr-head">
+      <div class="pr-kicker"><span></span><small>Proyectos</small></div>
+      <h2>Descubrí las opciones para tu instalación</h2>
+      <p>Conocé todos los proyectos técnicos disponibles y encontrá la alternativa exacta que se adapta a tu obra.</p>
+    </div>
+
+    <div class="pr-grid">
+      <!-- Obra nueva -->
+      <div class="pr-card">
+        <span class="pr-badge nuevo">Instalación nueva</span>
+        <div class="pr-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M3 21V9l9-6 9 6v12M9 21v-6h6v6"/><path d="M12 7v4M10 9h4"/></svg></div>
+        <h3>Obra nueva</h3>
+        <div class="lbl">Tipo de proyecto</div>
+        <p>Corresponde a una instalación de gas desde cero.</p>
+        <a class="pr-btn" href="proyectos.html#conexion-desde-cero">Conocer más <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+      </div>
+
+      <!-- Ampliación -->
+      <div class="pr-card">
+        <span class="pr-badge exist">Instalación existente</span>
+        <div class="pr-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M12 19V5M5 12l7-7 7 7"/></svg></div>
+        <h3>Ampliación</h3>
+        <div class="lbl">Tipo de proyecto</div>
+        <p>Cambios en la instalación que incrementan el consumo total.</p>
+        <a class="pr-btn" href="proyectos.html#ampliacion">Conocer más <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+      </div>
+
+      <!-- Modificación -->
+      <div class="pr-card">
+        <span class="pr-badge exist">Instalación existente</span>
+        <div class="pr-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M14.7 6.3a4 4 0 00-5.4 5.4L3 18v3h3l6.3-6.3a4 4 0 005.4-5.4l-2.7 2.7-2-2 2.7-2.7z"/></svg></div>
+        <h3>Modificación</h3>
+        <div class="lbl">Tipo de proyecto</div>
+        <p>Cambios en la instalación que no alteran el consumo total.</p>
+        <a class="pr-btn" href="proyectos.html#modificacion">Conocer más <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+      </div>
+
+      <!-- Reconexión -->
+      <div class="pr-card">
+        <span class="pr-badge exist">Instalación existente</span>
+        <div class="pr-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M3 12a9 9 0 019-9 9 9 0 018 5M21 12a9 9 0 01-9 9 9 9 0 01-8-5"/><path d="M17 8h4V4M7 16H3v4"/></svg></div>
+        <h3>Reconexión</h3>
+        <div class="lbl">Tipo de proyecto</div>
+        <p>Reactivación del servicio.</p>
+        <a class="pr-btn" href="proyectos.html#reconexion">Conocer más <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+      </div>
+    </div>
+
+    <!-- Franja: ¿Tenés dudas sobre tu instalación? -->
+    <div class="pr-help">
+      <div class="pr-help-txt">
+        <b>¿Tenés dudas sobre tu instalación?</b>
+        <span>Contactanos para recibir asesoramiento profesional personalizado.</span>
+      </div>
+      <div class="pr-help-btns">
+        <a class="pr-wa" href="https://wa.me/5492215618081?text=Hola%20INGAS,%20necesito%20asesoramiento%20para%20mi%20proyecto%20de%20gas." target="_blank" rel="noopener">
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2a10 10 0 00-8.6 15l-1.3 4.8 4.9-1.3A10 10 0 1012 2zm4.3 12.2c-.2-.1-1.4-.7-1.6-.8-.2-.1-.4-.1-.5.1l-.7.9c-.1.2-.3.2-.5.1a6.5 6.5 0 01-3.2-2.8c-.1-.2 0-.4.1-.5l.4-.5.2-.4v-.4l-.7-1.7c-.2-.4-.4-.4-.5-.4H8c-.2 0-.4.1-.6.3a2.6 2.6 0 00-.8 1.9c0 1.1.8 2.2.9 2.4.1.2 1.6 2.5 3.9 3.5 1.6.7 2.2.7 3 .6.5-.1 1.4-.6 1.6-1.1.2-.6.2-1 .1-1.1z"/></svg>
+          Escribir por WhatsApp
+        </a>
+        <button class="pr-form" type="button" data-open-form>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3 7l9 6 9-6"/></svg>
+          Completar formulario
+        </button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<script>
+(function(){
+  document.querySelectorAll('.pr [data-open-form]').forEach(function(el){
+    el.addEventListener('click',function(e){e.preventDefault();var b=document.getElementById('openForm');if(b){b.click();}else{location.hash='#contacto';}});
+  });
+})();
+</script>
 
 
 
@@ -2489,14 +2469,20 @@
             max-width: 560px
         }
 
-        .inf-draft {
-            display: inline-block;
-            margin-top: 14px;
-            font-size: .78rem;
-            color: #8A6400;
-            background: #FFF4D1;
-            border-radius: 6px;
-            padding: 4px 10px
+        .inf-tip {
+            margin: 18px auto 0;
+            max-width: 600px;
+            text-align: left;
+            background: #FFF7DE;
+            border-left: 4px solid var(--yellow);
+            border-radius: 0 10px 10px 0;
+            padding: 14px 16px;
+            color: var(--navy-deep);
+            font-size: .97rem;
+            line-height: 1.55
+        }
+        .inf-tip b {
+            color: var(--navy)
         }
 
         /* Botón a Proyectos */
@@ -2581,17 +2567,15 @@
                     alta del servicio de gas.</p>
             </div>
 
-            <!-- Escenario 2: NO HAY RED  (texto BORRADOR — confirmar con el cliente) -->
+            <!-- Escenario 2: NO HAY RED -->
             <div class="inf-panel" id="inf-no" role="tabpanel">
                 <div class="inf-badge no"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                         <path
                             d="M12 9v4M12 17h.01M10.3 3.9L2 18a2 2 0 001.7 3h16.6A2 2 0 0022 18L13.7 3.9a2 2 0 00-3.4 0z" />
                     </svg></div>
                 <h3>No hay red de distribución en la vereda</h3>
-                <p>Cuando todavía no hay red frente a tu domicilio, primero se gestiona la extensión de la red de
-                    distribución. Lo coordinamos a través de nuestras alianzas estratégicas y, una vez disponible,
-                    avanzamos con la instalación interna y el alta del servicio.</p>
-                <span class="inf-draft">Texto borrador · confirmar / reemplazar</span>
+                <p>El primer paso obligatorio antes de realizar cualquier trabajo interno es solicitar la extensión de la red de distribución.</p>
+                <div class="inf-tip"><b>Un consejo clave:</b> si realizás esta gestión en conjunto con tus vecinos de cuadra o barrio, podrán optimizar de manera significativa los costos de la obra externa, dividiendo los gastos de extensión de la red pública para que la conexión individual sea mucho más accesible.</div>
             </div>
 
             <div class="inf-cta">
@@ -2617,10 +2601,56 @@
         })();
     </script>
 
+    <style>
+      .svx{--navy:#0F4573;--navy-deep:#0B3A5E;--cyan:#12C3E4;--yellow:#FFC20E;--muted:#5B6B85;--soft:#F4F7FA;--border:#E4EAF0;font-family:"Saira",system-ui,sans-serif;background:#fff;padding:90px 22px}
+      .svx *{box-sizing:border-box}
+      .svx-wrap{max-width:1120px;margin:0 auto}
+      .svx-head{text-align:center;max-width:820px;margin:0 auto 48px}
+      .svx-kicker{display:inline-flex;align-items:center;gap:10px;margin-bottom:16px}
+      .svx-kicker span{width:26px;height:10px;background:var(--yellow);border-radius:2px}
+      .svx-kicker small{font-size:.8rem;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:var(--cyan)}
+      .svx-head h2{font-size:clamp(1.4rem,3vw,2.05rem);font-weight:700;color:var(--navy);text-transform:uppercase;line-height:1.2}
+      .svx-head p{margin:14px 0 0;color:var(--muted);font-size:1.05rem}
+      .svx-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+      .svx-card{background:#fff;border:1px solid var(--border);border-radius:16px;padding:24px 22px;box-shadow:0 10px 26px rgba(11,58,94,.06);transition:transform .18s,box-shadow .2s;display:flex;flex-direction:column}
+      .svx-card:hover{transform:translateY(-4px);box-shadow:0 16px 36px rgba(11,58,94,.12)}
+      .svx-ic{width:48px;height:48px;border-radius:12px;background:var(--soft);display:flex;align-items:center;justify-content:center;color:var(--navy);margin-bottom:14px}
+      .svx-ic svg{width:24px;height:24px}
+      .svx-card h3{font-size:1.08rem;font-weight:700;color:var(--navy-deep);margin-bottom:8px}
+      .svx-card p{color:var(--muted);font-size:.92rem;line-height:1.5}
+      .svx-card a{margin-top:14px;display:inline-flex;align-items:center;gap:7px;font-weight:600;font-size:.88rem;color:var(--navy);width:fit-content}
+      .svx-card a svg{width:15px;height:15px;transition:transform .18s}
+      .svx-card a:hover svg{transform:translateX(3px)}
+      .svx-all{text-align:center;margin-top:36px}
+      .svx-all a{display:inline-flex;align-items:center;gap:9px;font-weight:600;font-size:.98rem;color:#fff;background:var(--navy);padding:13px 26px;border-radius:9px;transition:background .2s,transform .16s}
+      .svx-all a:hover{background:var(--navy-deep);transform:translateY(-1px)}
+      .svx-all svg{width:18px;height:18px}
+      @media(max-width:860px){.svx-grid{grid-template-columns:repeat(2,1fr)}}
+      @media(max-width:540px){.svx{padding:64px 16px}.svx-grid{grid-template-columns:1fr}}
+    </style>
+    <section class="svx" id="servicios">
+      <div class="svx-wrap">
+        <div class="svx-head">
+          <div class="svx-kicker"><span></span><small>Servicios</small></div>
+          <h2>¿Necesitás habilitar, informar modificaciones o regularizar tu instalación?</h2>
+          <p>Accedé a los servicios esenciales que tu proyecto necesita.</p>
+        </div>
+        <div class="svx-grid">
+          <div class="svx-card"><div class="svx-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M3 3h18v18H3z"/><path d="M3 9h18M9 21V9"/></svg></div><h3>Proyecto y Diseño</h3><p>Planimetría, cálculo de materiales y dimensionamiento de la instalación.</p><a href="servicios.html#proyecto-diseno">Ver más <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a></div>
+          <div class="svx-card"><div class="svx-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M2 20h20M4 20V8l8-5 8 5v12"/></svg></div><h3>Dirección de Obra</h3><p>Supervisamos y coordinamos cada avance según el proyecto presentado.</p><a href="servicios.html#direccion-obra">Ver más <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a></div>
+          <div class="svx-card"><div class="svx-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M14.7 6.3a4 4 0 00-5.4 5.4L3 18v3h3l6.3-6.3a4 4 0 005.4-5.4l-2.7 2.7-2-2 2.7-2.7z"/></svg></div><h3>Ejecución de Instalaciones</h3><p>Materialización física del proyecto, conforme a la normativa vigente.</p><a href="servicios.html#ejecucion">Ver más <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a></div>
+          <div class="svx-card"><div class="svx-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="4" y="4" width="16" height="16" rx="2"/><path d="M4 9h16M9 13h6"/></svg></div><h3>Representación Técnica y Gestiones Online</h3><p>Tu representante ante la distribuidora: trámites y seguimiento completo.</p><a href="servicios.html#representacion">Ver más <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a></div>
+          <div class="svx-card"><div class="svx-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="12" cy="12" r="9"/><path d="M9.5 9a2.5 2.5 0 015 .2c0 1.8-2.5 2-2.5 3.8M12 17h.01"/></svg></div><h3>Asesoramiento Profesional</h3><p>Consultoría técnica para evaluar, regularizar o planificar tu instalación.</p><a href="servicios.html#asesoramiento">Ver más <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a></div>
+        </div>
+        <div class="svx-all"><a href="servicios.html">Ver todos los servicios <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a></div>
+      </div>
+    </section>
+
     <section class="alianzas slide" id="alianzas">
         <div class="container">
             <div class="section-head">
-                <h2>Alianzas Estratégicas</h2>
+                <h2>¿Sabés si la red de gas pasa por tu frente?</h2>
+                    <p>Te ayudamos a saber cuál es la situación en tu zona y ponemos a disposición alternativas habilitadas mediante nuestras alianzas estratégicas para posibilitar tu futura conexión.</p>
             </div>
             <div class="alianza-box">
                 <div class="icon-tile"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#0F4573"
@@ -2690,6 +2720,57 @@
         </div>
     </section>
 
+    <style>
+      .sgx{--navy:#0F4573;--navy-deep:#0B3A5E;--cyan:#12C3E4;--yellow:#FFC20E;--muted:#5B6B85;--soft:#F4F7FA;--border:#E4EAF0;font-family:"Saira",system-ui,sans-serif;background:var(--soft);padding:90px 22px}
+      .sgx *{box-sizing:border-box}
+      .sgx-wrap{max-width:1000px;margin:0 auto}
+      .sgx-head{text-align:center;max-width:720px;margin:0 auto 42px}
+      .sgx-kicker{display:inline-flex;align-items:center;gap:10px;margin-bottom:16px}
+      .sgx-kicker span{width:26px;height:10px;background:var(--yellow);border-radius:2px}
+      .sgx-kicker small{font-size:.8rem;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:var(--cyan)}
+      .sgx-head h2{font-size:clamp(1.4rem,3vw,2.05rem);font-weight:700;color:var(--navy);text-transform:uppercase;line-height:1.2}
+      .sgx-head p{margin:14px 0 0;color:var(--muted);font-size:1.05rem}
+      .sgx-grid{display:grid;grid-template-columns:1fr 1fr;gap:20px}
+      .sgx-card{position:relative;overflow:hidden;border-radius:18px;border:1px solid var(--border);background:#fff;box-shadow:0 12px 30px rgba(11,58,94,.07);display:flex;flex-direction:column;transition:transform .18s,box-shadow .2s}
+      .sgx-card:hover{transform:translateY(-4px);box-shadow:0 18px 40px rgba(11,58,94,.13)}
+      .sgx-ph{height:150px;background:linear-gradient(135deg,var(--navy),var(--navy-deep));display:flex;align-items:center;justify-content:center;color:#fff}
+      .sgx-ph svg{width:46px;height:46px;opacity:.92}
+      .sgx-body{padding:24px 24px 26px}
+      .sgx-body h3{font-size:1.14rem;font-weight:700;color:var(--navy-deep);margin-bottom:8px;text-transform:uppercase;letter-spacing:.01em}
+      .sgx-body p{color:var(--muted);font-size:.95rem;line-height:1.55}
+      .sgx-body a{display:inline-flex;align-items:center;gap:7px;margin-top:14px;font-weight:600;font-size:.9rem;color:var(--navy)}
+      .sgx-body a svg{width:15px;height:15px;transition:transform .18s}
+      .sgx-body a:hover svg{transform:translateX(3px)}
+      @media(max-width:620px){.sgx{padding:64px 16px}.sgx-grid{grid-template-columns:1fr}}
+    </style>
+    <section class="sgx" id="seguridad">
+      <div class="sgx-wrap">
+        <div class="sgx-head">
+          <div class="sgx-kicker"><span></span><small>Seguridad y Prevención</small></div>
+          <h2>Cuidá a tu hogar y a tu familia</h2>
+          <p>Seguí nuestras recomendaciones para mantener tu instalación segura y prevenir accidentes.</p>
+        </div>
+        <div class="sgx-grid">
+          <div class="sgx-card">
+            <div class="sgx-ph"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 3l8 4v5c0 5-3.5 7.5-8 9-4.5-1.5-8-4-8-9V7z"/><path d="M12 9v4M12 16h.01"/></svg></div>
+            <div class="sgx-body">
+              <h3>Denuncia de conexiones irregulares</h3>
+              <p>Una conexión clandestina es una conexión peligrosa. Conocé por qué y qué hacer.</p>
+              <a href="seguridad.html">Ver más <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+            </div>
+          </div>
+          <div class="sgx-card">
+            <div class="sgx-ph"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 2C8 6 7 9 7 12a5 5 0 0010 0c0-3-1-6-5-10z"/></svg></div>
+            <div class="sgx-body">
+              <h3>Monóxido de carbono</h3>
+              <p>Ingresá a nuestra guía y aprendé cómo prevenir accidentes en tu instalación.</p>
+              <a href="seguridad.html#monoxido">Ver más <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
     <section class="about slide" id="empresa">
         <div class="container">
             <div class="section-head">
@@ -2704,19 +2785,9 @@
                     de todas las magnitudes: usuarios residenciales, consorcios, comercios e industrias, sin
                     limitaciones de
                     consumo ni presión de trabajo.</p>
-                <p>Gestionamos el ciclo completo de cada proyecto de manera online, desde el alta hasta la habilitación
-                    definitiva. Durante todo el proceso mantenemos al cliente informado del estado de cada trámite y lo
-                    acompañamos en las aprobaciones que debe realizar, explicándole el paso a paso cuando lo necesite.
-                </p>
-                <p>Para proyectos de infraestructura que exceden los límites del establecimiento —como la extensión de
-                    red de
-                    gas natural sobre la vía pública— operamos mediante alianzas estratégicas con empresas contratistas
-                    habilitadas por Camuzzi Gas Pampeana, respaldadas por su trayectoria comprobada en el sector.</p>
-                <p>Trabajamos con un sistema estructurado sobre el profesionalismo y la transparencia, para que el
-                    cliente
-                    entienda en todo momento en qué etapa está su proyecto y qué falta para completarlo, accediendo a la
-                    red de
-                    gas natural de forma ágil y segura.</p>
+                <p>Gestionamos el ciclo completo de cada proyecto de manera online, desde el alta hasta la habilitación definitiva. Trabajamos con un sistema estructurado sobre el profesionalismo y la transparencia, manteniendo al cliente informado en todo momento sobre el estado de su proyecto.</p>
+                <p>Cuando el proyecto requiere obras de infraestructura que exceden los límites del establecimiento, como extensiones de red de gas natural sobre la vía pública, operamos mediante alianzas estratégicas con empresas contratistas habilitadas por Camuzzi Gas Pampeana. Esta articulación nos permite acercarle al cliente opciones operativas de confianza, respaldadas por la trayectoria comprobada de nuestros socios en el sector.</p>
+                <p>Trabajamos para que el cliente acceda a la red de gas natural de forma ágil y segura, cuidando cada presentación para que avance sin observaciones ni demoras.</p>
             </div>
         </div>
     </section>
@@ -3308,8 +3379,10 @@
             <div>
                 <h4>Enlaces</h4>
                 <ul>
+                    <li><a href="proyectos.html">Proyectos</a></li>
+                    <li><a href="servicios.html">Servicios</a></li>
+                    <li><a href="seguridad.html">Seguridad</a></li>
                     <li><a href="#empresa">Empresa</a></li>
-                    <li><a href="#servicios">Servicios</a></li>
                     <li><a href="#obras">Obras</a></li>
                     <li><a href="#contacto">Contacto</a></li>
                 </ul>
