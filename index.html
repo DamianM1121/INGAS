@@ -1896,7 +1896,8 @@ body.nh-mega-open::before{background:rgba(6,16,33,.45)!important;-webkit-backdro
             inset: 0;
             width: 100%;
             height: 100%;
-            object-fit: cover
+            object-fit: cover;
+            z-index: 2
         }
 
         .ct-photo svg {
@@ -2108,6 +2109,7 @@ body.nh-mega-open::before{background:rgba(6,16,33,.45)!important;-webkit-backdro
                 <div class="ct-grid">
                     <!-- Imagen del paso: reemplazá el contenido por <img class="ct-photo-img" src="..." alt=""> -->
                     <div class="ct-photo">
+                        <img class="ct-photo-img" id="ctPhoto" alt="" style="display:none">
                         <svg id="ctIcon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6">
                             <path d="M4 7h16M4 12h16M4 17h16" />
                         </svg>
@@ -2150,16 +2152,16 @@ body.nh-mega-open::before{background:rgba(6,16,33,.45)!important;-webkit-backdro
     <script>
         (function () {
             var STEPS = [
-                { name: "Contacto", desc: "Nos contás qué necesitás: instalación nueva, ampliación, modificación o reconexión del servicio.", icon: '<path d="M22 16.9v3a2 2 0 01-2.2 2 19.8 19.8 0 01-8.6-3 19.5 19.5 0 01-6-6 19.8 19.8 0 01-3-8.6A2 2 0 014.1 2h3a2 2 0 012 1.7l.5 2.5a2 2 0 01-.5 1.8L8 11a16 16 0 006 6l1-1a2 2 0 011.8-.5l2.5.5a2 2 0 011.7 2z"/>' },
-                { name: "Factibilidad y relevamiento", desc: '<ul><li>Si es <b>obra nueva</b>, evaluamos si la red de gas natural pasa por tu frente y relevamos el lugar para proyectar la instalación.</li><li>Si es <b>obra existente</b>, visitamos el lugar para conocer el estado de la instalación.</li></ul>', icon: '<path d="M12 21s-7-4.5-7-10a7 7 0 0114 0c0 5.5-7 10-7 10z"/><circle cx="12" cy="11" r="2.5"/>' },
-                { name: "Gestiones y trámites", desc: "Gestionamos el alta del proyecto de instalación de gas y los trámites correspondientes a tu legajo ante la distribuidora.", icon: '<path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><path d="M14 2v6h6M9 13h6M9 17h6"/>' },
-                { name: "Avance y validación", desc: "Te avisamos cuando tenés que aprobar trámites y te guiamos paso a paso en el proceso.", icon: '<path d="M9 11l3 3L22 4"/><path d="M21 12v7a2 2 0 01-2 2H5a2 2 0 01-2-2V5a2 2 0 012-2h11"/>' },
+                { name: "Contacto", desc: "Nos contás qué necesitás: instalación nueva, ampliación, modificación o reconexión del servicio.", img: "paso1-contacto.jpg", icon: '<path d="M22 16.9v3a2 2 0 01-2.2 2 19.8 19.8 0 01-8.6-3 19.5 19.5 0 01-6-6 19.8 19.8 0 01-3-8.6A2 2 0 014.1 2h3a2 2 0 012 1.7l.5 2.5a2 2 0 01-.5 1.8L8 11a16 16 0 006 6l1-1a2 2 0 011.8-.5l2.5.5a2 2 0 011.7 2z"/>' },
+                { name: "Factibilidad y relevamiento", desc: '<ul><li>Si es <b>obra nueva</b>, evaluamos si la red de gas natural pasa por tu frente y relevamos el lugar para proyectar la instalación.</li><li>Si es <b>obra existente</b>, visitamos el lugar para conocer el estado de la instalación.</li></ul>', img: "paso2-factibilidad.jpg", icon: '<path d="M12 21s-7-4.5-7-10a7 7 0 0114 0c0 5.5-7 10-7 10z"/><circle cx="12" cy="11" r="2.5"/>' },
+                { name: "Gestiones y trámites", desc: "Gestionamos el alta del proyecto de instalación de gas y los trámites correspondientes a tu legajo ante la distribuidora.", img: "paso3-gestiones.jpg", icon: '<path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><path d="M14 2v6h6M9 13h6M9 17h6"/>' },
+                { name: "Avance y validación", desc: "Te avisamos cuando tenés que aprobar trámites y te guiamos paso a paso en el proceso.", img: "paso4-avance.jpg", icon: '<path d="M9 11l3 3L22 4"/><path d="M21 12v7a2 2 0 01-2 2H5a2 2 0 01-2-2V5a2 2 0 012-2h11"/>' },
                 { name: "Ejecución y dirección", desc: "Construimos la instalación y dirigimos la obra según el pedido de factibilidad aprobado.", icon: '<path d="M14.7 6.3a4 4 0 00-5.4 5.4L3 18v3h3l6.3-6.3a4 4 0 005.4-5.4l-2.7 2.7-2-2 2.7-2.7z"/>' },
                 { name: "Habilitación", desc: "Tu instalación queda apta para la solicitud del servicio de gas, o quedan informados y actualizados los cambios realizados sobre la misma.", icon: '<path d="M12 3l8 4v5c0 5-3.5 7.5-8 9-4.5-1.5-8-4-8-9V7z"/><path d="M9 12l2 2 4-4"/>' },
                 { name: "Asesoramiento profesional", desc: "Si no sabés qué tipo de obra necesitás o tenés dudas, te brindamos asesoramiento personalizado.", icon: '<circle cx="12" cy="12" r="9"/><path d="M9.5 9a2.5 2.5 0 015 .2c0 1.8-2.5 2-2.5 3.8M12 17h.01"/>' }
             ];
             var i = 0, N = STEPS.length;
-            var fill = document.getElementById('ctFill'), icon = document.getElementById('ctIcon'), pName = document.getElementById('ctPhotoName'),
+            var fill = document.getElementById('ctFill'), icon = document.getElementById('ctIcon'), pName = document.getElementById('ctPhotoName'), photo = document.getElementById('ctPhoto'),
                 num = document.getElementById('ctNum'), name = document.getElementById('ctName'), desc = document.getElementById('ctDesc'),
                 dots = document.getElementById('ctDots'), cta = document.getElementById('ctCta');
             for (var k = 0; k < N; k++) { (function (k) { var b = document.createElement('button'); b.type = 'button'; b.setAttribute('aria-label', 'Ir al paso ' + (k + 1)); b.addEventListener('click', function () { i = k; render(); }); dots.appendChild(b); })(k); }
@@ -2167,6 +2169,8 @@ body.nh-mega-open::before{background:rgba(6,16,33,.45)!important;-webkit-backdro
                 var s = STEPS[i];
                 fill.style.width = ((i + 1) / N * 100) + '%';
                 icon.innerHTML = s.icon; pName.textContent = s.name;
+                if (s.img) { photo.src = s.img; photo.alt = s.name; photo.style.display = 'block'; }
+                else { photo.removeAttribute('src'); photo.style.display = 'none'; }
                 num.textContent = 'Paso ' + (i + 1); name.textContent = s.name; desc.innerHTML = s.desc;
                 [].forEach.call(dots.children, function (d, k) { d.className = k === i ? 'on' : ''; });
                 if (i === N - 1) { cta.className = 'ct-cta final'; cta.innerHTML = 'Solicitar presupuesto <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg>'; }
