@@ -1,0 +1,373 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Presupuesto de instalación — Uso interno INGAS</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Saira:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{--navy:#0F4573;--navy-deep:#0B3A5E;--cyan:#12C3E4;--yellow:#FFC20E;--muted:#5B6B85;--soft:#F4F7FA;--border:#E4EAF0;--ok:#1C9E6A;--danger:#C0392B}
+*{box-sizing:border-box}
+body{margin:0;font-family:"Saira",system-ui,sans-serif;background:var(--soft);color:#17283d}
+a{color:inherit}
+/* ===== Barra superior (uso interno) ===== */
+.pz-top{background:var(--navy-deep);color:#fff;padding:12px 22px;display:flex;align-items:center;gap:16px;flex-wrap:wrap}
+.pz-top img{height:34px;width:auto}
+.pz-brand{display:flex;align-items:center;gap:12px}
+.pz-badge{font-size:.72rem;font-weight:600;letter-spacing:.08em;text-transform:uppercase;background:var(--yellow);color:var(--navy-deep);padding:4px 10px;border-radius:20px}
+.pz-top .sp{flex:1}
+.pz-top a.back{color:#cfe8f3;text-decoration:none;font-size:.9rem;display:inline-flex;align-items:center;gap:6px}
+.pz-top a.back:hover{color:#fff}
+/* ===== Layout ===== */
+.pz-wrap{max-width:1240px;margin:0 auto;padding:24px 22px 80px;display:grid;grid-template-columns:1fr 340px;gap:26px;align-items:start}
+@media(max-width:980px){.pz-wrap{grid-template-columns:1fr}}
+.pz-head h1{font-size:clamp(1.3rem,3vw,1.9rem);color:var(--navy);margin:0 0 6px;text-transform:uppercase;letter-spacing:.01em}
+.pz-note{background:#EAF7FC;border:1px solid #CDEAF5;border-radius:12px;padding:12px 16px;color:#255a70;font-size:.9rem;line-height:1.5;margin:14px 0 20px}
+.pz-note b{color:var(--navy-deep)}
+/* ===== Controles ===== */
+.pz-tools{display:flex;gap:10px;flex-wrap:wrap;align-items:center;margin-bottom:16px}
+.pz-search{flex:1;min-width:200px;display:flex;align-items:center;gap:8px;background:#fff;border:1px solid var(--border);border-radius:10px;padding:8px 12px}
+.pz-search input{border:0;outline:0;font-family:inherit;font-size:.95rem;width:100%;background:transparent}
+.pz-search svg{width:18px;height:18px;color:var(--muted);flex-shrink:0}
+.btn{font-family:inherit;font-weight:600;font-size:.88rem;border:1px solid var(--border);background:#fff;color:var(--navy);padding:9px 14px;border-radius:9px;cursor:pointer;display:inline-flex;align-items:center;gap:7px;transition:background .15s,border-color .15s,color .15s}
+.btn:hover{background:var(--soft)}
+.btn svg{width:16px;height:16px}
+.btn.edit[aria-pressed="true"]{background:var(--yellow);border-color:var(--yellow);color:var(--navy-deep)}
+/* ===== Grupos / tabla ===== */
+.pz-group{background:#fff;border:1px solid var(--border);border-radius:14px;overflow:hidden;margin-bottom:16px;box-shadow:0 8px 22px rgba(11,58,94,.05)}
+.pz-group>h2{font-size:.95rem;text-transform:uppercase;letter-spacing:.05em;color:#fff;background:linear-gradient(135deg,var(--navy),var(--navy-deep));margin:0;padding:12px 18px}
+table{width:100%;border-collapse:collapse}
+thead th{font-size:.72rem;text-transform:uppercase;letter-spacing:.04em;color:var(--muted);text-align:left;padding:8px 10px;border-bottom:1px solid var(--border);font-weight:600}
+thead th.num,tbody td.num{text-align:right}
+thead th.ctr,tbody td.ctr{text-align:center}
+tbody td{padding:7px 10px;border-bottom:1px solid #EEF2F7;font-size:.92rem;vertical-align:middle}
+tbody tr:last-child td{border-bottom:0}
+tbody tr.on{background:#FFFBEC}
+.it-name{font-weight:500}
+.it-unit{font-size:.74rem;color:var(--muted);text-transform:uppercase;letter-spacing:.03em}
+.inp{font-family:inherit;font-size:.9rem;border:1px solid var(--border);border-radius:7px;padding:6px 8px;text-align:right;width:108px;background:#fff}
+.inp:focus{outline:2px solid var(--cyan);outline-offset:-1px;border-color:var(--cyan)}
+.inp.q{width:66px}
+.inp.price[readonly]{background:var(--soft);color:#42506b;border-color:transparent;cursor:default}
+.sub{font-weight:600;color:var(--navy-deep);white-space:nowrap}
+.sub.z{color:#aeb7c4;font-weight:400}
+/* ===== Resumen (sticky) ===== */
+.pz-side{position:sticky;top:18px}
+.pz-card{background:#fff;border:1px solid var(--border);border-radius:14px;box-shadow:0 12px 30px rgba(11,58,94,.08);overflow:hidden}
+.pz-card h3{margin:0;font-size:1rem;color:#fff;background:var(--navy-deep);padding:13px 18px;text-transform:uppercase;letter-spacing:.03em}
+.pz-card .body{padding:16px 18px}
+.row{display:flex;justify-content:space-between;align-items:center;gap:10px;padding:7px 0;font-size:.92rem}
+.row.lbl{color:var(--muted)}
+.row .v{font-weight:600;color:var(--navy-deep)}
+.row input.add{width:120px}
+.hr{height:1px;background:var(--border);margin:8px 0}
+.tot{display:flex;justify-content:space-between;align-items:baseline;padding:10px 0 2px}
+.tot b{font-size:1.5rem;color:var(--navy)}
+.tot span{font-size:.8rem;text-transform:uppercase;letter-spacing:.06em;color:var(--muted)}
+.chk{display:flex;align-items:center;gap:8px;font-size:.9rem;color:#34435c;cursor:pointer;user-select:none}
+.chk input{width:16px;height:16px;accent-color:var(--navy)}
+.cnt{font-size:.8rem;color:var(--muted);margin-top:4px}
+.acts{display:flex;flex-direction:column;gap:8px;margin-top:14px}
+.acts .btn{justify-content:center;width:100%}
+.btn.prim{background:var(--navy);color:#fff;border-color:var(--navy)}
+.btn.prim:hover{background:var(--navy-deep)}
+.btn.wa{background:var(--ok);color:#fff;border-color:var(--ok)}
+.btn.wa:hover{filter:brightness(.95)}
+.btn.ghost{background:transparent}
+.foot-mini{font-size:.76rem;color:var(--muted);margin-top:14px;line-height:1.5}
+.toast{position:fixed;left:50%;bottom:26px;transform:translateX(-50%) translateY(20px);background:var(--navy-deep);color:#fff;padding:11px 20px;border-radius:10px;font-size:.9rem;opacity:0;pointer-events:none;transition:.25s;z-index:50}
+.toast.show{opacity:1;transform:translateX(-50%) translateY(0)}
+/* ===== Impresión ===== */
+@media print{
+  .pz-top,.pz-tools,.it-unit,thead th.price,tbody td.price,.acts,.pz-note,.cnt,.foot-mini{display:none!important}
+  body{background:#fff}
+  .pz-wrap{grid-template-columns:1fr;padding:0}
+  .pz-group,.pz-card{box-shadow:none;border-color:#ccc}
+  tbody tr:not(.on){display:none}
+  .pz-group:has(tbody tr.on) {break-inside:avoid}
+  .pz-side{position:static}
+}
+</style>
+</head>
+<body>
+<div class="pz-top">
+  <div class="pz-brand">
+    <img src="incas-logo-estatico.png" alt="INGAS">
+    <span class="pz-badge">Uso interno</span>
+  </div>
+  <span class="sp"></span>
+  <a class="back" href="index.html"><svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2"><path d="M15 18l-6-6 6-6"/></svg> Volver al sitio</a>
+</div>
+
+<div class="pz-wrap">
+  <!-- ======== Catálogo ======== -->
+  <div class="pz-main">
+    <div class="pz-head">
+      <h1>Presupuesto de instalación</h1>
+    </div>
+    <div class="pz-note">
+      Precios de referencia <b><span id="mesRef" contenteditable="true">Septiembre 2026</span></b> · Buenos Aires Capital / AMBA.
+      Valores <b>sin IVA</b>, <b>sin movilidad</b>, <b>sin ayudante/s</b> y <b>sin viáticos</b> (se agregan aparte en el resumen).
+      Cargá la cantidad de cada trabajo; el total se calcula solo.
+    </div>
+
+    <div class="pz-tools">
+      <label class="pz-search">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4.3-4.3"/></svg>
+        <input id="buscar" type="search" placeholder="Buscar trabajo…">
+      </label>
+      <button class="btn edit" id="btnEdit" type="button" aria-pressed="false" title="Editar precios unitarios">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 20h9"/><path d="M16.5 3.5a2.1 2.1 0 013 3L7 19l-4 1 1-4 12.5-12.5z"/></svg>
+        Editar precios
+      </button>
+      <button class="btn ghost" id="btnExport" type="button" title="Descargar precios (JSON)">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 3v12M7 10l5 5 5-5M5 21h14"/></svg>
+        Exportar precios
+      </button>
+      <button class="btn ghost" id="btnImport" type="button" title="Cargar precios (JSON)">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 21V9M7 14l5-5 5 5M5 3h14"/></svg>
+        Importar
+      </button>
+      <input id="fileImport" type="file" accept="application/json" hidden>
+    </div>
+
+    <div id="grupos"></div>
+  </div>
+
+  <!-- ======== Resumen ======== -->
+  <aside class="pz-side">
+    <div class="pz-card">
+      <h3>Resumen</h3>
+      <div class="body">
+        <div class="row lbl"><span>Subtotal trabajos</span><span class="v" id="rSub">$ 0</span></div>
+        <div class="hr"></div>
+        <div class="row lbl"><span>Movilidad</span><input class="inp add" id="addMov" type="number" min="0" step="100" placeholder="0"></div>
+        <div class="row lbl"><span>Ayudante/s</span><input class="inp add" id="addAyu" type="number" min="0" step="100" placeholder="0"></div>
+        <div class="row lbl"><span>Viáticos</span><input class="inp add" id="addVia" type="number" min="0" step="100" placeholder="0"></div>
+        <div class="hr"></div>
+        <label class="chk"><input type="checkbox" id="chkIva"> Agregar IVA (<span id="ivaPct">21</span>%)</label>
+        <div class="row lbl" id="rowIva" style="display:none"><span>IVA</span><span class="v" id="rIva">$ 0</span></div>
+        <div class="hr"></div>
+        <div class="tot"><span>Total</span><b id="rTot">$ 0</b></div>
+        <div class="cnt" id="rCnt">0 trabajos seleccionados</div>
+
+        <div class="acts">
+          <button class="btn prim" id="btnCopiar" type="button">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="12" height="12" rx="2"/><path d="M5 15V5a2 2 0 012-2h10"/></svg>
+            Copiar detalle
+          </button>
+          <button class="btn wa" id="btnWa" type="button">
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2a10 10 0 00-8.6 15l-1.3 4.8 4.9-1.3A10 10 0 1012 2zm4.3 12.2c-.2-.1-1.4-.7-1.6-.8-.2-.1-.4-.1-.5.1l-.7.9c-.1.2-.3.2-.5.1a6.5 6.5 0 01-3.2-2.8c-.1-.2 0-.4.1-.5l.4-.5.2-.4v-.4l-.7-1.7c-.2-.4-.4-.4-.5-.4H8c-.2 0-.4.1-.6.3a2.6 2.6 0 00-.8 1.9c0 1.1.8 2.2.9 2.4.1.2 1.6 2.5 3.9 3.5 1.6.7 2.2.7 3 .6.5-.1 1.4-.6 1.6-1.1.2-.6.2-1 .1-1.1z"/></svg>
+            Enviar por WhatsApp
+          </button>
+          <button class="btn" id="btnImprimir" type="button">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9V3h12v6M6 18H4a2 2 0 01-2-2v-4a2 2 0 012-2h16a2 2 0 012 2v4a2 2 0 01-2 2h-2M6 14h12v7H6z"/></svg>
+            Imprimir / PDF
+          </button>
+          <button class="btn ghost" id="btnLimpiar" type="button">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 6h18M8 6V4h8v2M19 6l-1 14H6L5 6"/></svg>
+            Limpiar cantidades
+          </button>
+        </div>
+        <p class="foot-mini">Los precios que cargues se guardan en este navegador. Usá <b>Exportar</b> para respaldarlos o pasarlos a otra PC.</p>
+      </div>
+    </div>
+  </aside>
+</div>
+
+<div class="toast" id="toast"></div>
+
+<script>
+/* ====== Catálogo de actividades (según listado Cámara, Sept 2026) ====== */
+const CATALOGO = [
+ { grupo:"Instalaciones", items:[
+   ["ins_epoxi_zanj","Instalación de gas — cañería epoxi, zanjeado","por mt"],
+   ["ins_epoxi_canal","Instalación de gas — cañería epoxi, canalizado","por mt"],
+   ["ins_epoxi_aereo","Instalación de gas — cañería epoxi, aéreo y engrampado","por mt"],
+   ["ins_epoxi_boca","Instalación de gas — cañería epoxi, por boca","por boca"],
+   ["ins_fus_zanj","Instalación de gas — cañería fusión, zanjeado","por mt"],
+   ["ins_fus_canal","Instalación de gas — cañería fusión, canalizado","por mt"],
+   ["ins_fus_aereo","Instalación de gas — cañería fusión, aéreo y engrampado","por mt"],
+   ["ins_fus_boca","Instalación de gas — cañería fusión, por boca","por boca"],
+   ["ins_leno","Instalación de leño","unidad"],
+   ["ins_pantalla","Instalación de pantalla IR","unidad"],
+   ["ins_calef_ss","Instalación de calefactor sin salida","unidad"],
+   ["ins_calef_tbh","Instalación de calefactor TBH","unidad"],
+   ["ins_calef_tbu","Instalación de calefactor TBU (hasta 6 mts)","unidad"],
+   ["ins_calefon_tn","Instalación de calefón instantáneo TN","unidad"],
+   ["ins_calefon_tb","Instalación de calefón instantáneo T.B.","unidad"],
+   ["ins_termot","Instalación de termotanque (por acumulación)","unidad"],
+   ["ins_cocina_dom","Instalación de cocina doméstica","unidad"],
+   ["ins_cocina_ind","Instalación de cocina industrial","unidad"],
+   ["ins_anafe","Instalación de anafe","unidad"],
+   ["ins_horno","Instalación de horno en nicho","unidad"],
+   ["ins_caldera","Instalación de caldera","unidad"],
+ ]},
+ { grupo:"Colocación / Limpieza", items:[
+   ["col_rejas","Colocación de par de rejas de ventilación","par"],
+   ["lim_calef_ss","Limpieza de calefactor sin salida","unidad"],
+   ["lim_calef_tbh","Limpieza de calefactor TBH","unidad"],
+   ["lim_calef_tbu","Limpieza de calefactor TBU","unidad"],
+   ["lim_calefon","Limpieza de calefón instantáneo","unidad"],
+   ["lim_termot","Limpieza de termotanque (por acumulación)","unidad"],
+ ]},
+ { grupo:"Cambios / Conversión / Diafragmas / Termocuplas", items:[
+   ["cam_tc_calefon","Cambio de termocupla de calefón","unidad"],
+   ["cam_tc_cocina","Cambio de termocupla de cocina","unidad"],
+   ["cam_tc_calef_ss","Cambio de termocupla de calefactor sin salida","unidad"],
+   ["cam_tc_calef_tb","Cambio de termocupla de calefactor TB","unidad"],
+   ["cam_diaf","Cambio de diafragma de calentador de agua","unidad"],
+   ["cam_conv","Conversión de artefacto de GLP a GN","unidad"],
+ ]},
+ { grupo:"Planta reguladora / Medidor / Pruebas", items:[
+   ["pr_planta","Armado de planta reguladora","unidad"],
+   ["pr_medidor","Colocación de medidor con regulador","unidad"],
+   ["pr_mano3","Prueba manométrica hasta 3 artefactos","unidad"],
+   ["pr_mano6","Prueba manométrica hasta 6 artefactos","unidad"],
+   ["pr_fuga","Detección de fuga de gas","unidad"],
+ ]},
+ { grupo:"Trámites y otros", items:[
+   ["tr_full3","Trámites completos (planos, fact, parcial, final) — 3 bocas","unidad"],
+   ["tr_full10","Trámites completos (planos, fact, parcial, final) — 10 bocas","unidad"],
+   ["tr_fact","Factibilidad","unidad"],
+   ["tr_parcial","Trámites para inspección parcial","unidad"],
+   ["tr_final","Trámites para inspección final","unidad"],
+   ["tr_plano","Plano completo en AutoCAD","unidad"],
+   ["tr_conf","Informe de conformidad para inmobiliarias","unidad"],
+   ["tr_jornal_of","Jornal de oficial gasista","jornal"],
+   ["tr_jornal_ay","Jornal de ayudante gasista","jornal"],
+ ]},
+];
+
+const LS_PRE="ingas_presu_precios_v1", LS_MES="ingas_presu_mes_v1";
+const fmt=new Intl.NumberFormat('es-AR',{style:'currency',currency:'ARS',maximumFractionDigits:0});
+const WA="5492215618081";
+let precios=cargar(LS_PRE)||{};   // {id: number}
+let editMode=false;
+
+function cargar(k){try{return JSON.parse(localStorage.getItem(k)||"null")}catch(e){return null}}
+function guardarPrecios(){try{localStorage.setItem(LS_PRE,JSON.stringify(precios))}catch(e){}}
+function toast(m){const t=document.getElementById('toast');t.textContent=m;t.classList.add('show');clearTimeout(t._t);t._t=setTimeout(()=>t.classList.remove('show'),1900);}
+
+/* ====== Render ====== */
+function render(){
+  const cont=document.getElementById('grupos');cont.innerHTML='';
+  CATALOGO.forEach(g=>{
+    const sec=document.createElement('div');sec.className='pz-group';
+    let rows='';
+    g.items.forEach(([id,nombre,unidad])=>{
+      const p=precios[id]||0;
+      rows+=`<tr data-id="${id}" data-name="${nombre.toLowerCase()}">
+        <td><span class="it-name">${nombre}</span><div class="it-unit">${unidad}</div></td>
+        <td class="num price"><input class="inp price" data-price="${id}" type="number" min="0" step="1" value="${p||''}" placeholder="0" ${editMode?'':'readonly'}></td>
+        <td class="ctr"><input class="inp q" data-q="${id}" type="number" min="0" step="1" value="" placeholder="0"></td>
+        <td class="num"><span class="sub z" data-sub="${id}">—</span></td>
+      </tr>`;
+    });
+    sec.innerHTML=`<h2>${g.grupo}</h2>
+      <table><thead><tr>
+        <th>Trabajo</th><th class="num price">Precio unit.</th><th class="ctr">Cant.</th><th class="num">Subtotal</th>
+      </tr></thead><tbody>${rows}</tbody></table>`;
+    cont.appendChild(sec);
+  });
+  bind();calc();
+}
+
+function bind(){
+  document.querySelectorAll('[data-q]').forEach(inp=>inp.addEventListener('input',calc));
+  document.querySelectorAll('[data-price]').forEach(inp=>inp.addEventListener('input',e=>{
+    const id=e.target.dataset.price;const v=parseFloat(e.target.value);
+    precios[id]=isNaN(v)?0:v;guardarPrecios();calc();
+  }));
+}
+
+function calc(){
+  let sub=0,cnt=0;
+  CATALOGO.forEach(g=>g.items.forEach(([id])=>{
+    const q=parseFloat((document.querySelector(`[data-q="${id}"]`)||{}).value)||0;
+    const p=precios[id]||0;const st=q*p;
+    const cell=document.querySelector(`[data-sub="${id}"]`);
+    const tr=document.querySelector(`tr[data-id="${id}"]`);
+    if(q>0){cnt++;sub+=st;tr.classList.add('on');cell.textContent=fmt.format(st);cell.classList.remove('z');}
+    else{tr.classList.remove('on');cell.textContent='—';cell.classList.add('z');}
+  }));
+  const mov=+document.getElementById('addMov').value||0;
+  const ayu=+document.getElementById('addAyu').value||0;
+  const via=+document.getElementById('addVia').value||0;
+  const base=sub+mov+ayu+via;
+  const iva=document.getElementById('chkIva').checked?Math.round(base*0.21):0;
+  document.getElementById('rowIva').style.display=iva?'flex':'none';
+  document.getElementById('rSub').textContent=fmt.format(sub);
+  document.getElementById('rIva').textContent=fmt.format(iva);
+  document.getElementById('rTot').textContent=fmt.format(base+iva);
+  document.getElementById('rCnt').textContent=cnt+(cnt===1?' trabajo seleccionado':' trabajos seleccionados');
+}
+
+/* ====== Detalle texto (copiar / WhatsApp) ====== */
+function detalle(){
+  const mes=document.getElementById('mesRef').textContent.trim();
+  let L=[`*INGAS — Presupuesto de instalación*`,`Ref: ${mes} · sin IVA/movilidad/ayudante/viáticos salvo lo indicado`,``];
+  let sub=0;
+  CATALOGO.forEach(g=>{
+    let gi=[];
+    g.items.forEach(([id,nombre,unidad])=>{
+      const q=parseFloat((document.querySelector(`[data-q="${id}"]`)||{}).value)||0;
+      const p=precios[id]||0;if(q>0){const st=q*p;sub+=st;gi.push(`• ${nombre} — ${q} × ${fmt.format(p)} = ${fmt.format(st)}`);}
+    });
+    if(gi.length){L.push(`*${g.grupo}*`);L.push(...gi);L.push('');}
+  });
+  const mov=+document.getElementById('addMov').value||0,ayu=+document.getElementById('addAyu').value||0,via=+document.getElementById('addVia').value||0;
+  if(mov)L.push(`Movilidad: ${fmt.format(mov)}`);
+  if(ayu)L.push(`Ayudante/s: ${fmt.format(ayu)}`);
+  if(via)L.push(`Viáticos: ${fmt.format(via)}`);
+  const base=sub+mov+ayu+via;const iva=document.getElementById('chkIva').checked?Math.round(base*0.21):0;
+  L.push(`Subtotal trabajos: ${fmt.format(sub)}`);
+  if(iva)L.push(`IVA (21%): ${fmt.format(iva)}`);
+  L.push(`*TOTAL: ${fmt.format(base+iva)}*`);
+  return L.join('\n');
+}
+
+/* ====== Acciones ====== */
+document.getElementById('btnEdit').addEventListener('click',e=>{
+  editMode=!editMode;e.currentTarget.setAttribute('aria-pressed',editMode);
+  document.querySelectorAll('[data-price]').forEach(i=>{editMode?i.removeAttribute('readonly'):i.setAttribute('readonly','');});
+  toast(editMode?'Precios editables — se guardan solos':'Precios bloqueados');
+});
+['addMov','addAyu','addVia'].forEach(id=>document.getElementById(id).addEventListener('input',calc));
+document.getElementById('chkIva').addEventListener('change',calc);
+document.getElementById('buscar').addEventListener('input',e=>{
+  const q=e.target.value.toLowerCase().trim();
+  document.querySelectorAll('tr[data-id]').forEach(tr=>{tr.style.display=(!q||tr.dataset.name.includes(q))?'':'none';});
+  document.querySelectorAll('.pz-group').forEach(g=>{const vis=[...g.querySelectorAll('tr[data-id]')].some(tr=>tr.style.display!=='none');g.style.display=vis?'':'none';});
+});
+document.getElementById('btnCopiar').addEventListener('click',()=>{
+  const t=detalle();navigator.clipboard?.writeText(t).then(()=>toast('Detalle copiado')).catch(()=>{prompt('Copiá el detalle:',t);});
+});
+document.getElementById('btnWa').addEventListener('click',()=>{window.open(`https://wa.me/${WA}?text=`+encodeURIComponent(detalle()),'_blank');});
+document.getElementById('btnImprimir').addEventListener('click',()=>window.print());
+document.getElementById('btnLimpiar').addEventListener('click',()=>{
+  document.querySelectorAll('[data-q]').forEach(i=>i.value='');
+  ['addMov','addAyu','addVia'].forEach(id=>document.getElementById(id).value='');
+  document.getElementById('chkIva').checked=false;calc();toast('Cantidades reiniciadas');
+});
+document.getElementById('btnExport').addEventListener('click',()=>{
+  const data={mes:document.getElementById('mesRef').textContent.trim(),precios};
+  const b=new Blob([JSON.stringify(data,null,2)],{type:'application/json'});
+  const a=document.createElement('a');a.href=URL.createObjectURL(b);a.download='ingas-precios.json';a.click();URL.revokeObjectURL(a.href);
+});
+document.getElementById('btnImport').addEventListener('click',()=>document.getElementById('fileImport').click());
+document.getElementById('fileImport').addEventListener('change',e=>{
+  const f=e.target.files[0];if(!f)return;const r=new FileReader();
+  r.onload=()=>{try{const d=JSON.parse(r.result);if(d.precios){precios=d.precios;guardarPrecios();}if(d.mes){document.getElementById('mesRef').textContent=d.mes;localStorage.setItem(LS_MES,d.mes);}render();toast('Precios importados');}catch(x){toast('Archivo inválido');}};
+  r.readAsText(f);e.target.value='';
+});
+document.getElementById('mesRef').addEventListener('blur',e=>{try{localStorage.setItem(LS_MES,e.target.textContent.trim())}catch(x){}});
+
+/* ====== Init ====== */
+(function(){const m=localStorage.getItem(LS_MES);if(m)document.getElementById('mesRef').textContent=m;})();
+render();
+</script>
+</body>
+</html>

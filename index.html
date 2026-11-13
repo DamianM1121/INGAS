@@ -910,7 +910,9 @@ body.nh-mega-open::before{background:rgba(6,16,33,.45)!important;-webkit-backdro
 .kick2{display:inline-flex;align-items:center;gap:10px;margin-bottom:12px}
 .kick2 span{width:26px;height:10px;background:#FFC20E;border-radius:2px}
 .kick2 small{font-size:.8rem;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:var(--cyan)}
-.alianzas .section-head h2,.works .head h2{text-transform:uppercase;color:var(--blue)}
+.alianzas .section-head h2,.works .head h2{font-size:clamp(1.4rem,3vw,2.05rem);line-height:1.2;text-transform:uppercase;color:var(--blue)}
+.alianzas .section-head h2{white-space:nowrap}
+@media(max-width:720px){.alianzas .section-head h2{white-space:normal}}
 </style>
 <style>
 /* ===== FOOTER UNIFICADO (sf-) — mismo en todo el sitio ===== */
@@ -1764,7 +1766,7 @@ body.nh-mega-open::before{background:rgba(6,16,33,.45)!important;-webkit-backdro
                 <span class="eyebrow reveal r1">Zona de distribución Camuzzi Gas Pampeana</span>
                 <h1 class="reveal r2">Instalaciones Internas de Gas</h1>
                 <p class="reveal r3">Soluciones profesionales para cualquier tipo de proyecto.
-                    Con el respaldo de nuestra matrícula de primera categoría, ejecutamos todo tipo de instalaciones
+                    Con el respaldo de nuestra <strong class="mat-hl">matrícula de primera categoría</strong>, ejecutamos todo tipo de instalaciones
                     residenciales, comerciales o industriales.
                 </p>
                 <div class="hero-cta reveal r4">
@@ -1778,6 +1780,17 @@ body.nh-mega-open::before{background:rgba(6,16,33,.45)!important;-webkit-backdro
             </div>
         </div>
     </section>
+
+    <style>
+        /* Resalta la habilitación en el hero */
+        .hero .mat-hl{
+            color:#FFC20E;
+            font-weight:700;
+            border-bottom:2px solid rgba(255,194,14,.55);
+            padding-bottom:1px;
+            text-shadow:0 1px 10px rgba(0,0,0,.35)
+        }
+    </style>
 
     <style>
         /* ===== Sección “Cómo trabajamos” (clases ct- para no chocar con tu CSS) ===== */
@@ -1875,7 +1888,8 @@ body.nh-mega-open::before{background:rgba(6,16,33,.45)!important;-webkit-backdro
         .ct-grid {
             display: grid;
             grid-template-columns: minmax(0, 1fr) minmax(0, 1.1fr);
-            gap: 0
+            gap: 0;
+            min-height: 430px
         }
 
         /* Imagen (placeholder — reemplazá por <img src="foto.jpg" class="ct-photo-img">) */
@@ -2072,7 +2086,8 @@ body.nh-mega-open::before{background:rgba(6,16,33,.45)!important;-webkit-backdro
             }
 
             .ct-grid {
-                grid-template-columns: 1fr
+                grid-template-columns: 1fr;
+                min-height: 0
             }
 
             .ct-photo {
@@ -2654,11 +2669,12 @@ body.nh-mega-open::before{background:rgba(6,16,33,.45)!important;-webkit-backdro
       .svx{--navy:#0F4573;--navy-deep:#0B3A5E;--cyan:#12C3E4;--yellow:#FFC20E;--muted:#5B6B85;--soft:#F4F7FA;--border:#E4EAF0;font-family:"Saira",system-ui,sans-serif;background:#fff;padding:90px 22px}
       .svx *{box-sizing:border-box}
       .svx-wrap{max-width:1120px;margin:0 auto}
-      .svx-head{text-align:center;max-width:820px;margin:0 auto 48px}
+      .svx-head{text-align:center;max-width:920px;margin:0 auto 48px}
       .svx-kicker{display:inline-flex;align-items:center;gap:10px;margin-bottom:16px}
       .svx-kicker span{width:26px;height:10px;background:var(--yellow);border-radius:2px}
       .svx-kicker small{font-size:.8rem;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:var(--cyan)}
-      .svx-head h2{font-size:clamp(1.4rem,3vw,2.05rem);font-weight:700;color:var(--navy);text-transform:uppercase;line-height:1.2}
+      .svx-head h2{font-size:clamp(1.4rem,3vw,2.05rem);font-weight:700;color:var(--navy);text-transform:uppercase;line-height:1.2;white-space:nowrap}
+      @media(max-width:800px){.svx-head h2{white-space:normal}}
       .svx-head p{margin:14px 0 0;color:var(--muted);font-size:1.05rem}
       .svx-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
       .svx-card{background:#fff;border:1px solid var(--border);border-radius:16px;padding:24px 22px;box-shadow:0 10px 26px rgba(11,58,94,.06);transition:transform .18s,box-shadow .2s;display:flex;flex-direction:column}
@@ -2681,7 +2697,7 @@ body.nh-mega-open::before{background:rgba(6,16,33,.45)!important;-webkit-backdro
       <div class="svx-wrap">
         <div class="svx-head">
           <div class="svx-kicker"><span></span><small>Servicios</small></div>
-          <h2>¿Necesitás habilitar, informar modificaciones o regularizar tu instalación?</h2>
+          <h2>Habilitá, informá o regularizá tu instalación</h2>
           <p>Accedé a los servicios esenciales que tu proyecto necesita.</p>
         </div>
         <div class="svx-grid">
