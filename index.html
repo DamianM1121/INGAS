@@ -912,6 +912,7 @@ body.nh-mega-open::before{background:rgba(6,16,33,.45)!important;-webkit-backdro
 .kick2 small{font-size:.8rem;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:var(--cyan)}
 .alianzas .section-head h2,.works .head h2{font-size:clamp(1.4rem,3vw,2.05rem);line-height:1.2;text-transform:uppercase;color:var(--blue)}
 .alianzas .section-head h2{white-space:nowrap}
+.alianzas .section-head{max-width:760px}
 @media(max-width:720px){.alianzas .section-head h2{white-space:normal}}
 </style>
 <style>
@@ -1846,13 +1847,14 @@ body.nh-mega-open::before{background:rgba(6,16,33,.45)!important;-webkit-backdro
         }
 
         .ct-head h2 {
-            font-size: clamp(1.5rem, 3.4vw, 2.2rem);
+            font-size: clamp(1.3rem, 2.9vw, 2.05rem);
             font-weight: 700;
             color: var(--navy);
             margin: 0;
             text-transform: uppercase;
             letter-spacing: .01em;
-            line-height: 1.15
+            line-height: 1.15;
+            white-space: nowrap
         }
 
         .ct-head p {
@@ -2100,6 +2102,10 @@ body.nh-mega-open::before{background:rgba(6,16,33,.45)!important;-webkit-backdro
 
             .ct-cta {
                 padding: 11px 18px
+            }
+
+            .ct-head h2 {
+                white-space: normal
             }
         }
 

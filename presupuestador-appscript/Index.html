@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<base target="_top">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+:root{--navy:#0F4573;--navy-deep:#0B3A5E;--cyan:#12C3E4;--yellow:#FFC20E;--muted:#5B6B85;--soft:#F4F7FA;--border:#E4EAF0;--ok:#1C9E6A}
+*{box-sizing:border-box}
+body{margin:0;font-family:"Saira","Segoe UI",system-ui,sans-serif;background:var(--soft);color:#17283d}
+img{max-width:100%}
+/* Barra */
+.top{background:var(--navy-deep);color:#fff;padding:12px 20px;display:flex;align-items:center;gap:12px}
+.top img{height:34px;width:auto}
+.top b{font-weight:600;font-size:1rem;letter-spacing:.02em}
+.top .badge{margin-left:auto;font-size:.72rem;font-weight:600;letter-spacing:.06em;text-transform:uppercase;background:rgba(255,255,255,.14);padding:4px 10px;border-radius:20px}
+.wrap{max-width:1180px;margin:0 auto;padding:22px 18px 90px;display:grid;grid-template-columns:1fr 330px;gap:24px;align-items:start}
+@media(max-width:960px){.wrap{grid-template-columns:1fr}}
+h1{font-size:clamp(1.3rem,3vw,1.8rem);color:var(--navy);margin:0 0 6px;text-transform:uppercase}
+.lead{background:#EAF7FC;border:1px solid #CDEAF5;border-radius:12px;padding:12px 16px;color:#255a70;font-size:.92rem;line-height:1.5;margin:12px 0 18px}
+.search{display:flex;align-items:center;gap:8px;background:#fff;border:1px solid var(--border);border-radius:10px;padding:9px 13px;margin-bottom:16px}
+.search input{border:0;outline:0;font-family:inherit;font-size:.95rem;width:100%;background:transparent}
+.search svg{width:18px;height:18px;color:var(--muted);flex-shrink:0}
+/* Grupos */
+.group{background:#fff;border:1px solid var(--border);border-radius:14px;overflow:hidden;margin-bottom:16px;box-shadow:0 8px 22px rgba(11,58,94,.05)}
+.group h2{font-size:.95rem;text-transform:uppercase;letter-spacing:.05em;color:#fff;background:linear-gradient(135deg,var(--navy),var(--navy-deep));margin:0;padding:12px 18px}
+.item{display:flex;align-items:center;gap:12px;padding:11px 16px;border-bottom:1px solid #EEF2F7}
+.item:last-child{border-bottom:0}
+.item.on{background:#FFFBEC}
+.item .info{flex:1;min-width:0}
+.item .nm{font-weight:500;font-size:.95rem}
+.item .un{font-size:.74rem;color:var(--muted);text-transform:uppercase;letter-spacing:.03em}
+.item .pr{font-size:.82rem;color:var(--navy);font-weight:600;margin-top:2px}
+.stepper{display:flex;align-items:center;gap:0;border:1px solid var(--border);border-radius:9px;overflow:hidden;flex-shrink:0}
+.stepper button{border:0;background:#fff;color:var(--navy);width:34px;height:36px;font-size:1.2rem;cursor:pointer;line-height:1}
+.stepper button:hover{background:var(--soft)}
+.stepper input{width:46px;height:36px;border:0;border-left:1px solid var(--border);border-right:1px solid var(--border);text-align:center;font-family:inherit;font-size:.95rem;outline:0}
+.sub{min-width:92px;text-align:right;font-weight:600;color:var(--navy-deep);font-size:.9rem}
+.sub.z{color:#c3cad6;font-weight:400}
+/* Resumen */
+.side{position:sticky;top:16px}
+.card{background:#fff;border:1px solid var(--border);border-radius:14px;box-shadow:0 12px 30px rgba(11,58,94,.08);overflow:hidden}
+.card h3{margin:0;font-size:1rem;color:#fff;background:var(--navy-deep);padding:13px 18px;text-transform:uppercase;letter-spacing:.03em}
+.card .body{padding:16px 18px}
+.row{display:flex;justify-content:space-between;align-items:center;padding:6px 0;font-size:.92rem;color:var(--muted)}
+.row .v{font-weight:600;color:var(--navy-deep)}
+.tot{display:flex;justify-content:space-between;align-items:baseline;padding:10px 0 2px;border-top:1px solid var(--border);margin-top:8px}
+.tot b{font-size:1.4rem;color:var(--navy)}
+.tot span{font-size:.78rem;text-transform:uppercase;letter-spacing:.06em;color:var(--muted)}
+.cnt{font-size:.8rem;color:var(--muted);margin:4px 0 2px}
+.disc{font-size:.78rem;color:var(--muted);line-height:1.5;margin-top:10px;padding-top:10px;border-top:1px dashed var(--border)}
+.btn{font-family:inherit;font-weight:600;font-size:.92rem;border:0;border-radius:9px;padding:12px 14px;cursor:pointer;display:inline-flex;align-items:center;justify-content:center;gap:8px;width:100%;margin-top:12px}
+.btn.prim{background:var(--navy);color:#fff}
+.btn.prim:hover{background:var(--navy-deep)}
+.btn.prim[disabled]{opacity:.5;cursor:not-allowed}
+/* Form modal */
+.ov{position:fixed;inset:0;background:rgba(6,16,33,.5);display:none;align-items:center;justify-content:center;padding:18px;z-index:40}
+.ov.show{display:flex}
+.modal{background:#fff;border-radius:16px;max-width:460px;width:100%;padding:24px;box-shadow:0 20px 60px rgba(0,0,0,.3)}
+.modal h3{margin:0 0 4px;color:var(--navy)}
+.modal p.s{margin:0 0 16px;color:var(--muted);font-size:.9rem}
+.fld{margin-bottom:12px}
+.fld label{display:block;font-size:.82rem;font-weight:600;color:#34435c;margin-bottom:4px}
+.fld input,.fld textarea{width:100%;font-family:inherit;font-size:.95rem;border:1px solid var(--border);border-radius:9px;padding:10px 12px;outline:0}
+.fld input:focus,.fld textarea:focus{border-color:var(--cyan);outline:2px solid rgba(18,195,228,.25)}
+.modal .acts{display:flex;gap:10px;margin-top:6px}
+.modal .acts .btn{margin-top:0}
+.btn.ghost{background:transparent;border:1px solid var(--border);color:var(--navy)}
+.ok-screen{text-align:center;padding:10px 6px}
+.ok-screen .ic{width:64px;height:64px;border-radius:50%;background:#E6F7EF;color:var(--ok);display:flex;align-items:center;justify-content:center;margin:0 auto 14px}
+.ok-screen .ic svg{width:34px;height:34px}
+.loading{text-align:center;color:var(--muted);padding:60px 20px}
+.spin{width:30px;height:30px;border:3px solid var(--border);border-top-color:var(--navy);border-radius:50%;animation:sp 1s linear infinite;margin:0 auto 14px}
+@keyframes sp{to{transform:rotate(360deg)}}
+.toast{position:fixed;left:50%;bottom:24px;transform:translateX(-50%) translateY(20px);background:var(--navy-deep);color:#fff;padding:11px 20px;border-radius:10px;font-size:.9rem;opacity:0;pointer-events:none;transition:.25s;z-index:60}
+.toast.show{opacity:1;transform:translateX(-50%) translateY(0)}
+</style>
+</head>
+<body>
+<div class="top">
+  <img src="https://damianm1121.github.io/INGAS/incas-logo-estatico.png" alt="INGAS" onerror="this.style.display='none'">
+  <b>Presupuestador</b>
+  <span class="badge" id="mesRef">—</span>
+</div>
+
+<div id="app" class="loading"><div class="spin"></div>Cargando servicios…</div>
+
+<template id="tpl">
+<div class="wrap">
+  <div class="main">
+    <h1>Armá tu presupuesto</h1>
+    <div class="lead" id="lead"></div>
+    <div class="search">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4.3-4.3"/></svg>
+      <input id="buscar" type="search" placeholder="Buscar trabajo…">
+    </div>
+    <div id="grupos"></div>
+  </div>
+  <aside class="side">
+    <div class="card">
+      <h3>Tu solicitud</h3>
+      <div class="body">
+        <div class="cnt" id="cnt">0 trabajos seleccionados</div>
+        <div id="precioBox">
+          <div class="row"><span>Estimado de referencia</span><span class="v" id="rSub">$ 0</span></div>
+          <div class="tot"><span>Estimado</span><b id="rTot">$ 0</b></div>
+        </div>
+        <button class="btn prim" id="btnEnviar" disabled>Solicitar presupuesto</button>
+        <p class="disc" id="disc"></p>
+      </div>
+    </div>
+  </aside>
+</div>
+</template>
+
+<!-- Modal de contacto -->
+<div class="ov" id="ov">
+  <div class="modal" id="modal">
+    <div id="formView">
+      <h3>Enviá tu solicitud</h3>
+      <p class="s">Dejanos tus datos y el detalle. Te contactamos para confirmar el presupuesto.</p>
+      <div class="fld"><label>Nombre y apellido *</label><input id="fNombre" type="text"></div>
+      <div class="fld"><label>Teléfono / WhatsApp *</label><input id="fTel" type="tel"></div>
+      <div class="fld"><label>Email</label><input id="fEmail" type="email"></div>
+      <div class="fld"><label>Dirección de la obra</label><input id="fDir" type="text"></div>
+      <div class="fld"><label>Comentario</label><textarea id="fMsg" rows="2" placeholder="Opcional"></textarea></div>
+      <div class="acts">
+        <button class="btn ghost" id="btnCancel" type="button">Cancelar</button>
+        <button class="btn prim" id="btnConfirm" type="button">Enviar solicitud</button>
+      </div>
+    </div>
+    <div id="okView" class="ok-screen" style="display:none">
+      <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20 6L9 17l-5-5"/></svg></div>
+      <h3>¡Solicitud enviada!</h3>
+      <p class="s">Recibimos tu pedido. Nos vamos a contactar a la brevedad.</p>
+      <button class="btn prim" id="btnWa" style="display:none">Enviar también por WhatsApp</button>
+      <button class="btn ghost" id="btnClose" style="margin-top:10px">Cerrar</button>
+    </div>
+  </div>
+</div>
+
+<div class="toast" id="toast"></div>
+
+<script>
+var DATA=null, QTY={}, fmt=new Intl.NumberFormat('es-AR',{style:'currency',currency:'ARS',maximumFractionDigits:0});
+
+function toast(m){var t=document.getElementById('toast');t.textContent=m;t.classList.add('show');clearTimeout(t._t);t._t=setTimeout(function(){t.classList.remove('show')},2000);}
+
+google.script.run.withSuccessHandler(init).withFailureHandler(function(e){
+  document.getElementById('app').innerHTML='<div class="loading">No se pudieron cargar los servicios.<br>'+ (e&&e.message?e.message:'') +'</div>';
+}).getDatos();
+
+function init(d){
+  DATA=d;
+  document.getElementById('mesRef').textContent='Ref. '+(d.mes||'');
+  var app=document.getElementById('app');
+  app.className=''; app.innerHTML='';
+  app.appendChild(document.getElementById('tpl').content.cloneNode(true));
+  document.getElementById('lead').textContent=d.mensaje||'';
+  var disc='Estimado de referencia. No incluye IVA, movilidad, ayudante ni viáticos. El valor final lo confirma INGAS.';
+  if(!d.mostrarPrecios){document.getElementById('precioBox').style.display='none';disc='Seleccioná los trabajos que necesitás y enviá la solicitud. INGAS te pasa el presupuesto.';}
+  document.getElementById('disc').textContent=disc;
+  renderGrupos(d.grupos);
+  document.getElementById('buscar').addEventListener('input',onSearch);
+  document.getElementById('btnEnviar').addEventListener('click',openForm);
+  document.getElementById('btnCancel').addEventListener('click',closeForm);
+  document.getElementById('btnClose').addEventListener('click',closeForm);
+  document.getElementById('btnConfirm').addEventListener('click',enviar);
+  calc();
+}
+
+function renderGrupos(grupos){
+  var c=document.getElementById('grupos');c.innerHTML='';
+  grupos.forEach(function(g){
+    var sec=document.createElement('div');sec.className='group';
+    var h='<h2>'+g.categoria+'</h2>';
+    g.items.forEach(function(it){
+      var precio = DATA.mostrarPrecios && it.precio>0 ? '<div class="pr">'+fmt.format(it.precio)+' <span style="color:#9aa3b2;font-weight:400">/ '+it.unidad+'</span></div>' : '';
+      h+='<div class="item" data-id="'+it.id+'" data-name="'+it.actividad.toLowerCase()+'">'
+        +'<div class="info"><div class="nm">'+it.actividad+'</div><div class="un">'+it.unidad+'</div>'+precio+'</div>'
+        +'<div class="stepper"><button type="button" data-d="-1">−</button>'
+        +'<input type="number" min="0" value="0" data-q="'+it.id+'"><button type="button" data-d="1">+</button></div>'
+        + (DATA.mostrarPrecios?'<div class="sub z" data-sub="'+it.id+'">—</div>':'') +'</div>';
+    });
+    sec.innerHTML=h;c.appendChild(sec);
+  });
+  c.querySelectorAll('.stepper button').forEach(function(b){
+    b.addEventListener('click',function(){
+      var inp=this.parentNode.querySelector('input');
+      var v=(parseInt(inp.value)||0)+parseInt(this.dataset.d);
+      inp.value=v<0?0:v;onQty(inp);
+    });
+  });
+  c.querySelectorAll('[data-q]').forEach(function(inp){inp.addEventListener('input',function(){onQty(inp)});});
+}
+
+function onQty(inp){var id=inp.dataset.q;var v=parseInt(inp.value)||0;if(v<0){v=0;inp.value=0;}QTY[id]=v;calc();}
+
+function priceOf(id){
+  for(var i=0;i<DATA.grupos.length;i++){var it=DATA.grupos[i].items;for(var j=0;j<it.length;j++)if(it[j].id===id)return it[j];}
+  return null;
+}
+
+function calc(){
+  var sub=0,cnt=0;
+  Object.keys(QTY).forEach(function(id){
+    var q=QTY[id]||0;var it=priceOf(id);if(!it)return;
+    var row=document.querySelector('.item[data-id="'+id+'"]');
+    var cell=document.querySelector('[data-sub="'+id+'"]');
+    if(q>0){cnt++;sub+=q*it.precio;if(row)row.classList.add('on');if(cell){cell.textContent=fmt.format(q*it.precio);cell.classList.remove('z');}}
+    else{if(row)row.classList.remove('on');if(cell){cell.textContent='—';cell.classList.add('z');}}
+  });
+  document.getElementById('cnt').textContent=cnt+(cnt===1?' trabajo seleccionado':' trabajos seleccionados');
+  if(DATA.mostrarPrecios){document.getElementById('rSub').textContent=fmt.format(sub);document.getElementById('rTot').textContent=fmt.format(sub);}
+  document.getElementById('btnEnviar').disabled=cnt===0;
+  window._sub=sub;window._cnt=cnt;
+}
+
+function onSearch(e){
+  var q=e.target.value.toLowerCase().trim();
+  document.querySelectorAll('.item').forEach(function(it){it.style.display=(!q||it.dataset.name.indexOf(q)>-1)?'':'none';});
+  document.querySelectorAll('.group').forEach(function(g){
+    var vis=Array.prototype.some.call(g.querySelectorAll('.item'),function(it){return it.style.display!=='none';});
+    g.style.display=vis?'':'none';
+  });
+}
+
+function detalle(){
+  var L=[], sub=0;
+  DATA.grupos.forEach(function(g){
+    var gi=[];
+    g.items.forEach(function(it){
+      var q=QTY[it.id]||0;if(q>0){sub+=q*it.precio;gi.push('• '+it.actividad+' — x'+q+(DATA.mostrarPrecios&&it.precio>0?' = '+fmt.format(q*it.precio):''));}
+    });
+    if(gi.length){L.push('['+g.categoria+']');L=L.concat(gi);}
+  });
+  if(DATA.mostrarPrecios)L.push('Estimado de referencia: '+fmt.format(sub)+' (sin IVA/movilidad/ayudante/viáticos)');
+  return L.join('\n');
+}
+
+function openForm(){document.getElementById('ov').classList.add('show');document.getElementById('formView').style.display='';document.getElementById('okView').style.display='none';}
+function closeForm(){document.getElementById('ov').classList.remove('show');}
+
+function enviar(){
+  var nombre=document.getElementById('fNombre').value.trim();
+  var tel=document.getElementById('fTel').value.trim();
+  if(!nombre||!tel){toast('Completá nombre y teléfono');return;}
+  var det=detalle();
+  var extra=document.getElementById('fMsg').value.trim();
+  if(extra)det+='\n\nComentario: '+extra;
+  var payload={nombre:nombre,telefono:tel,email:document.getElementById('fEmail').value.trim(),
+    direccion:document.getElementById('fDir').value.trim(),detalle:det,
+    subtotal:window._sub||0,adicionales:0,iva:0,total:window._sub||0};
+  var btn=document.getElementById('btnConfirm');btn.disabled=true;btn.textContent='Enviando…';
+  google.script.run.withSuccessHandler(function(){
+    btn.disabled=false;btn.textContent='Enviar solicitud';
+    document.getElementById('formView').style.display='none';
+    document.getElementById('okView').style.display='';
+    if(DATA.whatsapp){
+      var wa=document.getElementById('btnWa');wa.style.display='';
+      wa.onclick=function(){window.open('https://wa.me/'+DATA.whatsapp+'?text='+encodeURIComponent('Hola INGAS, solicité un presupuesto:\n\n'+det+'\n\nMi nombre: '+nombre),'_blank');};
+    }
+  }).withFailureHandler(function(e){
+    btn.disabled=false;btn.textContent='Enviar solicitud';toast('No se pudo enviar. Reintentá.');
+  }).registrarSolicitud(payload);
+}
+</script>
+</body>
+</html>
